@@ -4,4 +4,5 @@ dist/
 Thumbs.db
 *.log
 .idea/
-.vscode/
+.vscode/*
+!.vscode/settings.json
