@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
-// 独立站部署走根路径。若将来并入公司站 /leadshunter/ 路由，只需改 SITE_BASE。
+// 独立站为正式产品官网。公司站 /leadshunter/ 已跳转到本域，不要再并回路由。
 const base = process.env.SITE_BASE ?? '/';
 
 export default defineConfig({

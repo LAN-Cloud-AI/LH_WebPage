@@ -1,0 +1,15 @@
+---
+description: 线索猎手官网仓库归属、域名与部署入口
+alwaysApply: true
+---
+
+# LH_WebPage 仓库
+
+- **GitHub（当前 owner）**: [LAN-Cloud-AI/LH_WebPage](https://github.com/LAN-Cloud-AI/LH_WebPage)
+- **本地路径**: `/Users/i/myCode/LH_WebPage`
+- **正式域**: https://leadshunter.lancloudtech.com/
+- **Pages 项目**: `leadshunter-webpage`（直传 `dist`，不走 Git 构建）
+- **公司站索引**: 兰芯云朵官网首页 `#leadshunter`、页脚与 `/sitemap/` 指向本域；`lancloudtech.com/leadshunter/` 仅跳转
+- **旧个人仓** `kaisonlau8/LH_WebPage` 已转移，不要再指向它
+
+推送、PR、Issues 一律走 `LAN-Cloud-AI/LH_WebPage`。

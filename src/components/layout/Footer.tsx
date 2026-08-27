@@ -32,12 +32,12 @@ export function Footer() {
               兰芯云朵官网
             </a>
             <a
-              href={site.links.productPage}
+              href={site.links.companyProduct}
               className="text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
               target="_blank"
               rel="noreferrer noopener"
             >
-              公司站产品页
+              公司站产品索引
             </a>
             <a
               href={site.links.appstore}
@@ -59,8 +59,18 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-line pt-6 text-[0.72rem] text-ink-faint sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {YEAR} {site.brand.company}
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span>
+              © {YEAR} {site.brand.company}
+            </span>
+            <a
+              href={site.links.beian}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="transition-colors hover:text-ink-muted"
+            >
+              {site.brand.beian}
+            </a>
           </p>
           <p>仅采集平台公开可见内容 · 数据按组织隔离</p>
         </div>

@@ -3,5 +3,5 @@
 # 自定义域：leadshunter.lancloudtech.com
 
 name = "leadshunter-webpage"
-compatibility_date = "2026-08-28"
+compatibility_date = "2026-08-27"
 pages_build_output_dir = "dist"

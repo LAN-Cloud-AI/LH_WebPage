@@ -1,5 +1,7 @@
 # 线索猎手 · 产品官网
 
+仓库：[LAN-Cloud-AI/LH_WebPage](https://github.com/LAN-Cloud-AI/LH_WebPage)
+
 LeadsHunter（金星版 Venus）产品营销落地页。单页长滚动，深色为设计基线，用滚动驱动的可视化讲清「公开内容采集 → AI 五档意向 → 三层线索池 → 销售端 App」这条链路。
 
 ## 技术栈
@@ -60,32 +62,40 @@ src/
 
 ## 部署
 
-独立静态站，计划挂在 [Cloudflare Pages](https://developers.cloudflare.com/pages/)，自定义域 `leadshunter.lancloudtech.com`。
+已挂在 [Cloudflare Pages](https://developers.cloudflare.com/pages/)，直传 `dist`（不走 Git 构建）。
+
+- 正式域：https://leadshunter.lancloudtech.com/
+- 预览域：https://leadshunter-webpage.pages.dev
+- 公司站索引：兰芯云朵官网首页 `#leadshunter`、页脚与 `/sitemap/` 指向本域；`https://lancloudtech.com/leadshunter/` 仅跳转，不再作为产品页
 
 ```bash
-npm run build    # 产物在 dist/
+npx wrangler pages deploy dist --project-name leadshunter-webpage --branch main
+# 或
+npm run deploy
 ```
 
-Pages 项目设置：
+DNS：`leadshunter.lancloudtech.com` 橙云 CNAME → `leadshunter-webpage.pages.dev`。重绑域名：
+
+```bash
+npm run dns    # 需要 ~/.config/lanxin/env/cloudflare/pages.env
+```
+
+Pages 项目：
 
 | 项 | 值 |
 | --- | --- |
-| Build command | `npm run build` |
-| Build output | `dist` |
-| Node | 20 |
+| Project | `leadshunter-webpage` |
+| 输出目录 | `dist` |
+| 生产分支 | `main` |
 | 自定义域 | `leadshunter.lancloudtech.com` |
 
 `public/_headers`、`public/_redirects`、`robots.txt`、`sitemap.xml` 会随构建复制到 `dist/`。SPA 回退已配置为 `/* → /index.html 200`，静态文件仍优先。
 
 分享图必须用绝对 HTTPS 地址（微信爬虫不执行 JS、也不认相对路径）：
 
-- 通用 OG / Twitter：`/assets/og-share.png`（1200×630）
-- 微信会话卡片：`/assets/wechat-share.jpg`（1024×1024，方图）
+- 分享图统一为 App logo：`/assets/wechat-share.jpg`（1024×1024）
+- `og:image` / `itemprop` / `image_src` / Twitter 都指向同一张 logo，避免微信抓到旧横图
 
 微信会缓存卡片。上线或换图后，用[微信公众平台分享调试](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html)或把链接丢进文件传输助手再分享，必要时给图片加 `?v=` 版本号清缓存。
 
-base path 默认 `/`。若将来挂到子路径，构建时设置：
-
-```bash
-SITE_BASE=/leadshunter/ npm run build
-```
+base path 默认 `/`。本站是正式产品官网，不要再并入公司站 `/leadshunter/` 路由。

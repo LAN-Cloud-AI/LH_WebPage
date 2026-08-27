@@ -21,6 +21,10 @@
   Cache-Control: public, max-age=604800
   Access-Control-Allow-Origin: *
 
+/assets/wechat-share.png
+  Cache-Control: public, max-age=604800
+  Access-Control-Allow-Origin: *
+
 /assets/icon/*
   Cache-Control: public, max-age=604800
 

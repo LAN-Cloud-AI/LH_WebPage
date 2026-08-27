@@ -37,30 +37,30 @@
       property="og:description"
       content="持续监测抖音、小红书公开内容，AI 五档识别购车意向，三池分发到销售手机。"
     />
-    <meta property="og:image" content="https://leadshunter.lancloudtech.com/assets/og-share.png?v=20260828" />
-    <meta property="og:image:secure_url" content="https://leadshunter.lancloudtech.com/assets/og-share.png?v=20260828" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="线索猎手：从公开内容中发现可跟进的销售线索" />
+    <meta property="og:image" content="https://leadshunter.lancloudtech.com/assets/wechat-share.jpg?v=20260828-logo" />
+    <meta property="og:image:secure_url" content="https://leadshunter.lancloudtech.com/assets/wechat-share.jpg?v=20260828-logo" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="线索猎手" />
 
-    <!-- 微信会话卡片：方图 + itemprop / image_src，爬虫不执行 JS -->
+    <!-- 微信会话卡片：统一用 App logo 方图，爬虫不执行 JS -->
     <meta itemprop="name" content="线索猎手 · 从公开内容发现高意向销售线索" />
     <meta
       itemprop="description"
       content="持续监测抖音、小红书公开内容，AI 五档识别购车意向，三池分发到销售手机。"
     />
-    <meta itemprop="image" content="https://leadshunter.lancloudtech.com/assets/wechat-share.jpg?v=20260828" />
-    <link rel="image_src" href="https://leadshunter.lancloudtech.com/assets/wechat-share.jpg?v=20260828" />
+    <meta itemprop="image" content="https://leadshunter.lancloudtech.com/assets/wechat-share.jpg?v=20260828-logo" />
+    <link rel="image_src" href="https://leadshunter.lancloudtech.com/assets/wechat-share.jpg?v=20260828-logo" />
 
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="线索猎手 · 从公开内容发现高意向销售线索" />
     <meta
       name="twitter:description"
       content="持续监测抖音、小红书公开内容，AI 五档识别购车意向，三池分发到销售手机。"
     />
-    <meta name="twitter:image" content="https://leadshunter.lancloudtech.com/assets/og-share.png?v=20260828" />
-    <meta name="twitter:image:alt" content="线索猎手：从公开内容中发现可跟进的销售线索" />
+    <meta name="twitter:image" content="https://leadshunter.lancloudtech.com/assets/wechat-share.jpg?v=20260828-logo" />
+    <meta name="twitter:image:alt" content="线索猎手" />
 
     <link rel="icon" href="/assets/icon/favicon.png?v=20260828" sizes="48x48" />
     <link rel="icon" href="/assets/icon/app-192.png?v=20260828" sizes="192x192" type="image/png" />
@@ -79,8 +79,13 @@
             "@type": "Organization",
             "@id": "https://lancloudtech.com/#organization",
             "name": "四川兰芯云朵智能科技有限公司",
+            "alternateName": ["兰芯云朵", "LAN Cloud AI"],
             "url": "https://lancloudtech.com/",
-            "logo": "https://leadshunter.lancloudtech.com/assets/icon/app-512.png?v=20260828"
+            "logo": "https://leadshunter.lancloudtech.com/assets/icon/app-512.png?v=20260828",
+            "sameAs": [
+              "https://github.com/LAN-Cloud-AI",
+              "https://leadshunter.lancloudtech.com/"
+            ]
           },
           {
             "@type": "WebSite",
@@ -89,7 +94,8 @@
             "name": "线索猎手",
             "alternateName": "LeadsHunter",
             "inLanguage": "zh-CN",
-            "publisher": { "@id": "https://lancloudtech.com/#organization" }
+            "publisher": { "@id": "https://lancloudtech.com/#organization" },
+            "isPartOf": { "@id": "https://lancloudtech.com/#website" }
           },
           {
             "@type": "WebPage",
@@ -101,9 +107,9 @@
             "about": { "@id": "https://leadshunter.lancloudtech.com/#app" },
             "primaryImageOfPage": {
               "@type": "ImageObject",
-              "url": "https://leadshunter.lancloudtech.com/assets/og-share.png?v=20260828",
-              "width": 1200,
-              "height": 630
+              "url": "https://leadshunter.lancloudtech.com/assets/wechat-share.jpg?v=20260828-logo",
+              "width": 1024,
+              "height": 1024
             },
             "inLanguage": "zh-CN"
           },
@@ -115,9 +121,15 @@
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web, iOS",
             "url": "https://leadshunter.lancloudtech.com/",
-            "image": "https://leadshunter.lancloudtech.com/assets/og-share.png?v=20260828",
+            "image": "https://leadshunter.lancloudtech.com/assets/wechat-share.jpg?v=20260828-logo",
             "description": "从抖音、小红书公开内容中识别购车意向，五档分级、三池分发、直达销售手机。",
-            "author": { "@id": "https://lancloudtech.com/#organization" }
+            "author": { "@id": "https://lancloudtech.com/#organization" },
+            "provider": { "@id": "https://lancloudtech.com/#organization" },
+            "isRelatedTo": {
+              "@type": "WebPage",
+              "url": "https://lancloudtech.com/#leadshunter",
+              "name": "兰芯云朵 · 线索猎手"
+            }
           },
           {
             "@type": "FAQPage",

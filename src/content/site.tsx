@@ -12,6 +12,7 @@ export const site = {
     latin: 'LEADSHUNTER',
     company: '四川兰芯云朵智能科技有限公司',
     icon: '/assets/icon/app-256.png',
+    beian: '蜀ICP备2026002396号',
   },
 
   origin: 'https://leadshunter.lancloudtech.com',
@@ -24,7 +25,8 @@ export const site = {
     wecom: 'https://lancloudtech.com/contact/wecom/',
     appstore: 'https://appstore.lancloudtech.com',
     company: 'https://lancloudtech.com/',
-    productPage: 'https://lancloudtech.com/leadshunter/',
+    companyProduct: 'https://lancloudtech.com/#leadshunter',
+    beian: 'https://beian.miit.gov.cn/',
   },
 
   nav: [
