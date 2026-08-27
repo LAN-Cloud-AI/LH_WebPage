@@ -1,0 +1,7 @@
+# Cloudflare Pages 项目配置
+# 控制台构建：Build command = npm run build；Output = dist
+# 自定义域：leadshunter.lancloudtech.com
+
+name = "leadshunter-webpage"
+compatibility_date = "2026-08-28"
+pages_build_output_dir = "dist"
