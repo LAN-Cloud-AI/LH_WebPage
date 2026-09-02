@@ -1,3 +1,10 @@
+---
+title: 线索猎手 · 产品官网
+type: overview
+status: current
+owner: Kaison
+updated: 2026-08-01
+---
 # 线索猎手 · 产品官网
 
 仓库：[LAN-Cloud-AI/LH_WebPage](https://github.com/LAN-Cloud-AI/LH_WebPage)
@@ -99,3 +106,35 @@ Pages 项目：
 微信会缓存卡片。上线或换图后，用[微信公众平台分享调试](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html)或把链接丢进文件传输助手再分享，必要时给图片加 `?v=` 版本号清缓存。
 
 base path 默认 `/`。本站是正式产品官网，不要再并入公司站 `/leadshunter/` 路由。
+
+<!-- docs-map:readme:start -->
+---
+title: LH_WebPage 文档地图
+type: map
+status: current
+owner: Kaison
+updated: 2026-09-03
+tags: [docs, navigation]
+---
+
+# LH_WebPage 文档地图
+
+> 本文件由 `scripts/docs-map.mjs` 生成，请勿手工编辑。
+> 修改文档元数据请改对应文件的 frontmatter，然后重新生成。
+> 六仓总图与主题线见 [LeadsHunter 文档总图](https://github.com/LAN-Cloud-AI/leadsHunter/blob/main/docs/DOC_MAP.md)。
+
+## 现行文档
+
+### 总览
+| 文档 | 说明 | 更新 |
+|------|------|------|
+| [线索猎手 · 产品官网](../README.md) | 线索猎手 · 产品官网 | 2026-08-01 |
+
+## 归档文档
+
+（无）
+
+## 统计
+
+共 1 份文档：现行 1，归档 0。
+<!-- docs-map:readme:end -->
