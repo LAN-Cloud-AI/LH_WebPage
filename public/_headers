@@ -25,6 +25,9 @@
   Cache-Control: public, max-age=604800
   Access-Control-Allow-Origin: *
 
+/assets/wecom-qr.png
+  Cache-Control: public, max-age=604800
+
 /assets/icon/*
   Cache-Control: public, max-age=604800
 

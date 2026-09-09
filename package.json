@@ -18,10 +18,19 @@
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "deploy": "npm run build && npx wrangler pages deploy dist --project-name leadshunter-webpage --branch main --commit-dirty=true",
-    "dns": "node scripts/cf-dns-leadshunter.mjs"
+    "guide:render": "node scripts/product-guide/render-html.mjs",
+    "guide:pdf": "node scripts/product-guide/export-pdf.mjs",
+    "guide:build": "node scripts/product-guide/build.mjs",
+    "guide:pack": "npm run guide:render && npm run guide:pdf && npm run guide:build",
+    "deploy:guide": "npm run guide:pack && npx wrangler pages deploy dist-guide --project-name leadshunter-guide --branch main --commit-dirty=true",
+    "contact:build": "node scripts/contact-sales/build.mjs",
+    "deploy:contact": "npm run contact:build && npx wrangler pages deploy dist-contact --project-name leadshunter-contact --branch main --commit-dirty=true",
+    "dns": "node scripts/cf-dns-leadshunter.mjs",
+    "dns:contact": "CF_PAGES_HOST=leadshunter-contact.lancloudtech.com CF_PAGES_PROJECT=leadshunter-contact node scripts/cf-dns-leadshunter.mjs"
   },
   "dependencies": {
     "lenis": "^1.3.26",
+    "marked": "^18.0.12",
     "motion": "^13.1.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"

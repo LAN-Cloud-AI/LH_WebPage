@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#07080b" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#f7f8fa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#080b11" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3f5f8" media="(prefers-color-scheme: light)" />
     <meta name="renderer" content="webkit" />
     <meta name="format-detection" content="telephone=no" />
 
@@ -82,6 +82,15 @@
             "alternateName": ["兰芯云朵", "LAN Cloud AI"],
             "url": "https://lancloudtech.com/",
             "logo": "https://leadshunter.lancloudtech.com/assets/icon/app-512.png?v=20260828",
+            "telephone": "+86-17380566771",
+            "email": "lance@lancloudtech.com",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "sales",
+              "telephone": "+86-17380566771",
+              "email": "lance@lancloudtech.com",
+              "availableLanguage": ["zh-CN"]
+            },
             "sameAs": [
               "https://github.com/LAN-Cloud-AI",
               "https://leadshunter.lancloudtech.com/"
@@ -125,11 +134,23 @@
             "description": "从抖音、小红书公开内容中识别购车意向，五档分级、三池分发、直达销售手机。",
             "author": { "@id": "https://lancloudtech.com/#organization" },
             "provider": { "@id": "https://lancloudtech.com/#organization" },
-            "isRelatedTo": {
-              "@type": "WebPage",
-              "url": "https://lancloudtech.com/#leadshunter",
-              "name": "兰芯云朵 · 线索猎手"
-            }
+            "isRelatedTo": [
+              {
+                "@type": "WebPage",
+                "url": "https://lancloudtech.com/#leadshunter",
+                "name": "兰芯云朵 · 线索猎手"
+              },
+              {
+                "@type": "WebPage",
+                "url": "https://leadshunter-guide.lancloudtech.com/",
+                "name": "线索猎手 · 产品介绍与使用说明"
+              },
+              {
+                "@type": "ContactPage",
+                "url": "https://leadshunter-contact.lancloudtech.com/",
+                "name": "线索猎手 · 联系销售"
+              }
+            ]
           },
           {
             "@type": "FAQPage",
@@ -174,6 +195,14 @@
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "经销商侧提供要监测的关键词、竞品账号和目标区域，由管理员配置成监测主题。配置完成当天 00:00 起开始定时采集，评分完成即进入三池分发。销售安装 App 登录后即可接收分配到自己的线索。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "怎样阅读完整产品介绍，或直接联系销售经理？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "完整产品介绍发布在 https://leadshunter-guide.lancloudtech.com/ ，官网同步嵌入该页面。合作咨询打开 https://leadshunter-contact.lancloudtech.com/ ，或致电 +86-17380566771、发送邮件至 lance@lancloudtech.com、添加企业微信。"
                 }
               }
             ]

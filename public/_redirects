@@ -1,4 +1,8 @@
 # Cloudflare Pages：静态文件优先，其余回退到 SPA
 # https://developers.cloudflare.com/pages/configuration/redirects/
 
-/*    /index.html   200
+/guide    https://leadshunter-guide.lancloudtech.com/    301
+/guide/   https://leadshunter-guide.lancloudtech.com/    301
+/contact  https://leadshunter-contact.lancloudtech.com/  301
+/contact/ https://leadshunter-contact.lancloudtech.com/  301
+/*        /index.html   200

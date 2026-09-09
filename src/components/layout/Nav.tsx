@@ -76,7 +76,7 @@ export function Nav({ lenisRef }: NavProps) {
         initial={false}
       >
         <motion.div
-          className="flex w-full items-center gap-2 rounded-2xl border px-3 py-2 md:gap-3"
+          className="flex w-full items-center gap-2 rounded-[1.15rem] border px-3 py-2 md:gap-3"
           animate={{
             maxWidth: condensed ? '58rem' : '78rem',
             backgroundColor: condensed ? 'var(--lh-surface)' : 'transparent',
@@ -129,6 +129,22 @@ export function Nav({ lenisRef }: NavProps) {
           </nav>
 
           <div className="ml-auto flex items-center gap-2">
+            <a
+              href={site.links.guide}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="hidden rounded-lg px-3 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink lg:inline"
+            >
+              产品介绍
+            </a>
+            <a
+              href={site.links.contact}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="hidden rounded-lg px-3 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink lg:inline"
+            >
+              联系销售
+            </a>
             <ThemeToggle />
             {/* 包一层来控制显隐：Button 自带 inline-flex，直接加 hidden 会互相覆盖 */}
             <span className="hidden xs:contents">
@@ -194,7 +210,13 @@ export function Nav({ lenisRef }: NavProps) {
                 </motion.a>
               ))}
             </nav>
-            <Button href={site.links.demoForm} size="lg" className="mt-8 w-full" external>
+            <Button href={site.links.guide} variant="ghost" size="lg" className="mt-8 w-full" external>
+              阅读产品介绍
+            </Button>
+            <Button href={site.links.contact} variant="outline" size="lg" className="mt-3 w-full" external>
+              联系销售
+            </Button>
+            <Button href={site.links.demoForm} size="lg" className="mt-3 w-full" external>
               预约产品演示
             </Button>
           </motion.div>

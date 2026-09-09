@@ -2,7 +2,7 @@
 
 仓库：[LAN-Cloud-AI/LH_WebPage](https://github.com/LAN-Cloud-AI/LH_WebPage)
 
-LeadsHunter（金星版 Venus）产品营销落地页。单页长滚动，深色为设计基线，用滚动驱动的可视化讲清「公开内容采集 → AI 五档意向 → 三层线索池 → 销售端 App」这条链路。
+LeadsHunter（金星版 Venus）产品营销落地页。单页长滚动，深色为设计基线，用滚动驱动的可视化讲清「公开内容采集 → AI 五档意向 → 三层线索池 → 销售端 App」这条链路。产品图文手册也在本仓库 `product-guide/`，仍发布到 [leadshunter-guide.lancloudtech.com](https://leadshunter-guide.lancloudtech.com/)。联系销售是独立 Pages：[leadshunter-contact.lancloudtech.com](https://leadshunter-contact.lancloudtech.com/)。
 
 ## 技术栈
 
@@ -28,6 +28,10 @@ npm run typecheck  # 仅类型检查
 ## 目录结构
 
 ```
+product-guide/                      # 产品介绍与使用说明（独立 Pages 项目）
+contact-sales/                      # 联系销售页说明
+scripts/product-guide/              # 手册 HTML / PDF / 发布包
+scripts/contact-sales/              # 联系销售页构建
 src/
 ├── main.tsx / App.tsx          # 入口与区块编排（首屏之后的区块懒加载）
 ├── styles/index.css            # 设计 token、主题覆写、关键帧、自定义 utility
@@ -74,6 +78,14 @@ npx wrangler pages deploy dist --project-name leadshunter-webpage --branch main
 npm run deploy
 ```
 
+产品手册单独发布，正式域不变：
+
+```bash
+npm run deploy:guide      # 渲染 + 导出 PDF + 发布到 leadshunter-guide
+npm run deploy:contact    # 发布联系销售页到 leadshunter-contact
+npm run dns:contact       # 绑定 leadshunter-contact.lancloudtech.com
+```
+
 DNS：`leadshunter.lancloudtech.com` 橙云 CNAME → `leadshunter-webpage.pages.dev`。重绑域名：
 
 ```bash
@@ -88,6 +100,26 @@ Pages 项目：
 | 输出目录 | `dist` |
 | 生产分支 | `main` |
 | 自定义域 | `leadshunter.lancloudtech.com` |
+
+手册 Pages 项目：
+
+| 项 | 值 |
+| --- | --- |
+| Project | `leadshunter-guide` |
+| 源码 | `product-guide/` |
+| 输出目录 | `dist-guide` |
+| 生产分支 | `main` |
+| 自定义域 | `leadshunter-guide.lancloudtech.com` |
+
+联系销售 Pages 项目：
+
+| 项 | 值 |
+| --- | --- |
+| Project | `leadshunter-contact` |
+| 源码 | `scripts/contact-sales/` |
+| 输出目录 | `dist-contact` |
+| 生产分支 | `main` |
+| 自定义域 | `leadshunter-contact.lancloudtech.com` |
 
 `public/_headers`、`public/_redirects`、`robots.txt`、`sitemap.xml` 会随构建复制到 `dist/`。SPA 回退已配置为 `/* → /index.html 200`，静态文件仍优先。
 

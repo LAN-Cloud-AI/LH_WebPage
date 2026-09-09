@@ -25,6 +25,7 @@ const Roles = lazy(() => import('./sections/Roles').then((m) => ({ default: m.Ro
 const Timeline = lazy(() => import('./sections/Timeline').then((m) => ({ default: m.Timeline })));
 const Security = lazy(() => import('./sections/Security').then((m) => ({ default: m.Security })));
 const Faq = lazy(() => import('./sections/Faq').then((m) => ({ default: m.Faq })));
+const Guide = lazy(() => import('./sections/Guide').then((m) => ({ default: m.Guide })));
 const Cta = lazy(() => import('./sections/Cta').then((m) => ({ default: m.Cta })));
 
 export function App() {
@@ -68,6 +69,7 @@ export function App() {
           <Timeline />
           <Security />
           <Faq />
+          <Guide />
           <Cta />
         </Suspense>
       </main>

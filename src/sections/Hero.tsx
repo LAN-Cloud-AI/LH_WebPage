@@ -167,7 +167,7 @@ export function Hero({ lenisRef }: HeroProps) {
           {hero.facts.map((fact) => (
             <motion.li
               key={fact.index}
-              className="border-t border-line pt-3"
+              className="rounded-2xl border border-line bg-surface/55 px-3 py-3 shadow-card"
               variants={{
                 hidden: reduced ? { opacity: 0 } : { opacity: 0, y: 18 },
                 show: { opacity: 1, y: 0, transition: springSoft },
