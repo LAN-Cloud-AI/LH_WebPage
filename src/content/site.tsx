@@ -19,14 +19,24 @@ export const site = {
 
   links: {
     home: 'https://leadshunter.lancloudtech.com/',
+    guide: 'https://leadshunter-guide.lancloudtech.com/',
+    contact: 'https://leadshunter-contact.lancloudtech.com/',
     demoForm: 'https://mcnrhzccf0jd.feishu.cn/share/base/form/shrcnJQiDATOar41Kyk0DrqeCbe',
     demoMail:
       'mailto:lance@lancloudtech.com?subject=%E7%BA%BF%E7%B4%A2%E7%8C%8E%E6%89%8B%E4%BA%A7%E5%93%81%E6%BC%94%E7%A4%BA%E5%92%A8%E8%AF%A2',
-    wecom: 'https://lancloudtech.com/contact/wecom/',
+    wecom: 'https://work.weixin.qq.com/ct/wcde518f3ee4ac1b506616d06dedf1fb6f60',
     appstore: 'https://appstore.lancloudtech.com',
     company: 'https://lancloudtech.com/',
     companyProduct: 'https://lancloudtech.com/#leadshunter',
     beian: 'https://beian.miit.gov.cn/',
+  },
+
+  contact: {
+    role: '销售经理',
+    phone: '+86-17380566771',
+    phoneHref: 'tel:+8617380566771',
+    email: 'lance@lancloudtech.com',
+    wecomQr: '/assets/wecom-qr.png',
   },
 
   nav: [
@@ -562,6 +572,10 @@ export const faq = {
       q: '接入需要做什么，多久能看到线索？',
       a: '经销商侧只需要提供要监测的关键词、竞品账号和目标区域，由管理员配置成监测主题。配置完成当天 00:00 起开始定时采集，评分完成即进入三池分发流程。销售账号在席位配额内由经销商管理员自行创建，销售安装 App 登录后即可接收分配到自己的线索。',
     },
+    {
+      q: '怎样阅读完整产品介绍，或直接联系销售经理？',
+      a: '完整产品介绍挂在 leadshunter-guide.lancloudtech.com，官网同步嵌入该页面。合作咨询打开 leadshunter-contact.lancloudtech.com，或致电 +86-17380566771、发送邮件至 lance@lancloudtech.com、添加企业微信。',
+    },
   ],
 };
 
@@ -578,7 +592,22 @@ export const cta = {
       更早抵达销售手机
     </>
   ),
-  lede: '预约产品演示，按实际监测范围与销售席位了解合作方案。',
+  lede: '扫码添加销售经理，或打开联系页预约演示、开通试用。',
   primary: '发送咨询',
-  secondary: '添加企业微信',
+  secondary: '联系销售',
+  guide: '阅读产品介绍',
+};
+
+export const guideSection = {
+  eyebrow: '产品介绍',
+  title: (
+    <>
+      后台与 APP 怎么用，
+      <Br />
+      都写在图文手册里
+    </>
+  ),
+  lede: '完整图文手册发布在 leadshunter-guide.lancloudtech.com。下面直接嵌入该页面，也可新窗口打开阅读后台、APP 用法和长沙门店使用效果。',
+  primary: '打开产品介绍',
+  iframeTitle: '线索猎手产品介绍与使用说明',
 };

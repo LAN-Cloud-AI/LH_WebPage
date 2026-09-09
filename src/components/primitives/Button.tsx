@@ -8,9 +8,9 @@ type Size = 'md' | 'lg';
 
 const VARIANTS: Record<Variant, string> = {
   primary:
-    'bg-brand text-white shadow-[0_10px_30px_-12px_var(--lh-brand)] hover:bg-brand-strong border border-transparent',
-  ghost: 'bg-surface-2 text-ink border border-line hover:border-line-strong hover:bg-surface-3',
-  outline: 'bg-transparent text-ink border border-line-strong hover:bg-surface-2',
+    'bg-brand text-white shadow-[0_12px_28px_-14px_var(--lh-brand)] hover:bg-brand-strong border border-transparent',
+  ghost: 'bg-surface-2/90 text-ink border border-line hover:border-line-strong hover:bg-surface-3',
+  outline: 'bg-transparent text-ink border border-line-strong hover:border-brand/40 hover:bg-brand-soft',
 };
 
 const SIZES: Record<Size, string> = {

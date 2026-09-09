@@ -1,4 +1,5 @@
 import { site } from '../../content/site';
+import { MailIcon, PhoneIcon } from '../primitives/Icons';
 
 const YEAR = new Date().getFullYear();
 
@@ -48,12 +49,44 @@ export function Footer() {
               销售端下载
             </a>
             <a
+              href={site.links.guide}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
+            >
+              产品介绍
+            </a>
+            <a
+              href={site.links.contact}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
+            >
+              联系销售
+            </a>
+            <a
               href={site.links.demoForm}
               target="_blank"
               rel="noreferrer noopener"
               className="text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
             >
               预约演示
+            </a>
+            <a
+              href={site.contact.phoneHref}
+              aria-label={`打电话 ${site.contact.phone}`}
+              className="inline-flex items-center gap-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
+            >
+              <PhoneIcon className="size-3.5" />
+              电话
+            </a>
+            <a
+              href={site.links.demoMail}
+              aria-label={`发邮件 ${site.contact.email}`}
+              className="inline-flex items-center gap-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
+            >
+              <MailIcon className="size-3.5" />
+              邮件
             </a>
           </nav>
         </div>

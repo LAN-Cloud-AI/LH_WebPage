@@ -1,5 +1,7 @@
 node_modules/
 dist/
+dist-guide/
+dist-contact/
 .DS_Store
 Thumbs.db
 *.log
