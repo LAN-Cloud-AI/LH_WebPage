@@ -76,9 +76,9 @@ export function Nav({ lenisRef }: NavProps) {
         initial={false}
       >
         <motion.div
-          className="flex w-full items-center gap-2 rounded-[1.15rem] border px-3 py-2 md:gap-3"
+          className="flex w-full flex-nowrap items-center gap-2 overflow-hidden rounded-[1.15rem] border px-3 py-2 md:gap-3"
           animate={{
-            maxWidth: condensed ? '58rem' : '78rem',
+            maxWidth: condensed ? '72rem' : '78rem',
             backgroundColor: condensed ? 'var(--lh-surface)' : 'transparent',
             borderColor: condensed ? 'var(--lh-line)' : 'transparent',
             backdropFilter: condensed ? 'blur(18px)' : 'blur(0px)',
@@ -104,7 +104,7 @@ export function Nav({ lenisRef }: NavProps) {
             </span>
           </a>
 
-          <nav className="ml-4 hidden items-center gap-1 lg:flex" aria-label="页面导航">
+          <nav className="ml-2 hidden min-w-0 items-center gap-0.5 xl:flex" aria-label="页面导航">
             {site.nav.map((item) => (
               <a
                 key={item.href}
@@ -113,7 +113,7 @@ export function Nav({ lenisRef }: NavProps) {
                   event.preventDefault();
                   go(item.href);
                 }}
-                className="relative rounded-lg px-3 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
+                className="relative shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
                 aria-current={active === item.href ? 'true' : undefined}
               >
                 {active === item.href && (
@@ -128,12 +128,12 @@ export function Nav({ lenisRef }: NavProps) {
             ))}
           </nav>
 
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-1.5 md:gap-2">
             <a
               href={site.links.guide}
               target="_blank"
               rel="noreferrer noopener"
-              className="hidden rounded-lg px-3 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink lg:inline"
+              className="hidden whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink xl:inline"
             >
               产品介绍
             </a>
@@ -141,7 +141,7 @@ export function Nav({ lenisRef }: NavProps) {
               href={site.links.contact}
               target="_blank"
               rel="noreferrer noopener"
-              className="hidden rounded-lg px-3 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink lg:inline"
+              className="hidden whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink xl:inline"
             >
               联系销售
             </a>
@@ -155,7 +155,7 @@ export function Nav({ lenisRef }: NavProps) {
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="grid size-9 place-items-center rounded-xl border border-line bg-surface-2 lg:hidden"
+              className="grid size-9 place-items-center rounded-xl border border-line bg-surface-2 xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? '关闭导航菜单' : '打开导航菜单'}
@@ -186,7 +186,7 @@ export function Nav({ lenisRef }: NavProps) {
         {open && (
           <motion.div
             id="mobile-nav"
-            className="fixed inset-0 z-40 bg-bg/96 px-5 pt-24 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 bg-bg/96 px-5 pt-24 backdrop-blur-xl xl:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
