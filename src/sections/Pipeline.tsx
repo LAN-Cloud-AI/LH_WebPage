@@ -8,19 +8,12 @@ import {
 } from 'motion/react';
 import { useRef, useState } from 'react';
 
-import {
-  analysisDimensions,
-  analysisOutput,
-  pipelineSample,
-  pipelineSteps,
-} from '../content/site';
+import { useContent } from '../content/runtime';
 import { easeOutQuint, springSoft } from '../lib/motion';
 import { GridBackdrop, Orb } from '../components/primitives/Backdrop';
 import { SectionHeading } from '../components/primitives/Section';
 import { IntentBadge, PlatformTag } from '../components/mocks/IntentBadge';
 import { PhoneMock } from '../components/mocks/Frames';
-
-const STEPS = pipelineSteps.length;
 
 /**
  * 全站核心：滚动把一条真实评论从公开内容一路带到销售手机。
@@ -28,6 +21,8 @@ const STEPS = pipelineSteps.length;
  * 滚动进度离散成当前步索引，左侧文字与右侧画布同步切换。
  */
 export function Pipeline() {
+  const { pipelineSteps, pipelineSection } = useContent();
+  const STEPS = pipelineSteps.length;
   const containerRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const [step, setStep] = useState(0);
@@ -50,9 +45,9 @@ export function Pipeline() {
       <section id="pipeline" className="relative py-20 md:py-28">
         <div className="shell">
           <SectionHeading
-            eyebrow="工作方式"
-            title="一条线索，如何抵达销售手机"
-            lede="从公开互动中提取成交信号，每一步都可解释、可追溯。"
+            eyebrow={pipelineSection.eyebrow}
+            title={pipelineSection.title}
+            lede={pipelineSection.ledeReduced}
             align="split"
           />
           <ol className="mt-14 grid gap-6 md:grid-cols-2">
@@ -75,9 +70,9 @@ export function Pipeline() {
       {/* 标题 */}
       <div className="shell relative pt-20 md:pt-28">
         <SectionHeading
-          eyebrow="工作方式"
-          title="一条线索，如何抵达销售手机"
-          lede="下面跟着一条真实评论走完全程。从公开内容里出现的一句提问，到落进某位销售的待办，每一步都可解释、可追溯。"
+          eyebrow={pipelineSection.eyebrow}
+          title={pipelineSection.title}
+          lede={pipelineSection.lede}
           align="split"
         />
       </div>
@@ -236,6 +231,7 @@ function Stage({ step }: { step: number }) {
 }
 
 function CommentCard({ captured }: { captured: boolean }) {
+  const { pipelineSample, ui } = useContent();
   return (
     <div className="relative rounded-card border border-line bg-surface p-5 shadow-card">
       {/* 采集时的扫描线 */}
@@ -261,11 +257,13 @@ function CommentCard({ captured }: { captured: boolean }) {
           className="ml-auto text-[0.68rem] font-medium"
           animate={{ color: captured ? 'var(--lh-brand)' : 'var(--lh-ink-faint)' }}
         >
-          {captured ? '已入库' : '公开可见'}
+          {captured ? ui.pipelineCaptured : ui.pipelinePublic}
         </motion.span>
       </div>
 
-      <p className="mt-3 text-[0.72rem] text-ink-faint">帖子 · {pipelineSample.post}</p>
+      <p className="mt-3 text-[0.72rem] text-ink-faint">
+        {ui.pipelinePost} · {pipelineSample.post}
+      </p>
       <p className="mt-2 text-xl leading-snug font-medium">「{pipelineSample.comment}」</p>
 
       <AnimatePresence>
@@ -278,8 +276,8 @@ function CommentCard({ captured }: { captured: boolean }) {
             transition={{ duration: 0.35, ease: easeOutQuint }}
           >
             {[
-              ['命中主题', '报废补贴'],
-              ['命中组', '王朝网关键词组'],
+              [ui.pipelineHitTopic, ui.pipelineHitTopicValue],
+              [ui.pipelineHitGroup, ui.pipelineHitGroupValue],
             ].map(([label, value]) => (
               <div key={label}>
                 <p className="text-[0.62rem] text-ink-faint">{label}</p>
@@ -299,6 +297,7 @@ const TONE_COLOR = {
 };
 
 function AnalysisCard() {
+  const { analysisDimensions, ui } = useContent();
   return (
     <div className="rounded-card border border-line bg-surface p-5 shadow-card">
       <div className="flex items-center gap-2">
@@ -306,7 +305,7 @@ function AnalysisCard() {
           <span className="absolute inset-0 animate-pulse-ring rounded-full bg-accent" />
           <span className="relative size-2 rounded-full bg-accent" />
         </span>
-        <p className="text-[0.78rem] font-medium">语义拆解 · 判断顺序固定</p>
+        <p className="text-[0.78rem] font-medium">{ui.pipelineAnalyzeTitle}</p>
       </div>
 
       <motion.ul
@@ -342,25 +341,26 @@ function AnalysisCard() {
       </motion.ul>
 
       <p className="mt-4 text-[0.7rem] leading-relaxed text-ink-faint">
-        角色先于语义：卖家回复与同行广告在第一维就被排除，不做关键词硬匹配。
+        {ui.pipelineAnalyzeNote}
       </p>
     </div>
   );
 }
 
 function ScoreCard({ showDecay }: { showDecay: boolean }) {
+  const { analysisOutput, ui } = useContent();
   return (
     <div className="rounded-card border border-line bg-surface p-5 shadow-card">
       <div className="flex items-center justify-between gap-3">
-        <p className="text-[0.78rem] font-medium">模型输出</p>
+        <p className="text-[0.78rem] font-medium">{ui.pipelineScoreOut}</p>
         <motion.div layout transition={springSoft}>
           <IntentBadge level={analysisOutput.level} size="md" />
         </motion.div>
       </div>
 
       <div className="mt-4 space-y-3">
-        <Field label="线索摘要" value={analysisOutput.summary} />
-        <Field label="下一步建议" value={analysisOutput.nextAction} accent />
+        <Field label={ui.pipelineSummary} value={analysisOutput.summary} />
+        <Field label={ui.pipelineNext} value={analysisOutput.nextAction} accent />
       </div>
 
       <AnimatePresence>
@@ -372,13 +372,9 @@ function ScoreCard({ showDecay }: { showDecay: boolean }) {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: easeOutQuint }}
           >
-            <p className="pt-4 text-[0.62rem] text-ink-faint">时间衰减校准 · 评论年龄 2 小时</p>
+            <p className="pt-4 text-[0.62rem] text-ink-faint">{ui.pipelineDecayNote}</p>
             <div className="mt-2.5 space-y-1.5">
-              {[
-                { range: '0–3 天', level: '高意向', active: true },
-                { range: '3–7 天', level: '中意向', active: false },
-                { range: '7 天以上', level: '无意向', active: false },
-              ].map((rule) => (
+              {ui.pipelineDecayRules.map((rule) => (
                 <div
                   key={rule.range}
                   className={`flex items-center justify-between rounded-md px-2.5 py-1.5 text-[0.72rem] transition-colors ${
@@ -389,10 +385,10 @@ function ScoreCard({ showDecay }: { showDecay: boolean }) {
                 >
                   <span className="font-mono">{rule.range}</span>
                   <span className="flex items-center gap-2">
-                    {rule.level}
+                    <IntentBadge level={rule.level} />
                     {rule.active && (
                       <span className="rounded bg-brand px-1.5 py-0.5 text-[0.6rem] text-white">
-                        当前
+                        {ui.pipelineCurrent}
                       </span>
                     )}
                   </span>
@@ -419,13 +415,8 @@ function Field({ label, value, accent }: { label: string; value: string; accent?
   );
 }
 
-const DELIVER_POOLS = [
-  { name: '归属池', tone: 'var(--lh-intent-weak)' },
-  { name: '组织指派池', tone: 'var(--lh-brand)' },
-  { name: '账号分发池', tone: 'var(--lh-accent)' },
-];
-
 function DeliverCard() {
+  const { pipelineSample, site, ui } = useContent();
   return (
     <div className="flex w-full flex-col items-center gap-4">
       {/* 三池串行 */}
@@ -435,7 +426,7 @@ function DeliverCard() {
         animate="show"
         variants={{ show: { transition: { staggerChildren: 0.16, delayChildren: 0.1 } } }}
       >
-        {DELIVER_POOLS.map((pool, index) => (
+        {ui.pipelinePools.map((pool, index) => (
           <motion.div
             key={pool.name}
             className="flex flex-1 items-center gap-1.5"
@@ -454,7 +445,7 @@ function DeliverCard() {
             >
               {pool.name}
             </span>
-            {index < DELIVER_POOLS.length - 1 && (
+            {index < ui.pipelinePools.length - 1 && (
               <svg viewBox="0 0 12 8" className="size-2.5 shrink-0 fill-ink-faint" aria-hidden="true">
                 <path d="M0 3h7V0l5 4-5 4V5H0Z" />
               </svg>
@@ -488,22 +479,22 @@ function DeliverCard() {
                   alt=""
                   className="lh-icon shrink-0"
                 />
-                <span className="text-[0.58rem] font-medium whitespace-nowrap">线索猎手</span>
+                <span className="text-[0.58rem] font-medium whitespace-nowrap">{site.brand.name}</span>
                 <span className="ml-auto hidden text-[0.55rem] whitespace-nowrap text-ink-faint sm:inline">
-                  现在
+                  {ui.pipelineNow}
                 </span>
               </div>
-              <p className="mt-1.5 text-[0.6rem] leading-snug font-medium">你有 1 条新线索</p>
+              <p className="mt-1.5 text-[0.6rem] leading-snug font-medium">{ui.pipelineNewLead}</p>
               <p className="mt-0.5 text-[0.56rem] leading-snug text-ink-muted">
                 {pipelineSample.comment}
               </p>
               <div className="mt-1.5">
-                <IntentBadge level="高意向" />
+                <IntentBadge level="high" />
               </div>
             </motion.div>
 
             <div className="mt-auto flex justify-around border-t border-line pt-2">
-              {['首页', '线索', '通知'].map((tab, index) => (
+              {ui.pipelineAppTabs.map((tab, index) => (
                 <span
                   key={tab}
                   className={`text-[0.55rem] ${index === 2 ? 'text-brand' : 'text-ink-faint'}`}

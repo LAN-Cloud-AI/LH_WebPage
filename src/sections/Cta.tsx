@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react';
 
-import { cta, site } from '../content/site';
+import { localizedContactUrl, localizedGuideUrl, useContent } from '../content/runtime';
 import { inViewOnce } from '../lib/motion';
 import { GridBackdrop, Orb } from '../components/primitives/Backdrop';
 import { ArrowRight, Button } from '../components/primitives/Button';
@@ -8,6 +8,7 @@ import { ContactChannels } from '../components/primitives/ContactChannels';
 import { Reveal } from '../components/primitives/Reveal';
 
 export function Cta() {
+  const { cta, site } = useContent();
   const reduced = useReducedMotion();
 
   return (
@@ -42,11 +43,11 @@ export function Cta() {
             viewport={inViewOnce}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <Button href={site.links.contact} size="lg" external>
+            <Button href={localizedContactUrl()} size="lg" external>
               {cta.secondary}
               <ArrowRight />
             </Button>
-            <Button href={site.links.guide} variant="ghost" size="lg" external>
+            <Button href={localizedGuideUrl()} variant="ghost" size="lg" external>
               {cta.guide}
             </Button>
             <Button href={site.links.demoForm} variant="outline" size="lg" external>

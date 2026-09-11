@@ -1,11 +1,12 @@
-import { metrics } from '../content/site';
+import { useContent } from '../content/runtime';
 import { Counter } from '../components/primitives/Counter';
 import { RevealGroup, RevealItem } from '../components/primitives/Reveal';
 
 /** 产品能力口径的数字条，不使用运营统计数据 */
 export function Metrics() {
+  const { metrics, ui } = useContent();
   return (
-    <section aria-label="产品能力概览" className="relative border-y border-line bg-bg-elev/50">
+    <section aria-label={ui.metricsAria} className="relative border-y border-line bg-bg-elev/50">
       <div className="shell">
         <RevealGroup
           className="grid grid-cols-2 gap-3 py-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-4 lg:py-8"

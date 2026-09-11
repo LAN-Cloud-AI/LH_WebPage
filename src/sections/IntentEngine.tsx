@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useId, useMemo, useState } from 'react';
 
-import { intentSection } from '../content/site';
+import { intentLabel, useContent } from '../content/runtime';
 import {
   applyDecay,
   axisProgressToDays,
@@ -18,9 +18,10 @@ import { Section, SectionHeading } from '../components/primitives/Section';
 import { IntentBadge } from '../components/mocks/IntentBadge';
 
 const SLIDER_STEPS = 1000;
-const SEMANTIC_OPTIONS: IntentLevel[] = ['高意向', '中意向', '弱意向'];
+const SEMANTIC_OPTIONS: IntentLevel[] = ['high', 'mid', 'weak'];
 
 export function IntentEngine() {
+  const { intentSection } = useContent();
   return (
     <Section id="intent" spacing="lg" className="overflow-hidden">
       <GridBackdrop className="opacity-40" variant="dot" />
@@ -75,9 +76,10 @@ export function IntentEngine() {
 
 /** 拖动天数，看同一条语义意向如何被时间衰减重算 */
 function DecayPlayground() {
+  const { intentSection, ui } = useContent();
   const reduced = useReducedMotion();
   const sliderId = useId();
-  const [semantic, setSemantic] = useState<IntentLevel>('高意向');
+  const [semantic, setSemantic] = useState<IntentLevel>('high');
   const [days, setDays] = useState(1);
 
   const final = useMemo(() => applyDecay(semantic, days), [semantic, days]);
@@ -99,13 +101,13 @@ function DecayPlayground() {
 
   return (
     <div className="flex h-full flex-col rounded-panel border border-line bg-surface p-5 shadow-card md:p-7">
-      <p className="text-xs font-semibold tracking-[0.16em] text-brand uppercase">时间衰减</p>
+      <p className="text-xs font-semibold tracking-[0.16em] text-brand uppercase">{ui.intentDecayEyebrow}</p>
       <p className="mt-3 text-[0.9rem] leading-relaxed text-ink-muted">
         {intentSection.decayIntro}
       </p>
 
       {/* 语义意向选择 */}
-      <div className="mt-5 flex flex-wrap gap-1.5" role="group" aria-label="选择语义意向">
+      <div className="mt-5 flex flex-wrap gap-1.5" role="group" aria-label={ui.intentSemanticAria}>
         {SEMANTIC_OPTIONS.map((option) => (
           <button
             key={option}
@@ -123,7 +125,9 @@ function DecayPlayground() {
                 transition={springSoft}
               />
             )}
-            <span className="relative">模型判定 {option}</span>
+            <span className="relative">
+              {ui.intentModelJudge} {intentLabel(option)}
+            </span>
           </button>
         ))}
       </div>
@@ -131,10 +135,10 @@ function DecayPlayground() {
       {/* 结果 */}
       <div className="mt-6 flex items-center gap-3 rounded-card border border-line bg-surface-2 p-4">
         <div className="min-w-0 flex-1">
-          <p className="text-[0.66rem] text-ink-faint">评论年龄</p>
+          <p className="text-[0.66rem] text-ink-faint">{ui.intentAge}</p>
           <p className="mt-0.5 text-2xl font-semibold">
             {days}
-            <span className="ml-1 text-sm font-normal text-ink-muted">天</span>
+            <span className="ml-1 text-sm font-normal text-ink-muted">{ui.intentDays}</span>
           </p>
         </div>
 
@@ -147,7 +151,7 @@ function DecayPlayground() {
         </svg>
 
         <div className="min-w-0 flex-1 text-right">
-          <p className="text-[0.66rem] text-ink-faint">落库意向</p>
+          <p className="text-[0.66rem] text-ink-faint">{ui.intentFinal}</p>
           <div className="mt-1.5 flex justify-end">
             <AnimatePresence mode="wait">
               <motion.div
@@ -167,7 +171,7 @@ function DecayPlayground() {
       {/* 滑块 */}
       <div className="mt-6">
         <label htmlFor={sliderId} className="sr-only">
-          评论年龄（天）
+          {ui.intentSlider}
         </label>
         <div className="relative">
           {/* 刻度与滑块拇指同坐标：左右各留半个拇指宽 */}
@@ -198,7 +202,7 @@ function DecayPlayground() {
             aria-valuemin={0}
             aria-valuemax={DECAY_HORIZON_DAYS}
             aria-valuenow={days}
-            aria-valuetext={`${days} 天，落库意向 ${final}`}
+            aria-valuetext={`${days} ${ui.intentDays}, ${ui.intentFinal} ${intentLabel(final)}`}
             style={
               {
                 '--range-fill': `${progress * 100}%`,
@@ -224,7 +228,7 @@ function DecayPlayground() {
                         : 'translateX(-50%)',
                   }}
                 >
-                  {day === 0 ? '刚发布' : `${day} 天`}
+                  {day === 0 ? ui.intentJustNow : `${day} ${ui.intentDays}`}
                 </span>
               );
             })}
@@ -235,20 +239,24 @@ function DecayPlayground() {
       <p className="mt-5 text-[0.75rem] leading-relaxed text-ink-faint">
         {degraded ? (
           <>
-            这条线索已从
-            <span className="text-ink-muted">{semantic}</span>
-            衰减为
-            <span style={{ color: INTENT_META[final].color }}>{final}</span>
-            {final === '无意向' ? '，不再进入销售待办。' : '，优先级相应下调。'}
+            {ui.intentDegradedFrom}
+            <span className="text-ink-muted">{intentLabel(semantic)}</span>
+            {ui.intentDegradedTo}
+            <span style={{ color: INTENT_META[final].color }}>{intentLabel(final)}</span>
+            {final === 'none' ? ui.intentDegradedNone : ui.intentDegradedDown}
           </>
         ) : (
-          <>需求窗口仍然新鲜，维持{semantic}，正常进入分发流程。</>
+          <>
+            {ui.intentFreshPrefix}
+            {intentLabel(semantic)}
+            {ui.intentFreshSuffix}
+          </>
         )}
       </p>
 
       {/* 衰减带：按断点等分，与上方时间轴同一套比例 */}
       <div className="mt-auto pt-6">
-        <p className="text-[0.66rem] text-ink-faint">30 天衰减带</p>
+        <p className="text-[0.66rem] text-ink-faint">{ui.intentBand}</p>
         <div className="relative mt-2 h-9 overflow-hidden rounded-lg border border-line">
           <div className="flex h-full">
             {bandSegments.map((segment) => (
@@ -268,55 +276,25 @@ function DecayPlayground() {
           />
         </div>
         <div className="mt-1.5 flex justify-between text-[0.6rem] text-ink-faint">
-          <span>越靠左需求越新鲜</span>
-          <span>越靠右越接近失效</span>
+          <span>{ui.intentLeft}</span>
+          <span>{ui.intentRight}</span>
         </div>
       </div>
     </div>
   );
 }
 
-const TABLE_ROWS: { semantic: IntentLevel; ranges: { label: string; day: number }[] }[] = [
-  {
-    semantic: '高意向',
-    ranges: [
-      { label: '0–3 天', day: 2 },
-      { label: '3–7 天', day: 5 },
-      { label: '7 天以上', day: 20 },
-    ],
-  },
-  {
-    semantic: '中意向',
-    ranges: [
-      { label: '0–3 天', day: 2 },
-      { label: '3–14 天', day: 8 },
-      { label: '14 天以上', day: 20 },
-    ],
-  },
-  {
-    semantic: '弱意向',
-    ranges: [
-      { label: '0–7 天', day: 5 },
-      { label: '7 天以上', day: 20 },
-    ],
-  },
-];
-
 function DecayTable() {
+  const { intentSection, ui } = useContent();
   return (
     <div className="flex h-full flex-col rounded-panel border border-line bg-surface p-5 shadow-card md:p-7">
-      <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">判断顺序</p>
+      <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">{ui.intentOrder}</p>
       <p className="mt-3 text-[0.9rem] leading-relaxed text-ink-muted">
         {intentSection.dimensionsIntro}
       </p>
 
       <RevealGroup className="mt-5 space-y-2" gap={0.06}>
-        {[
-          { step: '1', name: 'speaker_role', label: '说话人是谁' },
-          { step: '2', name: 'utterance_type', label: '这句话在做什么' },
-          { step: '3', name: 'buyer_actionability', label: '值不值得马上跟' },
-          { step: '4', name: 'evidence_strength', label: '证据够不够硬' },
-        ].map((item) => (
+        {ui.intentDimensions.map((item) => (
           <RevealItem
             key={item.name}
             className="flex items-center gap-3 rounded-lg border border-line bg-surface-2 px-3 py-2.5"
@@ -332,13 +310,13 @@ function DecayTable() {
 
       {/* 衰减规则总表 */}
       <div className="mt-6 border-t border-line pt-5">
-        <p className="text-[0.72rem] text-ink-faint">完整衰减规则</p>
+        <p className="text-[0.72rem] text-ink-faint">{ui.intentRules}</p>
         <div className="mt-3 space-y-3">
-          {TABLE_ROWS.map((row) => (
+          {ui.intentTable.map((row) => (
             <div key={row.semantic}>
               <div className="flex items-center gap-2">
                 <IntentBadge level={row.semantic} />
-                <span className="text-[0.68rem] text-ink-faint">模型判定</span>
+                <span className="text-[0.68rem] text-ink-faint">{ui.intentModelJudge}</span>
               </div>
               <div className="mt-1.5 flex gap-1">
                 {row.ranges.map((range) => {
@@ -354,7 +332,7 @@ function DecayTable() {
                         className="mt-0.5 text-[0.68rem] font-medium"
                         style={{ color: INTENT_META[result].color }}
                       >
-                        {result}
+                        {intentLabel(result)}
                       </p>
                     </div>
                   );
@@ -369,7 +347,7 @@ function DecayTable() {
         className="mt-5 text-[0.72rem] leading-relaxed text-ink-faint"
         style={{ transitionTimingFunction: `cubic-bezier(${easeOutQuint.join(',')})` }}
       >
-        无意向与待复核不参与衰减：前者已经排除，后者等待人工确认。
+        {ui.intentNoDecay}
       </p>
     </div>
   );

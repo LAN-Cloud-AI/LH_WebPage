@@ -1,17 +1,19 @@
 import { motion, useReducedMotion } from 'motion/react';
 
-import { capabilities, type Capability } from '../content/site';
+import type { Capability } from '../content/site';
+import { useContent } from '../content/runtime';
 import { Section, SectionHeading } from '../components/primitives/Section';
 import { RevealGroup, RevealItem } from '../components/primitives/Reveal';
 
 export function Capabilities() {
+  const { capabilities, capabilitiesSection } = useContent();
   return (
     <Section spacing="lg" className="overflow-hidden">
       <div className="shell relative">
         <SectionHeading
-          eyebrow="核心能力"
-          title="从采集到交付，一条链路上的六件事"
-          lede="每个环节都可以单独配置和审计，不是一个只能整体接受的黑盒。"
+          eyebrow={capabilitiesSection.eyebrow}
+          title={capabilitiesSection.title}
+          lede={capabilitiesSection.lede}
           align="center"
         />
 

@@ -1,12 +1,12 @@
 import { AnimatePresence, motion, useInView, useReducedMotion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
-import { leadSamples, type LeadSample } from '../../content/site';
+import type { LeadSample } from '../../content/site';
+import { useContent } from '../../content/runtime';
 import { easeOutQuint, springSoft } from '../../lib/motion';
 import { BrowserMock } from './Frames';
 import { IntentBadge, PlatformTag } from './IntentBadge';
 
-const TABS = ['线索总库', '归属池', '组织指派池', '账号分发池'];
 const VISIBLE = 5;
 const ROW_H = 56;
 const ARRIVAL_MS = 2200;
@@ -14,8 +14,8 @@ const SCORING_MS = 750;
 
 type Row = LeadSample & { key: number; scored: boolean };
 
-function makeRow(index: number): Row {
-  const sample = leadSamples[index % leadSamples.length];
+function makeRow(samples: LeadSample[], index: number): Row {
+  const sample = samples[index % samples.length];
   return { ...sample, key: index, scored: false };
 }
 
@@ -25,12 +25,16 @@ function makeRow(index: number): Row {
  * 行绝对定位在定高容器里，靠 top 排布，避免进出时整块高度抖动。
  */
 export function LiveConsole({ className = '' }: { className?: string }) {
+  const { leadSamples, ui } = useContent();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: '-10% 0px' });
   const reduced = useReducedMotion();
 
   const [rows, setRows] = useState<Row[]>(() =>
-    Array.from({ length: VISIBLE }, (_, i) => ({ ...makeRow(VISIBLE - 1 - i), scored: true })),
+    Array.from({ length: VISIBLE }, (_, i) => ({
+      ...makeRow(leadSamples, VISIBLE - 1 - i),
+      scored: true,
+    })),
   );
   const [added, setAdded] = useState(0);
   const cursor = useRef(VISIBLE);
@@ -40,7 +44,7 @@ export function LiveConsole({ className = '' }: { className?: string }) {
 
     const timers = new Set<number>();
     const interval = window.setInterval(() => {
-      const row = makeRow(cursor.current++);
+      const row = makeRow(leadSamples, cursor.current++);
       setRows((current) => [row, ...current].slice(0, VISIBLE));
       setAdded((count) => count + 1);
 
@@ -57,14 +61,14 @@ export function LiveConsole({ className = '' }: { className?: string }) {
       window.clearInterval(interval);
       timers.forEach((timer) => window.clearTimeout(timer));
     };
-  }, [inView, reduced]);
+  }, [inView, reduced, leadSamples]);
 
   return (
     <div ref={ref} className={className}>
-      <BrowserMock title="线索猎手 · 线索中心" badge="实时">
+      <BrowserMock title={ui.consoleTitle} badge={ui.consoleBadge}>
         {/* 三池标签页 */}
         <div className="flex gap-1 overflow-x-auto border-b border-line px-3 pt-2.5">
-          {TABS.map((tab, index) => (
+          {ui.consoleTabs.map((tab, index) => (
             <span
               key={tab}
               className={`shrink-0 border-b-2 px-2.5 pb-2 text-[0.7rem] sm:text-xs ${
@@ -80,16 +84,16 @@ export function LiveConsole({ className = '' }: { className?: string }) {
 
         {/* 统计条：口径与销售端 App 一致 */}
         <div className="grid grid-cols-3 gap-px border-b border-line bg-line">
-          <Stat label="全部" value={509 + added} />
-          <Stat label="高意向" value={233} tone="high" />
-          <Stat label="中意向" value={276} tone="mid" />
+          <Stat label={ui.consoleAll} value={509 + added} />
+          <Stat label={ui.consoleHigh} value={233} tone="high" />
+          <Stat label={ui.consoleMid} value={276} tone="mid" />
         </div>
 
         {/* 线索流 */}
         <ul
           className="relative overflow-hidden"
           style={{ height: VISIBLE * ROW_H }}
-          aria-label="线索流示例"
+          aria-label={ui.consoleStreamAria}
         >
           <AnimatePresence initial={false}>
             {rows.map((row, index) => (
@@ -113,7 +117,7 @@ export function LiveConsole({ className = '' }: { className?: string }) {
                     {row.text}
                   </span>
                   <span className="mt-0.5 block text-[0.65rem] text-ink-faint">
-                    {row.city} · 评论
+                    {row.city} · {ui.consoleComment}
                   </span>
                 </span>
 
@@ -138,7 +142,7 @@ export function LiveConsole({ className = '' }: { className?: string }) {
                         className="flex items-center gap-1 text-[0.65rem] text-ink-faint"
                       >
                         <ScoringDots />
-                        评分中
+                        {ui.consoleScoring}
                       </motion.span>
                     )}
                   </AnimatePresence>

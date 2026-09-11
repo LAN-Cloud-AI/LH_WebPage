@@ -1,4 +1,6 @@
-import { guideSection, site } from '../content/site';
+import { GUIDE_ORIGIN, localeHome } from '../content/identity.js';
+import { useContent } from '../content/runtime';
+import { currentLocale } from '../lib/locale';
 import { GridBackdrop, Orb } from '../components/primitives/Backdrop';
 import { ArrowRight, Button } from '../components/primitives/Button';
 import { Reveal } from '../components/primitives/Reveal';
@@ -6,6 +8,8 @@ import { Section, SectionHeading } from '../components/primitives/Section';
 import { BrowserMock } from '../components/mocks/Frames';
 
 export function Guide() {
+  const { guideSection, ui } = useContent();
+  const guideUrl = localeHome(GUIDE_ORIGIN, currentLocale());
   return (
     <Section id="guide" spacing="lg" className="overflow-hidden">
       <GridBackdrop className="opacity-30" />
@@ -19,7 +23,7 @@ export function Guide() {
             lede={guideSection.lede}
           />
           <Reveal delay={0.12} className="flex shrink-0 flex-wrap gap-3">
-            <Button href={site.links.guide} size="lg" external>
+            <Button href={guideUrl} size="lg" external>
               {guideSection.primary}
               <ArrowRight />
             </Button>
@@ -27,9 +31,9 @@ export function Guide() {
         </div>
 
         <Reveal preset="card" delay={0.16} className="mt-10 md:mt-14">
-          <BrowserMock title="leadshunter-guide.lancloudtech.com" badge="图文手册">
+          <BrowserMock title="leadshunter-guide.lancloudtech.com" badge={ui.guide}>
             <iframe
-              src={site.links.guide}
+              src={guideUrl}
               title={guideSection.iframeTitle}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

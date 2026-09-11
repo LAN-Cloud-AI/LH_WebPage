@@ -8,7 +8,11 @@
 <meta name="description" content="从抖音、小红书发现购车需求，AI 识别意向、分发线索。了解后台与 APP 用法及长沙小鹏使用成果。">
 <meta name="application-name" content="线索猎手">
 <link rel="canonical" href="https://leadshunter-guide.lancloudtech.com/">
-<meta property="og:type" content="website">
+<link rel="alternate" hreflang="zh-CN" href="https://leadshunter-guide.lancloudtech.com/">
+<link rel="alternate" hreflang="zh-Hant" href="https://leadshunter-guide.lancloudtech.com/zh-Hant/">
+<link rel="alternate" hreflang="en" href="https://leadshunter-guide.lancloudtech.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://leadshunter-guide.lancloudtech.com/">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="线索猎手">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:url" content="https://leadshunter-guide.lancloudtech.com/">
@@ -19,7 +23,7 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
-<meta property="og:image:alt" content="线索猎手 APP Logo">
+<meta property="og:image:alt" content="线索猎手">
 <meta itemprop="name" content="线索猎手｜产品介绍与使用说明">
 <meta itemprop="description" content="从抖音、小红书发现购车需求，AI 识别意向、分发线索。了解后台与 APP 用法及长沙小鹏使用成果。">
 <meta itemprop="image" content="https://leadshunter-guide.lancloudtech.com/assets/leadshunter-app-logo.jpg?v=0824442c0788">
@@ -28,9 +32,10 @@
 <meta name="twitter:title" content="线索猎手｜产品介绍与使用说明">
 <meta name="twitter:description" content="从抖音、小红书发现购车需求，AI 识别意向、分发线索。了解后台与 APP 用法及长沙小鹏使用成果。">
 <meta name="twitter:image" content="https://leadshunter-guide.lancloudtech.com/assets/leadshunter-app-logo.jpg?v=0824442c0788">
-<meta name="twitter:image:alt" content="线索猎手 APP Logo">
+<meta name="twitter:image:alt" content="线索猎手">
 <link rel="icon" type="image/png" sizes="256x256" href="assets/leadshunter-app-icon.png?v=0824442c0788">
 <link rel="apple-touch-icon" sizes="256x256" href="assets/leadshunter-app-icon.png?v=0824442c0788">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"线索猎手｜产品介绍与使用说明","name":"线索猎手｜产品介绍与使用说明","description":"从抖音、小红书发现购车需求，AI 识别意向、分发线索。了解后台与 APP 用法及长沙小鹏使用成果。","inLanguage":"zh-CN","url":"https://leadshunter-guide.lancloudtech.com/","image":"https://leadshunter-guide.lancloudtech.com/assets/leadshunter-app-logo.jpg","author":{"@type":"Organization","name":"四川兰芯云朵智能科技有限公司","url":"https://leadshunter.lancloudtech.com"},"publisher":{"@type":"Organization","name":"四川兰芯云朵智能科技有限公司","url":"https://leadshunter.lancloudtech.com"}}</script>
 <style>
 :root {
   --accent-400: #3392ff;
@@ -103,6 +108,9 @@ button { font: inherit; }
 .brand-name { font-size: 14px; font-weight: 650; }
 .brand-sub { font-size: 11px; color: var(--text-tertiary); }
 .topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.locale-switch { display: flex; gap: 8px; font-size: 12px; }
+.locale-switch a { color: inherit; text-decoration: none; opacity: 0.7; }
+.locale-switch a[aria-current="page"] { opacity: 1; font-weight: 600; }
 
 .icon-btn,
 .btn {
@@ -519,6 +527,7 @@ dialog button {
     </span>
   </a>
   <div class="topbar-actions">
+    <nav class="locale-switch" aria-label="Language"><a href="https://leadshunter-guide.lancloudtech.com/" aria-current="page">简体</a> <a href="https://leadshunter-guide.lancloudtech.com/zh-Hant/">繁體</a> <a href="https://leadshunter-guide.lancloudtech.com/en/">EN</a></nav>
     <a class="btn btn-ghost" href="leadshunter-guide.pdf" download="线索猎手-产品介绍与使用说明.pdf"><span class="wide-only">下载 </span>PDF</a>
   </div>
 </header>
@@ -537,10 +546,7 @@ dialog button {
     <p class="subtitle">产品介绍与使用说明</p>
     <p>让公开表达的购车需求，成为门店可以发现、理解和跟进的销售机会。</p>
     <div class="chips">
-      <span>汽车经销商 · DCC · 销售顾问</span>
-      <span>后台 + APP</span>
-      <span>公域需求发现</span>
-      <span>长沙小鹏 · 使用案例</span>
+      <span>汽车经销商 · DCC · 销售顾问</span><span>后台 + APP</span><span>公域需求发现</span><span>长沙小鹏 · 使用案例</span>
     </div>
   </div>
 </header>
@@ -1173,7 +1179,7 @@ const backdrop = document.getElementById('backdrop');
 const openMenu = (open) => {
   document.body.classList.toggle('menu-open', open);
   toggle.setAttribute('aria-expanded', String(open));
-  toggle.setAttribute('aria-label', open ? '关闭目录' : '打开目录');
+  toggle.setAttribute('aria-label', open ? "关闭目录" : "打开目录");
 };
 toggle.addEventListener('click', () => openMenu(!document.body.classList.contains('menu-open')));
 backdrop.addEventListener('click', () => openMenu(false));

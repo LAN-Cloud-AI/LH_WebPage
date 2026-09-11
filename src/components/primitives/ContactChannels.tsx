@@ -1,22 +1,25 @@
-import { site } from '../../content/site';
+import { useContent } from '../../content/runtime';
 import { MailIcon, PhoneIcon } from './Icons';
 
-const channels = [
-  {
-    href: site.contact.phoneHref,
-    label: '电话',
-    value: site.contact.phone,
-    icon: PhoneIcon,
-  },
-  {
-    href: site.links.demoMail,
-    label: '邮件',
-    value: site.contact.email,
-    icon: MailIcon,
-  },
-] as const;
-
 export function ContactChannels({ className = '' }: { className?: string }) {
+  const { site, ui } = useContent();
+  const channels = [
+    {
+      href: site.contact.phoneHref,
+      label: ui.phone,
+      value: site.contact.phone,
+      icon: PhoneIcon,
+      phone: true,
+    },
+    {
+      href: site.links.demoMail,
+      label: ui.mail,
+      value: site.contact.email,
+      icon: MailIcon,
+      phone: false,
+    },
+  ];
+
   return (
     <div
       className={`mx-auto flex w-full max-w-xl flex-col items-center gap-5 rounded-panel border border-line bg-surface/90 p-6 shadow-card sm:p-7 ${className}`}
@@ -25,15 +28,15 @@ export function ContactChannels({ className = '' }: { className?: string }) {
         src={site.contact.wecomQr}
         width={176}
         height={176}
-        alt="线索猎手销售经理企业微信二维码，长按识别"
+        alt={ui.contactQrAlt}
         className="size-[176px] rounded-2xl bg-white p-2.5"
       />
       <div className="text-center">
-        <p className="text-[0.95rem] font-medium">长按识别二维码</p>
+        <p className="text-[0.95rem] font-medium">{ui.contactQrTitle}</p>
         <p className="mt-1 text-[0.82rem] leading-relaxed text-ink-muted">
-          添加线索猎手销售经理
+          {ui.contactQrHint}
           <br />
-          企业微信
+          {ui.contactWecom}
         </p>
       </div>
       <div className="grid w-full grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -52,7 +55,7 @@ export function ContactChannels({ className = '' }: { className?: string }) {
                 <span className="block text-[0.78rem] font-semibold">{channel.label}</span>
                 <span
                   className={`mt-0.5 block text-[0.78rem] leading-snug text-ink-muted ${
-                    channel.label === '电话' ? 'whitespace-nowrap' : '[overflow-wrap:anywhere]'
+                    channel.phone ? 'whitespace-nowrap' : '[overflow-wrap:anywhere]'
                   }`}
                 >
                   {channel.value.includes('@') ? (

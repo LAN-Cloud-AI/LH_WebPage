@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect } from 'react';
 
 import { Footer } from './components/layout/Footer';
 import { Nav } from './components/layout/Nav';
+import { useContent } from './content/runtime';
 import { useLenis } from './lib/useLenis';
 import { Capabilities } from './sections/Capabilities';
 import { Hero } from './sections/Hero';
@@ -31,6 +32,7 @@ const Cta = lazy(() => import('./sections/Cta').then((m) => ({ default: m.Cta })
 export function App() {
   const reduced = useReducedMotion();
   const lenisRef = useLenis(!reduced);
+  const { ui } = useContent();
 
   // 带 hash 直接进站时，懒加载区块挂载后文档才变高，需要重新定位一次
   useEffect(() => {
@@ -48,7 +50,7 @@ export function App() {
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-white"
       >
-        跳到主要内容
+        {ui.skipToMain}
       </a>
 
       <Nav lenisRef={lenisRef} />

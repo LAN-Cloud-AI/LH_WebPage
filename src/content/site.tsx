@@ -1,16 +1,16 @@
 import { Br } from '../components/primitives/Br';
 import type { IntentLevel } from '../lib/intentDecay';
+import { FAQ, IDENTITY } from './identity.js';
 
 /**
- * 全站文案集中在此，便于改稿。结构按 section 分组，
- * 键名保持稳定以便后续接入 i18n（外层包一层 locale 即可）。
+ * 简体文案包。繁体 / 英文见 locales/，运行时按 pathname 选择。
  */
 
 export const site = {
   brand: {
-    name: '线索猎手',
+    name: IDENTITY['zh-Hans'].siteName,
     latin: 'LEADSHUNTER',
-    company: '四川兰芯云朵智能科技有限公司',
+    company: IDENTITY['zh-Hans'].company,
     icon: '/assets/icon/app-256.png',
     beian: '蜀ICP备2026002396号',
   },
@@ -165,6 +165,12 @@ export const capabilities: Capability[] = [
   },
 ];
 
+export const capabilitiesSection = {
+  eyebrow: '核心能力',
+  title: '从采集到交付，一条链路上的六件事',
+  lede: '每个环节都可以单独配置和审计，不是一个只能整体接受的黑盒。',
+};
+
 // ---------------------------------------------------------------------------
 // Pipeline：滚动驱动的六个关键帧
 // ---------------------------------------------------------------------------
@@ -245,7 +251,7 @@ export const analysisDimensions = [
 
 /** 第 4 帧的模型输出 */
 export const analysisOutput = {
-  level: '高意向' as IntentLevel,
+  level: 'high' as IntentLevel,
   summary: '河南用户询问优惠后是否可叠加报废补贴，购车语境完整，具备近期决策信号。',
   nextAction: '先拆解落地价构成，再核对报废补贴资格',
 };
@@ -268,27 +274,27 @@ export const intentSection = {
   decayIntro: '拖动下面的天数，看同一条语义意向如何随评论年龄降级。',
   levels: [
     {
-      level: '高意向' as IntentLevel,
+      level: 'high' as IntentLevel,
       sample: '优惠后还能用报废补贴吗？',
       note: '明确询价、现车、补贴或成交计划',
     },
     {
-      level: '中意向' as IntentLevel,
+      level: 'mid' as IntentLevel,
       sample: '宋 Pro 和元 UP 到底怎么选？',
       note: '车型比较、配置选择与流程咨询',
     },
     {
-      level: '弱意向' as IntentLevel,
+      level: 'weak' as IntentLevel,
       sample: '这车看着还行',
       note: '轻度兴趣，购车语境尚不完整',
     },
     {
-      level: '无意向' as IntentLevel,
+      level: 'none' as IntentLevel,
       sample: '私信我，本店有现车',
       note: '卖家回复、同行广告或无关内容',
     },
     {
-      level: '待复核' as IntentLevel,
+      level: 'review' as IntentLevel,
       sample: '帮朋友问问',
       note: '角色或语境冲突，证据不足交人工',
     },
@@ -349,18 +355,18 @@ export type LeadSample = {
 };
 
 export const leadSamples: LeadSample[] = [
-  { platform: '小红书', city: '河南', text: '优惠后还能用报废补贴吗？', level: '高意向' },
-  { platform: '抖音', city: '成都', text: '成都有没有现车，最快多久能提', level: '高意向' },
-  { platform: '小红书', city: '苏州', text: '十五个多，是首付还是落地？', level: '高意向' },
-  { platform: '抖音', city: '苏州', text: '生产要多久', level: '中意向' },
-  { platform: '小红书', city: '天津', text: '热泵空调有没有人说一下', level: '中意向' },
-  { platform: '抖音', city: '重庆', text: '宋 Pro 和元 UP 到底怎么选？', level: '中意向' },
-  { platform: '小红书', city: '杭州', text: '四驱版本值得加这个钱吗', level: '中意向' },
-  { platform: '抖音', city: '武汉', text: '置换补贴需要什么材料', level: '高意向' },
-  { platform: '小红书', city: '西安', text: '这个配色实车好看吗', level: '弱意向' },
-  { platform: '抖音', city: '长沙', text: '试驾要提前预约吗', level: '高意向' },
-  { platform: '小红书', city: '青岛', text: '同价位还有别的推荐吗', level: '中意向' },
-  { platform: '抖音', city: '郑州', text: '保养一次大概多少钱', level: '弱意向' },
+  { platform: '小红书', city: '河南', text: '优惠后还能用报废补贴吗？', level: 'high' },
+  { platform: '抖音', city: '成都', text: '成都有没有现车，最快多久能提', level: 'high' },
+  { platform: '小红书', city: '苏州', text: '十五个多，是首付还是落地？', level: 'high' },
+  { platform: '抖音', city: '苏州', text: '生产要多久', level: 'mid' },
+  { platform: '小红书', city: '天津', text: '热泵空调有没有人说一下', level: 'mid' },
+  { platform: '抖音', city: '重庆', text: '宋 Pro 和元 UP 到底怎么选？', level: 'mid' },
+  { platform: '小红书', city: '杭州', text: '四驱版本值得加这个钱吗', level: 'mid' },
+  { platform: '抖音', city: '武汉', text: '置换补贴需要什么材料', level: 'high' },
+  { platform: '小红书', city: '西安', text: '这个配色实车好看吗', level: 'weak' },
+  { platform: '抖音', city: '长沙', text: '试驾要提前预约吗', level: 'high' },
+  { platform: '小红书', city: '青岛', text: '同价位还有别的推荐吗', level: 'mid' },
+  { platform: '抖音', city: '郑州', text: '保养一次大概多少钱', level: 'weak' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -551,32 +557,7 @@ export const faq = {
   eyebrow: '常见问题',
   title: '关于线索猎手',
   lede: '关于数据来源、识别准确度、接入方式与权限边界，这里是最常被问到的几个问题。',
-  items: [
-    {
-      q: '线索来自哪里，会有合规风险吗？',
-      a: '全部来自抖音、小红书上公开可见的评论与帖子——任何人打开对应内容都能看到同样的信息。系统不接触私信、不获取通讯录、不使用任何需要用户授权才能访问的数据。作者主页与原帖也不是直接暴露链接，而是通过服务端签发的一次性短链打开，访问过程留痕。',
-    },
-    {
-      q: '意向判断准不准，会不会把卖家和同行也算成客户？',
-      a: '判断顺序是先角色后语义：先确定说话人是买家候选、卖家、已购车主还是同行车商，再看这句话在做什么。卖家回复、同行广告、已购复盘在角色这一步就被排除。另外系统不做关键词硬匹配，"补贴"这个词出现在卖家话术里和出现在买家提问里会得到完全不同的结论。证据不足或角色冲突的会归入待复核，交人工确认而不是硬判一个等级。',
-    },
-    {
-      q: '为什么线索会自己降级？',
-      a: '因为购车需求有时效。同一句"有没有现车"，两小时前问和两周前问的价值差别很大。系统把语义意向和评论年龄分开处理：大模型只判断语义，本地确定性代码再叠加时间衰减重算最终等级。高意向超过 7 天、中意向超过 14 天会归为无意向，不再占用销售的待办列表。',
-    },
-    {
-      q: '销售会不会看到别人的线索？',
-      a: '不会。销售端 App 只呈现落到本人账号的线索，同组同事的线索也看不到。这个限制在接口层就生效，不是靠前端隐藏。App 本身是只读的，不提供归属确认、组织指派或账号分发能力，相关变更接口对销售角色完全不开放。',
-    },
-    {
-      q: '接入需要做什么，多久能看到线索？',
-      a: '经销商侧只需要提供要监测的关键词、竞品账号和目标区域，由管理员配置成监测主题。配置完成当天 00:00 起开始定时采集，评分完成即进入三池分发流程。销售账号在席位配额内由经销商管理员自行创建，销售安装 App 登录后即可接收分配到自己的线索。',
-    },
-    {
-      q: '怎样阅读完整产品介绍，或直接联系销售经理？',
-      a: '完整产品介绍挂在 leadshunter-guide.lancloudtech.com，官网同步嵌入该页面。合作咨询打开 leadshunter-contact.lancloudtech.com，或致电 +86-17380566771、发送邮件至 lance@lancloudtech.com、添加企业微信。',
-    },
-  ],
+  items: FAQ['zh-Hans'],
 };
 
 // ---------------------------------------------------------------------------
@@ -610,4 +591,151 @@ export const guideSection = {
   lede: '完整图文手册发布在 leadshunter-guide.lancloudtech.com。下面直接嵌入该页面，也可新窗口打开阅读后台、APP 用法和长沙门店使用效果。',
   primary: '打开产品介绍',
   iframeTitle: '线索猎手产品介绍与使用说明',
+};
+
+export const pipelineSection = {
+  eyebrow: '工作方式',
+  title: '一条线索，如何抵达销售手机',
+  lede: '下面跟着一条真实评论走完全程。从公开内容里出现的一句提问，到落进某位销售的待办，每一步都可解释、可追溯。',
+  ledeReduced: '从公开互动中提取成交信号，每一步都可解释、可追溯。',
+};
+
+export const samplesSection = {
+  eyebrow: '线索长什么样',
+  title: (
+    <>
+      不是一行数据，
+      <Br />
+      而是一句能接上话的提问
+    </>
+  ),
+  lede: '以下均为脱敏后的公开评论示例。销售看到的是原话本身，加上分级、摘要与建议。',
+};
+
+export const ui = {
+  skipToMain: '跳到主要内容',
+  metricsAria: '产品能力概览',
+  navAria: '页面导航',
+  navMobileAria: '移动端导航',
+  navOpen: '打开导航菜单',
+  navClose: '关闭导航菜单',
+  guide: '产品介绍',
+  contact: '联系销售',
+  bookDemo: '预约演示',
+  bookDemoLong: '预约产品演示',
+  readGuide: '阅读产品介绍',
+  localeAria: '切换语言',
+  locales: {
+    'zh-Hans': '简体',
+    'zh-Hant': '繁體',
+    en: 'EN',
+  },
+  footerCompany: '兰芯云朵官网',
+  footerIndex: '公司站产品索引',
+  footerApp: '销售端下载',
+  footerPhone: '电话',
+  footerMail: '邮件',
+  footerBlurb: IDENTITY['zh-Hans'].tagline,
+  footerLegal: '仅采集平台公开可见内容 · 数据按组织隔离',
+  contactQrAlt: '线索猎手销售经理企业微信二维码，长按识别',
+  contactQrTitle: '长按识别二维码',
+  contactQrHint: '添加线索猎手销售经理',
+  contactWecom: '企业微信',
+  phone: '电话',
+  mail: '邮件',
+  heroPhoneAlt: '销售端 App 线索列表',
+  heroFactsAria: '产品能力概览',
+  heroCardKicker: '新发现 · 河南',
+  heroCardText: '优惠后还能用报废补贴吗？',
+  heroCardMeta: '已进入归属池 · 等待确认组织',
+  consoleTitle: '线索猎手 · 线索中心',
+  consoleBadge: '实时',
+  consoleTabs: ['线索总库', '归属池', '组织指派池', '账号分发池'],
+  consoleAll: '全部',
+  consoleHigh: '高意向',
+  consoleMid: '中意向',
+  consoleStreamAria: '线索流示例',
+  consoleComment: '评论',
+  consoleScoring: '评分中',
+  intentDecayEyebrow: '时间衰减',
+  intentSemanticAria: '选择语义意向',
+  intentModelJudge: '模型判定',
+  intentAge: '评论年龄',
+  intentDays: '天',
+  intentFinal: '落库意向',
+  intentSlider: '评论年龄（天）',
+  intentJustNow: '刚发布',
+  intentFreshPrefix: '需求窗口仍然新鲜，维持',
+  intentFreshSuffix: '，正常进入分发流程。',
+  intentDegradedFrom: '这条线索已从',
+  intentDegradedTo: '衰减为',
+  intentDegradedNone: '，不再进入销售待办。',
+  intentDegradedDown: '，优先级相应下调。',
+  intentBand: '30 天衰减带',
+  intentLeft: '越靠左需求越新鲜',
+  intentRight: '越靠右越接近失效',
+  intentOrder: '判断顺序',
+  intentRules: '完整衰减规则',
+  intentNoDecay: '无意向与待复核不参与衰减：前者已经排除，后者等待人工确认。',
+  intentDimensions: [
+    { step: '1', name: 'speaker_role', label: '说话人是谁' },
+    { step: '2', name: 'utterance_type', label: '这句话在做什么' },
+    { step: '3', name: 'buyer_actionability', label: '值不值得马上跟' },
+    { step: '4', name: 'evidence_strength', label: '证据够不够硬' },
+  ],
+  intentTable: [
+    {
+      semantic: 'high' as IntentLevel,
+      ranges: [
+        { label: '0–3 天', day: 2 },
+        { label: '3–7 天', day: 5 },
+        { label: '7 天以上', day: 20 },
+      ],
+    },
+    {
+      semantic: 'mid' as IntentLevel,
+      ranges: [
+        { label: '0–3 天', day: 2 },
+        { label: '3–14 天', day: 8 },
+        { label: '14 天以上', day: 20 },
+      ],
+    },
+    {
+      semantic: 'weak' as IntentLevel,
+      ranges: [
+        { label: '0–7 天', day: 5 },
+        { label: '7 天以上', day: 20 },
+      ],
+    },
+  ],
+  pipelineCaptured: '已入库',
+  pipelinePublic: '公开可见',
+  pipelinePost: '帖子',
+  pipelineHitTopic: '命中主题',
+  pipelineHitTopicValue: '报废补贴',
+  pipelineHitGroup: '命中组',
+  pipelineHitGroupValue: '王朝网关键词组',
+  pipelineAnalyzeTitle: '语义拆解 · 判断顺序固定',
+  pipelineAnalyzeNote: '角色先于语义：卖家回复与同行广告在第一维就被排除，不做关键词硬匹配。',
+  pipelineScoreOut: '模型输出',
+  pipelineSummary: '线索摘要',
+  pipelineNext: '下一步建议',
+  pipelineDecayNote: '时间衰减校准 · 评论年龄 2 小时',
+  pipelineCurrent: '当前',
+  pipelineNow: '现在',
+  pipelineNewLead: '你有 1 条新线索',
+  pipelineAppTabs: ['首页', '线索', '通知'],
+  pipelinePools: [
+    { name: '归属池', tone: 'var(--lh-intent-weak)' },
+    { name: '组织指派池', tone: 'var(--lh-brand)' },
+    { name: '账号分发池', tone: 'var(--lh-accent)' },
+  ],
+  pipelineDecayRules: [
+    { range: '0–3 天', level: 'high' as IntentLevel, active: true },
+    { range: '3–7 天', level: 'mid' as IntentLevel, active: false },
+    { range: '7 天以上', level: 'none' as IntentLevel, active: false },
+  ],
+  notFoundTitle: '没有这个页面',
+  notFoundBody: '链接可能写错了，或页面已经换了地址。',
+  notFoundHome: '回到首页',
 };

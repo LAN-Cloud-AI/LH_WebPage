@@ -3,6 +3,28 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { sales } from '../sales.mjs';
+import {
+  CONTACT,
+  CONTACT_ORIGIN,
+  DEFAULT_LOCALE,
+  GUIDE_ORIGIN,
+  HTML_LANG,
+  IDENTITY,
+  LOCALES,
+  OG_LOCALE,
+  SITE_ORIGIN,
+  contactJsonLd,
+  hreflangLinks,
+  localeHome,
+  localePrefixDir,
+  localeSwitcher,
+  satelliteRedirects,
+  write404,
+  writeHostLlms,
+  writeHostRobots,
+  writeHostSitemap,
+} from '../satellite-i18n.mjs';
+import { upsertAnalytics } from '../site-analytics.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../..');
@@ -15,8 +37,6 @@ const logoSrc = path.join(guideAssets, 'leadshunter-app-logo.jpg');
 const qrSrc = path.join(guideAssets, '29-wecom-qr.png');
 const logoVersion = createHash('sha256').update(await fs.readFile(logoSrc)).digest('hex').slice(0, 12);
 const shareImageUrl = new URL(`assets/leadshunter-app-logo.jpg?v=${logoVersion}`, sales.contact).href;
-const title = '联系线索猎手销售';
-const description = '预约产品演示、开通门店试用或了解合作方案。电话、邮件或企业微信联系线索猎手销售经理。';
 
 const icons = {
   phone:
@@ -24,40 +44,51 @@ const icons = {
   mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.4" y="5.4" width="17.2" height="13.2" rx="2.2"/><path d="m4.2 7.2 7.1 5.2c.4.3 1 .3 1.4 0l7.1-5.2"/></svg>',
 };
 
-const html = `<!doctype html>
-<html lang="zh-CN">
+const render = (locale) => {
+  const copy = CONTACT[locale];
+  const identity = IDENTITY[locale];
+  const canonical = localeHome(CONTACT_ORIGIN, locale);
+  const siteUrl = localeHome(SITE_ORIGIN, locale);
+  const guideUrl = localeHome(GUIDE_ORIGIN, locale);
+  const assetPrefix = localePrefixDir(locale) ? '../' : '';
+  const title = `${copy.title}｜${identity.siteName}`;
+  return `<!doctype html>
+<html lang="${HTML_LANG[locale]}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f3f5f8">
 <meta name="color-scheme" content="light">
-<title>${title}｜线索猎手</title>
-<meta name="description" content="${description}">
-<meta name="application-name" content="线索猎手">
-<link rel="canonical" href="${sales.contact}">
+<title>${title}</title>
+<meta name="description" content="${copy.description}">
+<meta name="application-name" content="${identity.siteName}">
+<link rel="canonical" href="${canonical}">
+${hreflangLinks(CONTACT_ORIGIN)}
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="线索猎手">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:url" content="${sales.contact}">
-<meta property="og:title" content="${title}｜线索猎手">
-<meta property="og:description" content="${description}">
+<meta property="og:site_name" content="${identity.siteName}">
+<meta property="og:locale" content="${OG_LOCALE[locale]}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${copy.description}">
 <meta property="og:image" content="${shareImageUrl}">
 <meta property="og:image:secure_url" content="${shareImageUrl}">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
-<meta property="og:image:alt" content="线索猎手 APP Logo">
-<meta itemprop="name" content="${title}｜线索猎手">
-<meta itemprop="description" content="${description}">
+<meta property="og:image:alt" content="${identity.siteName}">
+<meta itemprop="name" content="${title}">
+<meta itemprop="description" content="${copy.description}">
 <meta itemprop="image" content="${shareImageUrl}">
 <link rel="image_src" href="${shareImageUrl}">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="${title}｜线索猎手">
-<meta name="twitter:description" content="${description}">
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${copy.description}">
 <meta name="twitter:image" content="${shareImageUrl}">
-<meta name="twitter:image:alt" content="线索猎手 APP Logo">
-<link rel="icon" type="image/png" href="assets/leadshunter-app-icon.png?v=${logoVersion}">
-<link rel="apple-touch-icon" href="assets/leadshunter-app-icon.png?v=${logoVersion}">
+<meta name="twitter:image:alt" content="${identity.siteName}">
+<link rel="icon" type="image/png" href="${assetPrefix}assets/leadshunter-app-icon.png?v=${logoVersion}">
+<link rel="apple-touch-icon" href="${assetPrefix}assets/leadshunter-app-icon.png?v=${logoVersion}">
+<script type="application/ld+json">${JSON.stringify(contactJsonLd(locale))}</script>
+${upsertAnalytics('', 'contact')}
 <style>
 ${css}
 </style>
@@ -65,66 +96,85 @@ ${css}
 <body>
   <div class="page">
     <header class="top">
-      <a class="brand" href="${sales.site}">
-        <img src="assets/leadshunter-app-icon.png" width="32" height="32" alt="">
+      <a class="brand" href="${siteUrl}">
+        <img src="${assetPrefix}assets/leadshunter-app-icon.png" width="32" height="32" alt="">
         <span>
-          <span class="brand-name">线索猎手</span>
+          <span class="brand-name">${identity.siteName}</span>
           <span class="brand-sub">LEADSHUNTER</span>
         </span>
       </a>
-      <a class="top-link" href="${sales.guide}">产品介绍</a>
+      <nav class="locale-switch" aria-label="Language">${localeSwitcher(CONTACT_ORIGIN, locale)}</nav>
+      <a class="top-link" href="${guideUrl}">${copy.guide}</a>
     </header>
 
     <p class="kicker">SALES</p>
-    <h1>联系线索猎手<wbr>销售</h1>
-    <p class="lede">预约产品演示、开通门店试用，<br>或了解合作方案。<br>销售经理会在工作时间回复。</p>
+    <h1>${copy.h1}</h1>
+    <p class="lede">${copy.lede}</p>
 
-    <section class="panel" aria-label="联系方式">
+    <section class="panel" aria-label="${copy.channelsAria}">
       <div class="qr">
-        <img src="assets/wecom-qr.png" width="220" height="220" alt="线索猎手销售经理企业微信二维码，长按识别">
+        <img src="${assetPrefix}assets/wecom-qr.png" width="220" height="220" alt="${copy.qrAlt}">
       </div>
-      <p class="qr-title">长按识别二维码</p>
-      <p class="qr-hint">添加线索猎手销售经理<br>企业微信</p>
+      <p class="qr-title">${copy.qrTitle}</p>
+      <p class="qr-hint">${copy.qrHint}</p>
 
       <div class="channels">
-        <a class="channel" href="${sales.phoneHref}" aria-label="打电话 ${sales.phone}">
+        <a class="channel" href="${sales.phoneHref}" aria-label="${copy.phone} ${sales.phone}">
           <span class="channel-logo">${icons.phone}</span>
           <span class="channel-text">
-            <span class="channel-label">电话</span>
+            <span class="channel-label">${copy.phone}</span>
             <span class="channel-value channel-value--phone">${sales.phone}</span>
           </span>
         </a>
-        <a class="channel" href="${sales.mailHref}" aria-label="发邮件 ${sales.email}">
+        <a class="channel" href="${sales.mailHref}" aria-label="${copy.mail} ${sales.email}">
           <span class="channel-logo">${icons.mail}</span>
           <span class="channel-text">
-            <span class="channel-label">邮件</span>
+            <span class="channel-label">${copy.mail}</span>
             <span class="channel-value">lance@<wbr>lancloudtech.com</span>
           </span>
         </a>
       </div>
     </section>
 
-    <nav class="more" aria-label="相关页面">
-      <a href="${sales.site}">产品官网</a>
-      <a href="${sales.guide}">图文手册</a>
-      <a href="${sales.appstore}">获取 APP</a>
+    <nav class="more" aria-label="${copy.moreAria}">
+      <a href="${siteUrl}">${copy.site}</a>
+      <a href="${guideUrl}">${copy.handbook}</a>
+      <a href="${sales.appstore}">${copy.app}</a>
     </nav>
 
     <p class="legal">
-      <span>${sales.company}</span>
+      <span>${identity.company}</span>
       <a href="${sales.beianHref}" target="_blank" rel="noreferrer noopener">${sales.beian}</a>
     </p>
   </div>
 </body>
 </html>
 `;
+};
 
 await fs.rm(output, { recursive: true, force: true });
 await fs.mkdir(path.join(output, 'assets'), { recursive: true });
-await fs.writeFile(path.join(output, 'index.html'), html);
+for (const locale of LOCALES) {
+  const html = render(locale);
+  const dir = path.join(output, localePrefixDir(locale));
+  await fs.mkdir(dir, { recursive: true });
+  await fs.writeFile(path.join(dir, 'index.html'), html);
+  await fs.writeFile(path.join(dir, '404.html'), write404(CONTACT_ORIGIN, locale));
+  await fs.writeFile(path.join(dir, 'llms.txt'), writeHostLlms(CONTACT_ORIGIN, locale));
+  if (!html.includes(sales.phone) || !html.includes('wecom-qr.png') || !html.includes('channel-logo')) {
+    throw new Error(`Contact page ${locale} is missing sales details`);
+  }
+  if (!html.includes('"@type":"ContactPage"') && !html.includes('"@type": "ContactPage"')) {
+    throw new Error(`Contact page ${locale} needs ContactPage JSON-LD`);
+  }
+}
 await fs.copyFile(iconSrc, path.join(output, 'assets/leadshunter-app-icon.png'));
 await fs.copyFile(logoSrc, path.join(output, 'assets/leadshunter-app-logo.jpg'));
 await fs.copyFile(qrSrc, path.join(output, 'assets/wecom-qr.png'));
+await fs.writeFile(path.join(output, 'robots.txt'), writeHostRobots(CONTACT_ORIGIN));
+await fs.writeFile(path.join(output, 'llms.txt'), writeHostLlms(CONTACT_ORIGIN, DEFAULT_LOCALE));
+await fs.writeFile(path.join(output, 'sitemap.xml'), writeHostSitemap(CONTACT_ORIGIN));
+await fs.writeFile(path.join(output, '_redirects'), satelliteRedirects());
 await fs.writeFile(
   path.join(output, '_headers'),
   [
@@ -136,6 +186,12 @@ await fs.writeFile(
     '/index.html',
     '  Cache-Control: public, max-age=0, must-revalidate',
     '',
+    '/en/index.html',
+    '  Cache-Control: public, max-age=0, must-revalidate',
+    '',
+    '/zh-Hant/index.html',
+    '  Cache-Control: public, max-age=0, must-revalidate',
+    '',
     '/assets/leadshunter-app-logo.jpg',
     '  Cache-Control: public, max-age=604800',
     '  Access-Control-Allow-Origin: *',
@@ -143,8 +199,4 @@ await fs.writeFile(
   ].join('\n'),
 );
 
-if (!html.includes(sales.phone) || !html.includes('assets/wecom-qr.png') || !html.includes('channel-logo')) {
-  throw new Error('Contact page is missing sales details');
-}
-
-console.log(JSON.stringify({ output, bytes: Buffer.byteLength(html) }));
+console.log(JSON.stringify({ output, locales: LOCALES }));

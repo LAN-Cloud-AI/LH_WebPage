@@ -1,8 +1,9 @@
-import { security } from '../content/site';
+import { useContent } from '../content/runtime';
 import { Section, SectionHeading } from '../components/primitives/Section';
 import { RevealGroup, RevealItem } from '../components/primitives/Reveal';
 
 export function Security() {
+  const { security } = useContent();
   return (
     <Section spacing="lg">
       <div className="shell">
