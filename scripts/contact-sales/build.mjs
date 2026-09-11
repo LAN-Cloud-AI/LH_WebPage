@@ -174,7 +174,9 @@ await fs.copyFile(qrSrc, path.join(output, 'assets/wecom-qr.png'));
 await fs.writeFile(path.join(output, 'robots.txt'), writeHostRobots(CONTACT_ORIGIN));
 await fs.writeFile(path.join(output, 'llms.txt'), writeHostLlms(CONTACT_ORIGIN, DEFAULT_LOCALE));
 await fs.writeFile(path.join(output, 'sitemap.xml'), writeHostSitemap(CONTACT_ORIGIN));
-await fs.writeFile(path.join(output, '_redirects'), satelliteRedirects());
+await fs.writeFile(path.join(output, '_redirects'), satelliteRedirects(CONTACT_ORIGIN));
+await fs.mkdir(path.join(output, 'functions'), { recursive: true });
+await fs.copyFile(path.join(root, 'functions/_middleware.js'), path.join(output, 'functions/_middleware.js'));
 await fs.writeFile(
   path.join(output, '_headers'),
   [

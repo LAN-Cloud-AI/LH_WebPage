@@ -83,14 +83,17 @@ npm run deploy
 ```bash
 npm run deploy:guide      # 渲染 + 导出 PDF + 发布到 leadshunter-guide
 npm run deploy:contact    # 发布联系销售页到 leadshunter-contact
-npm run dns:contact       # 绑定 leadshunter-contact.lancloudtech.com
 ```
 
 DNS：`leadshunter.lancloudtech.com` 橙云 CNAME → `leadshunter-webpage.pages.dev`。重绑域名：
 
 ```bash
-npm run dns    # 需要 ~/.config/lanxin/env/cloudflare/pages.env
+npm run dns           # 官网 + www.leadshunter
+npm run dns:guide     # 手册 + www.leadshunter-guide
+npm run dns:contact   # 联系销售 + www.leadshunter-contact
 ```
+
+`www.*` 橙云 CNAME 到同一 Pages 项目；`functions/_middleware.js` 把 `www.` 301 回不带 www 的正式域。
 
 Pages 项目：
 
@@ -99,7 +102,7 @@ Pages 项目：
 | Project | `leadshunter-webpage` |
 | 输出目录 | `dist` |
 | 生产分支 | `main` |
-| 自定义域 | `leadshunter.lancloudtech.com` |
+| 自定义域 | `leadshunter.lancloudtech.com`（`www.` 301 到此） |
 
 手册 Pages 项目：
 
@@ -109,7 +112,7 @@ Pages 项目：
 | 源码 | `product-guide/` |
 | 输出目录 | `dist-guide` |
 | 生产分支 | `main` |
-| 自定义域 | `leadshunter-guide.lancloudtech.com` |
+| 自定义域 | `leadshunter-guide.lancloudtech.com`（`www.` 301 到此） |
 
 联系销售 Pages 项目：
 
@@ -119,7 +122,7 @@ Pages 项目：
 | 源码 | `scripts/contact-sales/` |
 | 输出目录 | `dist-contact` |
 | 生产分支 | `main` |
-| 自定义域 | `leadshunter-contact.lancloudtech.com` |
+| 自定义域 | `leadshunter-contact.lancloudtech.com`（`www.` 301 到此） |
 
 `public/_headers`、`public/_redirects`、`robots.txt`、`sitemap.xml` 会随构建复制到 `dist/`。SPA 回退已配置为 `/* → /index.html 200`，静态文件仍优先。
 

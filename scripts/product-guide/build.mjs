@@ -77,7 +77,9 @@ await fs.writeFile(path.join(output, 'leadshunter-guide.pdf'), pdf);
 await fs.writeFile(path.join(output, 'robots.txt'), writeHostRobots(GUIDE_ORIGIN));
 await fs.writeFile(path.join(output, 'llms.txt'), writeHostLlms(GUIDE_ORIGIN, DEFAULT_LOCALE));
 await fs.writeFile(path.join(output, 'sitemap.xml'), writeHostSitemap(GUIDE_ORIGIN));
-await fs.writeFile(path.join(output, '_redirects'), satelliteRedirects());
+await fs.writeFile(path.join(output, '_redirects'), satelliteRedirects(GUIDE_ORIGIN));
+await fs.mkdir(path.join(output, 'functions'), { recursive: true });
+await fs.copyFile(path.join(root, 'functions/_middleware.js'), path.join(output, 'functions/_middleware.js'));
 await fs.writeFile(path.join(output, '_headers'), [
   '/leadshunter-guide.pdf',
   `  Content-Disposition: attachment; filename="leadshunter-guide.pdf"; filename*=UTF-8''${encodeURIComponent(pdfName)}`,

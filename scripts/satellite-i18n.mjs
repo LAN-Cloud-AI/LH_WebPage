@@ -330,7 +330,13 @@ ${upsertAnalytics('', websiteKeyForOrigin(origin))}
 `;
 };
 
-export const satelliteRedirects = () => `/en /en/ 301
+export const wwwApexRedirect = (origin) => {
+  const host = new URL(origin).host;
+  return `https://www.${host}/* https://${host}/:splat 301`;
+};
+
+export const satelliteRedirects = (origin) => `${wwwApexRedirect(origin)}
+/en /en/ 301
 /zh-Hant /zh-Hant/ 301
 `;
 

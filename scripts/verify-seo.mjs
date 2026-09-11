@@ -27,6 +27,8 @@ required(exists('src/content/locales/en.tsx'), 'English locale bundle must exist
 required(exists('src/content/locales/zh-Hant.tsx'), 'Traditional Chinese locale bundle must exist.');
 required(exists('public/404.html'), 'Root 404.html must exist.');
 required(exists('public/_redirects'), '_redirects must exist.');
+required(exists('functions/_middleware.js'), 'Pages middleware must 301 www hosts.');
+required(read('functions/_middleware.js').includes("hostname.startsWith('www.')"), 'www middleware must strip the www prefix.');
 required(exists('public/robots.txt'), 'robots.txt must exist.');
 required(exists('scripts/site-analytics.mjs'), 'Umami helper must exist.');
 required(UMAMI_WEBSITE_IDS.leadshunter && UMAMI_WEBSITE_IDS.guide && UMAMI_WEBSITE_IDS.contact, 'Umami website ids must be provisioned.');
@@ -39,6 +41,10 @@ required(redirects.includes('/guide'), '_redirects must 301 /guide.');
 required(redirects.includes('/contact'), '_redirects must 301 /contact.');
 required(redirects.includes('/en'), '_redirects must canonicalize /en.');
 required(redirects.includes('/zh-Hant'), '_redirects must canonicalize /zh-Hant.');
+required(
+  redirects.includes('https://www.leadshunter.lancloudtech.com/*'),
+  '_redirects must 301 www.leadshunter to the apex host.',
+);
 
 const robots = read('public/robots.txt');
 required(robots.includes(`Sitemap: ${SITE_ORIGIN}/sitemap.xml`), 'robots.txt must declare this host sitemap.');
@@ -87,6 +93,11 @@ if (exists('dist/index.html')) {
   );
   required(read('dist/en/index.html').includes(IDENTITY.en.title), 'English HTML must use English title.');
   required(!read('dist/_redirects').includes('/index.html   200'), 'Built _redirects must not SPA-fallback.');
+  required(
+    read('dist/_redirects').includes('https://www.leadshunter.lancloudtech.com/*'),
+    'Built _redirects must 301 www.leadshunter.',
+  );
+  required(exists('dist/functions/_middleware.js'), 'Built dist must include www middleware.');
   required(UMAMI_WEBSITE_IDS.leadshunter, 'LeadsHunter Umami website id must be provisioned.');
   required(built.includes(`${UMAMI_ORIGIN}${UMAMI_SCRIPT_PATH}`), 'Built homepage must embed Umami.');
   required(built.includes(UMAMI_WEBSITE_IDS.leadshunter), 'Built homepage must use the LeadsHunter Umami id.');
@@ -104,6 +115,10 @@ if (exists('dist-guide/index.html')) {
   required(exists('dist-guide/robots.txt'), 'Guide host must ship its own robots.txt.');
   required(exists('dist-guide/sitemap.xml'), 'Guide host must ship its own sitemap.');
   required(!read('dist-guide/_redirects').includes('/index.html   200'), 'Guide must not SPA-fallback.');
+  required(
+    read('dist-guide/_redirects').includes('https://www.leadshunter-guide.lancloudtech.com/*'),
+    'Guide _redirects must 301 www.leadshunter-guide.',
+  );
   required(!read('dist-guide/sitemap.xml').includes('leadshunter.lancloudtech.com/'), 'Guide sitemap lists only this host.');
   required(guide.includes(UMAMI_WEBSITE_IDS.guide), 'Guide HTML must use the guide Umami id.');
   required(read('dist-guide/en/index.html').includes(UMAMI_WEBSITE_IDS.guide), 'Guide English HTML must embed Umami.');
@@ -116,6 +131,10 @@ if (exists('dist-contact/index.html')) {
   required(exists('dist-contact/en/index.html'), 'Contact English HTML must exist.');
   required(exists('dist-contact/robots.txt'), 'Contact host must ship its own robots.txt.');
   required(!read('dist-contact/sitemap.xml').includes('leadshunter-guide.lancloudtech.com'), 'Contact sitemap must stay on-host.');
+  required(
+    read('dist-contact/_redirects').includes('https://www.leadshunter-contact.lancloudtech.com/*'),
+    'Contact _redirects must 301 www.leadshunter-contact.',
+  );
   required(contact.includes(UMAMI_WEBSITE_IDS.contact), 'Contact HTML must use the contact Umami id.');
   required(read('dist-contact/en/index.html').includes(UMAMI_WEBSITE_IDS.contact), 'Contact English HTML must embed Umami.');
   required(read('dist-contact/404.html').includes(UMAMI_WEBSITE_IDS.contact), 'Contact 404 must embed Umami.');

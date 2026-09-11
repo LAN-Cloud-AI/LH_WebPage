@@ -308,6 +308,8 @@ fs.writeFileSync(
   path.join(root, 'public/sitemap.xml'),
   sitemap(),
 );
+fs.mkdirSync(path.join(dist, 'functions'), { recursive: true });
+fs.copyFileSync(path.join(root, 'functions/_middleware.js'), path.join(dist, 'functions/_middleware.js'));
 
 console.log(
   `PASS: locale HTML written for ${LOCALES.join(', ')}`,
