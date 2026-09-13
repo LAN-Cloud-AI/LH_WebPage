@@ -50,7 +50,9 @@ src/
 
 ## 主题
 
-深色是设计基线，`<html data-theme="dark">` 由 `index.html` 的内联脚本在首帧前落定，避免闪烁。用户显式点击切换按钮后写入 `localStorage.lh-theme`，浅色主题通过 `[data-theme="light"]` 覆写同名 CSS 变量实现，无需重新加载。
+默认跟随系统亮暗模式，系统运行时切换会立即生效。导航中的主题选择提供「跟随系统 / 浅色 / 深色」；显式浅色或深色写入 `localStorage.lh-theme` 并优先于系统，选择跟随系统则移除该偏好。已有有效偏好继续保留，异常值或存储不可用时默认跟随系统。
+
+`public/theme-init.js` 在首帧前统一设置 `data-theme`、原生控件的 `color-scheme` 和浏览器 `theme-color`，React 订阅同一状态；跨标签页的偏好变更也会同步。页面 token 与 Tailwind 主题类均依赖 `data-theme`。产品截图为固定的真实 UI 示例，不根据系统主题替换成另一张图。
 
 ## 动效约定
 

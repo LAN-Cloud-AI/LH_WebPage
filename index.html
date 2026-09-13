@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="dark">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#080b11" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#f3f5f8" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f3f5f8" />
+    <script src="/theme-init.js"></script>
     <meta name="renderer" content="webkit" />
     <meta name="format-detection" content="telephone=no" />
 
@@ -211,17 +211,6 @@
       }
     </script>
 
-    <script>
-      // 在首帧前落定主题，避免深浅色闪烁。深色为默认，浅色需用户显式切换。
-      (() => {
-        try {
-          const saved = localStorage.getItem('lh-theme');
-          document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
-        } catch {
-          document.documentElement.dataset.theme = 'dark';
-        }
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>

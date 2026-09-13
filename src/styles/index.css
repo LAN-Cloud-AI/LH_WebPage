@@ -9,6 +9,7 @@
    @theme inline 让工具类直接引用这些变量，从而支持无刷新切换。
 --------------------------------------------------------------------------- */
 :root {
+  color-scheme: dark;
   --lh-bg: #080b11;
   --lh-bg-elev: #0c1018;
   --lh-surface: #121825;
@@ -44,6 +45,7 @@
 }
 
 [data-theme='light'] {
+  color-scheme: light;
   --lh-bg: #f3f5f8;
   --lh-bg-elev: #ffffff;
   --lh-surface: #ffffff;

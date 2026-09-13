@@ -18,6 +18,7 @@
     "seo:verify": "node scripts/verify-seo.mjs",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
+    "theme:verify": "node --test scripts/theme.test.mjs",
     "deploy": "npm run build && mkdir -p dist/functions && cp functions/_middleware.js dist/functions/ && npx wrangler pages deploy dist --project-name leadshunter-webpage --branch main --commit-dirty=true",
     "guide:render": "node scripts/product-guide/render-html.mjs",
     "guide:pdf": "node scripts/product-guide/export-pdf.mjs",

@@ -1,33 +1,56 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
-import { useTheme } from '../../lib/theme';
+import { useTheme, type ThemePreference } from '../../lib/theme';
+import { currentLocale } from '../../lib/locale';
 import { springSnappy } from '../../lib/motion';
 
 export function ThemeToggle({ className = '' }: { className?: string }) {
-  const { theme, toggle } = useTheme();
+  const { theme, preference, setPreference } = useTheme();
   const reduced = useReducedMotion();
   const isDark = theme === 'dark';
+  const labels = {
+    'zh-Hans': { title: '显示主题', system: '跟随系统', light: '浅色', dark: '深色' },
+    'zh-Hant': { title: '顯示主題', system: '跟隨系統', light: '淺色', dark: '深色' },
+    en: { title: 'Appearance', system: 'System', light: 'Light', dark: 'Dark' },
+  }[currentLocale()];
 
   return (
-    <button
-      type="button"
-      onClick={toggle}
-      className={`relative grid size-9 place-items-center overflow-hidden rounded-xl border border-line bg-surface-2 text-ink-muted transition-colors hover:border-line-strong hover:text-ink ${className}`}
-      aria-label={isDark ? '切换到浅色主题' : '切换到深色主题'}
+    <div
+      className={`relative grid size-9 place-items-center overflow-hidden rounded-xl border border-line bg-surface-2 text-ink-muted transition-colors hover:border-line-strong hover:text-ink focus-within:outline-2 focus-within:outline-brand ${className}`}
+      title={`${labels.title}: ${labels[preference]}`}
     >
       <AnimatePresence initial={false} mode="wait">
         <motion.span
-          key={theme}
+          key={`${preference}-${theme}`}
           initial={reduced ? { opacity: 0 } : { opacity: 0, rotate: -70, scale: 0.6 }}
           animate={reduced ? { opacity: 1 } : { opacity: 1, rotate: 0, scale: 1 }}
           exit={reduced ? { opacity: 0 } : { opacity: 0, rotate: 70, scale: 0.6 }}
           transition={springSnappy}
           className="absolute grid place-items-center"
         >
-          {isDark ? <MoonIcon /> : <SunIcon />}
+          {preference === 'system' ? <SystemIcon /> : isDark ? <MoonIcon /> : <SunIcon />}
         </motion.span>
       </AnimatePresence>
-    </button>
+      <select
+        aria-label={labels.title}
+        value={preference}
+        onChange={(event) => setPreference(event.target.value as ThemePreference)}
+        className="absolute inset-0 size-full cursor-pointer opacity-0"
+      >
+        <option value="system">{labels.system}</option>
+        <option value="light">{labels.light}</option>
+        <option value="dark">{labels.dark}</option>
+      </select>
+    </div>
+  );
+}
+
+function SystemIcon() {
+  return (
+    <svg viewBox="0 0 20 20" className="size-[1.1rem]" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <rect x="2" y="3" width="16" height="11" rx="2" />
+      <path d="M7 18h6M10 14v4" />
+    </svg>
   );
 }
 
