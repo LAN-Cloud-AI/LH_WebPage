@@ -50,9 +50,9 @@ src/
 
 ## 主题
 
-默认跟随系统亮暗模式，系统运行时切换会立即生效。导航中的主题选择提供「跟随系统 / 浅色 / 深色」；显式浅色或深色写入 `localStorage.lh-theme` 并优先于系统，选择跟随系统则移除该偏好。已有有效偏好继续保留，异常值或存储不可用时默认跟随系统。
+默认跟随系统亮暗模式，系统运行时切换会立即生效。页脚与移动端汉堡菜单均提供「跟随系统 / 白天 / 黑夜」可见开关，桌面导航保留快捷选择。显式浅色或深色写入 `localStorage['lancloud.theme']` 并优先于系统，选择跟随系统则移除该偏好。旧版 `lh-theme` 有效偏好在首次访问时迁移到新键，不覆盖已有新偏好；异常值或存储不可用时默认跟随系统。
 
-`public/theme-init.js` 在首帧前统一设置 `data-theme`、原生控件的 `color-scheme` 和浏览器 `theme-color`，React 订阅同一状态；跨标签页的偏好变更也会同步。页面 token 与 Tailwind 主题类均依赖 `data-theme`。产品截图为固定的真实 UI 示例，不根据系统主题替换成另一张图。
+`public/theme-init.js` 在首帧前统一设置 `data-theme`、原生控件的 `color-scheme` 和浏览器 `theme-color`，React 订阅同一状态；跨标签页的偏好变更也会同步。每次状态变化发送 `lan:theme-change` 事件，详情为 `{theme, preference}`，与公司站使用一致约定（不同域的偏好各自保存）。页面 token 与 Tailwind 主题类均依赖 `data-theme`。产品截图为固定的真实 UI 示例，不根据系统主题替换成另一张图。三语页面及 404 均沿用同一主题状态。
 
 ## 动效约定
 
@@ -126,7 +126,7 @@ Pages 项目：
 | 生产分支 | `main` |
 | 自定义域 | `leadshunter-contact.lancloudtech.com`（`www.` 301 到此） |
 
-`public/_headers`、`public/_redirects`、`robots.txt`、`sitemap.xml` 会随构建复制到 `dist/`。SPA 回退已配置为 `/* → /index.html 200`，静态文件仍优先。
+`public/_headers`、`public/_redirects`、`robots.txt`、`sitemap.xml` 会随构建复制到 `dist/`。未知路由返回真正的 404，不使用 SPA 200 回退；三语页面拥有各自的 canonical 与 hreflang。
 
 分享图必须用绝对 HTTPS 地址（微信爬虫不执行 JS、也不认相对路径）：
 

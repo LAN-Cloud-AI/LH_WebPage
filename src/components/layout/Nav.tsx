@@ -148,7 +148,7 @@ export function Nav({ lenisRef }: NavProps) {
               {ui.contact}
             </a>
             <LanguageSwitch className="hidden xl:flex" />
-            <ThemeToggle />
+            <ThemeToggle className="hidden xl:grid" />
             {/* 包一层来控制显隐：Button 自带 inline-flex，直接加 hidden 会互相覆盖 */}
             <span className="hidden xs:contents">
               <Button href={site.links.demoForm} size="md" external>
@@ -189,7 +189,7 @@ export function Nav({ lenisRef }: NavProps) {
         {open && (
           <motion.div
             id="mobile-nav"
-            className="fixed inset-0 z-40 bg-bg/96 px-5 pt-24 backdrop-blur-xl xl:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-bg/96 px-5 pb-8 pt-24 backdrop-blur-xl xl:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -214,6 +214,7 @@ export function Nav({ lenisRef }: NavProps) {
               ))}
             </nav>
             <LanguageSwitch className="mt-6" />
+            <ThemeToggle expanded className="mt-5" />
             <Button href={localizedGuideUrl()} variant="ghost" size="lg" className="mt-4 w-full" external>
               {ui.readGuide}
             </Button>

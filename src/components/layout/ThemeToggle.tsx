@@ -4,15 +4,37 @@ import { useTheme, type ThemePreference } from '../../lib/theme';
 import { currentLocale } from '../../lib/locale';
 import { springSnappy } from '../../lib/motion';
 
-export function ThemeToggle({ className = '' }: { className?: string }) {
+export function ThemeToggle({ className = '', expanded = false }: { className?: string; expanded?: boolean }) {
   const { theme, preference, setPreference } = useTheme();
   const reduced = useReducedMotion();
   const isDark = theme === 'dark';
   const labels = {
-    'zh-Hans': { title: '显示主题', system: '跟随系统', light: '浅色', dark: '深色' },
-    'zh-Hant': { title: '顯示主題', system: '跟隨系統', light: '淺色', dark: '深色' },
+    'zh-Hans': { title: '显示主题', system: '跟随系统', light: '白天', dark: '黑夜' },
+    'zh-Hant': { title: '顯示主題', system: '跟隨系統', light: '白天', dark: '黑夜' },
     en: { title: 'Appearance', system: 'System', light: 'Light', dark: 'Dark' },
   }[currentLocale()];
+
+  if (expanded) {
+    return (
+      <div className={className}>
+        <p className="mb-2 text-xs text-ink-faint">{labels.title}</p>
+        <div className="inline-flex max-w-full flex-wrap gap-1 rounded-xl border border-line bg-surface-2 p-1" role="group" aria-label={labels.title}>
+          {(['system', 'light', 'dark'] as const).map((value) => (
+            <button
+              key={value}
+              type="button"
+              aria-pressed={preference === value}
+              onClick={() => setPreference(value)}
+              className={`inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg px-3 text-xs transition-colors ${preference === value ? 'bg-bg-elev text-ink shadow-sm' : 'text-ink-muted hover:text-ink'}`}
+            >
+              {value === 'system' ? <SystemIcon /> : value === 'dark' ? <MoonIcon /> : <SunIcon />}
+              {labels[value]}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

@@ -214,13 +214,11 @@ const write404 = (locale) => {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${escapeHtml(id.siteName)} · 404</title>
     <meta name="robots" content="noindex" />
-    <link rel="canonical" href="${localeHome(SITE_ORIGIN, locale)}" />
+    <meta name="theme-color" content="#f3f5f8" />
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/error-page.css" />
+    <script src="/theme-controls.js" defer></script>
     ${upsertAnalytics('', 'leadshunter')}
-    <style>
-      body { font-family: system-ui, sans-serif; margin: 0; min-height: 100vh; display: grid; place-items: center; background: #080b11; color: #e8edf4; }
-      main { max-width: 28rem; padding: 2rem; text-align: center; }
-      a { color: #3d8bfd; }
-    </style>
   </head>
   <body>
     <main>
@@ -228,6 +226,7 @@ const write404 = (locale) => {
       <h1>${escapeHtml(locale === 'en' ? 'This page is not here' : locale === 'zh-Hant' ? '沒有這個頁面' : '没有这个页面')}</h1>
       <p>${escapeHtml(locale === 'en' ? 'The link may be wrong, or the page moved.' : locale === 'zh-Hant' ? '連結可能寫錯了，或頁面已經換了地址。' : '链接可能写错了，或页面已经换了地址。')}</p>
       <p><a href="${home}">${escapeHtml(locale === 'en' ? 'Back to home' : locale === 'zh-Hant' ? '回到首頁' : '回到首页')}</a></p>
+      <footer><div data-theme-controls role="group" aria-label="${locale === 'en' ? 'Appearance' : locale === 'zh-Hant' ? '顯示主題' : '显示主题'}"><button type="button" data-theme-option="system">${locale === 'en' ? 'System' : locale === 'zh-Hant' ? '跟隨系統' : '跟随系统'}</button><button type="button" data-theme-option="light">${locale === 'en' ? 'Light' : '白天'}</button><button type="button" data-theme-option="dark">${locale === 'en' ? 'Dark' : '黑夜'}</button></div></footer>
     </main>
   </body>
 </html>

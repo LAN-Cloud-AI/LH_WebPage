@@ -1,6 +1,7 @@
 import { localizedContactUrl, localizedGuideUrl, useContent } from '../../content/runtime';
 import { MailIcon, PhoneIcon } from '../primitives/Icons';
 import { LanguageSwitch } from './LanguageSwitch';
+import { ThemeToggle } from './ThemeToggle';
 
 const YEAR = new Date().getFullYear();
 
@@ -25,6 +26,7 @@ export function Footer() {
               {ui.footerBlurb}
             </p>
             <LanguageSwitch className="mt-4" />
+            <ThemeToggle expanded className="mt-5" />
           </div>
 
           <nav className="flex flex-wrap gap-x-8 gap-y-3" aria-label={ui.navAria}>
