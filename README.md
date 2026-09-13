@@ -50,9 +50,9 @@ src/
 
 ## 主题
 
-默认跟随系统亮暗模式，系统运行时切换会立即生效。页脚与移动端汉堡菜单均提供「跟随系统 / 白天 / 黑夜」可见开关，桌面导航保留快捷选择。显式浅色或深色写入 `localStorage['lancloud.theme']` 并优先于系统，选择跟随系统则移除该偏好。旧版 `lh-theme` 有效偏好在首次访问时迁移到新键，不覆盖已有新偏好；异常值或存储不可用时默认跟随系统。
+默认跟随系统亮暗模式，系统运行时切换会立即生效。页脚与移动端汉堡菜单均提供「跟随系统 / 白天 / 黑夜」可见开关，桌面导航保留快捷选择。偏好以 `system|light|dark` 写入 `localStorage['lancloud.theme']`；在正式域名下同时写入 `lancloud_theme` cookie（`Domain=lancloudtech.com; Path=/; SameSite=Lax; Secure`，有效期一年），使公司站与线索猎手之间延续用户选择。首帧以有效共享 cookie 优先，其次读取本域存储；返回页面或恢复前台时同步共享偏好。旧版 `lh-theme` 有效偏好在首次访问时迁移到新键，不覆盖已有新偏好；异常值或存储不可用时默认跟随系统。
 
-`public/theme-init.js` 在首帧前统一设置 `data-theme`、原生控件的 `color-scheme` 和浏览器 `theme-color`，React 订阅同一状态；跨标签页的偏好变更也会同步。每次状态变化发送 `lan:theme-change` 事件，详情为 `{theme, preference}`，与公司站使用一致约定（不同域的偏好各自保存）。页面 token 与 Tailwind 主题类均依赖 `data-theme`。产品截图为固定的真实 UI 示例，不根据系统主题替换成另一张图。三语页面及 404 均沿用同一主题状态。
+`public/theme-init.js` 在首帧前统一设置 `data-theme`、原生控件的 `color-scheme` 和浏览器 `theme-color`，React 订阅同一状态；跨标签页的偏好变更也会同步。每次状态变化发送 `lan:theme-change` 事件，详情为 `{theme, preference}`，与公司站使用一致约定。页面 token 与 Tailwind 主题类均依赖 `data-theme`。产品截图为固定的真实 UI 示例，不根据系统主题替换成另一张图。三语页面及 404 均沿用同一主题状态。
 
 ## 动效约定
 

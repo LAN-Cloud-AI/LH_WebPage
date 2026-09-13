@@ -5,6 +5,14 @@
   const system = window.matchMedia('(prefers-color-scheme: dark)');
   const listeners = new Set();
   const normalize = (value) => value === 'light' || value === 'dark' ? value : 'system';
+  const sharedDomain = /(^|\.)lancloudtech\.com$/.test(location.hostname);
+  const cookiePreference = () => {
+    if (!sharedDomain) return null;
+    try {
+      const value = document.cookie.split(/;\s*/).find((item) => item.startsWith('lancloud_theme='))?.split('=')[1];
+      return ['system', 'light', 'dark'].includes(value) ? value : null;
+    } catch { return null; }
+  };
   let preference = 'system';
   try {
     const saved = localStorage.getItem(key);
@@ -14,6 +22,7 @@
     if (saved === null && preference !== 'system') localStorage.setItem(key, preference);
     localStorage.removeItem(legacyKey);
   } catch { /* private mode */ }
+  preference = cookiePreference() ?? preference;
   let snapshot;
 
   const apply = () => {
@@ -39,10 +48,12 @@
     },
     setPreference(value) {
       preference = normalize(value);
-      try {
-        if (preference === 'system') localStorage.removeItem(key);
-        else localStorage.setItem(key, preference);
-      } catch { /* The current tab still respects an explicit choice. */ }
+      try { localStorage.setItem(key, preference); } catch { /* The current tab still respects an explicit choice. */ }
+      if (sharedDomain) {
+        try {
+          document.cookie = `lancloud_theme=${preference}; Domain=lancloudtech.com; Path=/; Max-Age=31536000; SameSite=Lax${location.protocol === 'https:' ? '; Secure' : ''}`;
+        } catch { /* Storage restrictions do not prevent changing the current page. */ }
+      }
       apply();
     },
   };
@@ -53,5 +64,12 @@
     preference = normalize(event.newValue);
     apply();
   });
+  // Another company subdomain can change the shared preference while this page is in the background.
+  const restore = () => {
+    preference = cookiePreference() ?? preference;
+    apply();
+  };
+  window.addEventListener('pageshow', restore);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) restore(); });
   apply();
 })();
