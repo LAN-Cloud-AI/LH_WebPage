@@ -54,6 +54,8 @@ src/
 
 `public/theme-init.js` 在首帧前统一设置 `data-theme`、原生控件的 `color-scheme` 和浏览器 `theme-color`，React 订阅同一状态；跨标签页的偏好变更也会同步。每次状态变化发送 `lan:theme-change` 事件，详情为 `{theme, preference}`，与公司站使用一致约定。页面 token 与 Tailwind 主题类均依赖 `data-theme`。产品截图为固定的真实 UI 示例，不根据系统主题替换成另一张图。三语页面及 404 均沿用同一主题状态。
 
+构建将主题引导脚本发布为 `theme-init.<内容指纹>.js`，三语首页和 404 同步引用当前指纹，避免 Cloudflare 区域缓存规则覆盖源站缓存头后继续使用旧主题逻辑。
+
 ## 动效约定
 
 - 滚动联动、共享布局、进出场统一走 `motion/react`；跑马灯、网格底纹、极光光斑走纯 CSS，避免占用主线程

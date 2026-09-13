@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 import {
   COMPANY_ORIGIN,
   CONTACT_ORIGIN,
@@ -24,6 +25,10 @@ import { upsertAnalytics } from './site-analytics.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
+// A content-addressed bootstrap also stays fresh when the zone overrides browser cache headers.
+const themeInit = fs.readFileSync(path.join(root, 'public/theme-init.js'));
+const themeInitName = `theme-init.${createHash('sha256').update(themeInit).digest('hex').slice(0, 12)}.js`;
+fs.writeFileSync(path.join(dist, themeInitName), themeInit);
 
 const upsertMeta = (html, attr, key, content) => {
   const named = new RegExp(
@@ -215,7 +220,7 @@ const write404 = (locale) => {
     <title>${escapeHtml(id.siteName)} · 404</title>
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#f3f5f8" />
-    <script src="/theme-init.js"></script>
+    <script src="/${themeInitName}"></script>
     <link rel="stylesheet" href="/error-page.css" />
     <script src="/theme-controls.js" defer></script>
     ${upsertAnalytics('', 'leadshunter')}
@@ -286,7 +291,8 @@ ${urls}
 `;
 };
 
-const source = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
+const source = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
+  .replace('src="/theme-init.js"', `src="/${themeInitName}"`);
 for (const locale of LOCALES) {
   const html = patchHtml(source, locale);
   const prefix = locale === DEFAULT_LOCALE ? '' : locale === 'en' ? 'en' : 'zh-Hant';

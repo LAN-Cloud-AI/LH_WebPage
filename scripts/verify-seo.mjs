@@ -81,6 +81,15 @@ required(exists('product-guide/zh-Hant.md'), 'Traditional Chinese guide markdown
 
 if (exists('dist/index.html')) {
   const built = read('dist/index.html');
+  const themeBootstrap = built.match(/<script src="\/(theme-init\.[a-f0-9]{12}\.js)"><\/script>/)?.[1];
+  required(themeBootstrap && exists(`dist/${themeBootstrap}`), 'Built pages must use the current content-addressed theme bootstrap.');
+  for (const prefix of ['', 'en/', 'zh-Hant/']) {
+    for (const file of ['index.html', '404.html']) {
+      const page = read(`dist/${prefix}${file}`);
+      required(page.includes(`src="/${themeBootstrap}"`), `${prefix}${file} must load the same theme bootstrap before paint.`);
+      required(page.indexOf(`src="/${themeBootstrap}"`) < page.indexOf('</head>'), `${prefix}${file} must resolve appearance in the document head.`);
+    }
+  }
   required(built.includes('hreflang="zh-Hant"'), 'Built homepage must list zh-Hant hreflang.');
   required(built.includes('<noscript>'), 'Built homepage must include noscript copy.');
   required(exists('dist/en/index.html'), 'Built English homepage must exist.');
