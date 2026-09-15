@@ -1,3 +1,13 @@
+---
+title: 線索獵手｜產品介紹與使用說明
+type: guide
+status: current
+owner: Kaison
+updated: 2026-09-09
+related:
+  - product-guide/README.md
+  - product-guide/线索猎手-产品介绍与使用说明.md
+---
 # 線索獵手｜產品介紹與使用說明
 
 > **讓公開表達的購車需求，成為門店可以發現、理解和跟進的銷售機會。**
