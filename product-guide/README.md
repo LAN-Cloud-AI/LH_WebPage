@@ -1,3 +1,15 @@
+---
+title: 线索猎手｜产品介绍与使用说明
+type: overview
+status: current
+owner: Kaison
+updated: 2026-09-09
+related:
+  - product-guide/线索猎手-产品介绍与使用说明.md
+  - product-guide/en.md
+  - product-guide/zh-Hant.md
+  - contact-sales/README.md
+---
 # 线索猎手｜产品介绍与使用说明
 
 让公开表达的购车需求，成为门店可以发现、理解和跟进的销售机会。

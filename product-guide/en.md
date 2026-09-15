@@ -1,3 +1,13 @@
+---
+title: LeadsHunter｜Product introduction and user guide
+type: guide
+status: current
+owner: Kaison
+updated: 2026-09-09
+related:
+  - product-guide/README.md
+  - product-guide/线索猎手-产品介绍与使用说明.md
+---
 # LeadsHunter｜Product introduction and user guide
 
 > **Turn publicly expressed car-buying demand into sales opportunities that stores can find, understand, and follow up.**

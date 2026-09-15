@@ -1,3 +1,13 @@
+---
+title: 线索猎手｜联系销售
+type: runbook
+status: current
+owner: Kaison
+updated: 2026-09-09
+related:
+  - README.md
+  - product-guide/README.md
+---
 # 线索猎手｜联系销售
 
 独立 Cloudflare Pages，只放销售经理联系方式。

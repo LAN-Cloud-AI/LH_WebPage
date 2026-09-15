@@ -1,3 +1,10 @@
+---
+title: 线索猎手 · 产品官网
+type: overview
+status: current
+owner: Kaison
+updated: 2026-08-01
+---
 # 线索猎手 · 产品官网
 
 仓库：[LAN-Cloud-AI/LH_WebPage](https://github.com/LAN-Cloud-AI/LH_WebPage)
@@ -138,3 +145,54 @@ Pages 项目：
 微信会缓存卡片。上线或换图后，用[微信公众平台分享调试](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html)或把链接丢进文件传输助手再分享，必要时给图片加 `?v=` 版本号清缓存。
 
 base path 默认 `/`。本站是正式产品官网，不要再并入公司站 `/leadshunter/` 路由。
+
+<!-- docs-map:readme:start -->
+---
+title: LH_WebPage 文档地图
+type: map
+status: current
+owner: Kaison
+updated: 2026-09-09
+tags: [docs, navigation]
+---
+
+# LH_WebPage 文档地图
+
+> 本文件由 `scripts/docs-map.mjs` 生成，请勿手工编辑。
+> 修改文档元数据请改对应文件的 frontmatter，然后重新生成。
+> 六仓总图与主题线见 [LeadsHunter 文档总图](https://github.com/LAN-Cloud-AI/leadsHunter/blob/main/docs/DOC_MAP.md)。
+
+## 现行文档
+
+### 总览
+| 文档 | 说明 | 更新 |
+|------|------|------|
+| [线索猎手｜产品介绍与使用说明](../product-guide/README.md) | 线索猎手｜产品介绍与使用说明 | 2026-09-09 |
+| [线索猎手 · 产品官网](../README.md) | 线索猎手 · 产品官网 | 2026-08-01 |
+
+### 运行手册
+| 文档 | 说明 | 更新 |
+|------|------|------|
+| [线索猎手｜联系销售](../contact-sales/README.md) | 线索猎手｜联系销售 | 2026-09-09 |
+
+### 指南
+| 文档 | 说明 | 更新 |
+|------|------|------|
+| [LeadsHunter｜Product introduction and user guide](../product-guide/en.md) | LeadsHunter｜Product introduction and user guide | 2026-09-09 |
+| [線索獵手｜產品介紹與使用說明](../product-guide/zh-Hant.md) | 線索獵手｜產品介紹與使用說明 | 2026-09-09 |
+| [线索猎手｜产品介绍与使用说明](../product-guide/线索猎手-产品介绍与使用说明.md) | 线索猎手｜产品介绍与使用说明 | 2026-09-09 |
+
+### 参考
+| 文档 | 说明 | 更新 |
+|------|------|------|
+| [资料来源与图片索引](../product-guide/资料来源与图片索引.md) | 资料来源与图片索引 | 2026-09-08 |
+| [长沙小鹏直营｜案例统计口径与举证索引](../product-guide/长沙小鹏直营-案例统计口径.md) | 长沙小鹏直营｜案例统计口径与举证索引 | 2026-09-08 |
+
+## 归档文档
+
+（无）
+
+## 统计
+
+共 8 份文档：现行 8，归档 0。
+<!-- docs-map:readme:end -->
