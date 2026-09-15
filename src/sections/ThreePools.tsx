@@ -1,7 +1,7 @@
 import { motion, useInView, useReducedMotion } from 'motion/react';
 import { useRef, useState } from 'react';
 
-import { poolsSection } from '../content/site';
+import { useContent } from '../content/runtime';
 import { easeOutQuint, springSoft } from '../lib/motion';
 import { GridBackdrop, Orb } from '../components/primitives/Backdrop';
 import { Reveal } from '../components/primitives/Reveal';
@@ -14,6 +14,7 @@ const TONE: Record<'neutral' | 'brand' | 'accent', string> = {
 };
 
 export function ThreePools() {
+  const { poolsSection } = useContent();
   const [active, setActive] = useState(0);
 
   return (
@@ -101,6 +102,7 @@ const PARTICLES = 9;
  * 粒子用 CSS/motion 的 keyframes 在三段之间循环，不逐帧计算位置。
  */
 function PoolFlow({ active }: { active: number }) {
+  const { poolsSection } = useContent();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: '-15% 0px' });
   const reduced = useReducedMotion();

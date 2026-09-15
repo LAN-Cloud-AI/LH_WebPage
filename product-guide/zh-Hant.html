@@ -1,0 +1,1205 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12314e">
+<title>線索獵手｜產品介紹與使用說明</title>
+<meta name="description" content="從抖音、小紅書發現購車需求，AI 識別意向、分發線索。了解後台與 APP 用法及長沙小鵬使用成果。">
+<meta name="application-name" content="線索獵手">
+<link rel="canonical" href="https://leadshunter-guide.lancloudtech.com/zh-Hant/">
+<link rel="alternate" hreflang="zh-CN" href="https://leadshunter-guide.lancloudtech.com/">
+<link rel="alternate" hreflang="zh-Hant" href="https://leadshunter-guide.lancloudtech.com/zh-Hant/">
+<link rel="alternate" hreflang="en" href="https://leadshunter-guide.lancloudtech.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://leadshunter-guide.lancloudtech.com/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="線索獵手">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://leadshunter-guide.lancloudtech.com/zh-Hant/">
+<meta property="og:title" content="線索獵手｜產品介紹與使用說明">
+<meta property="og:description" content="從抖音、小紅書發現購車需求，AI 識別意向、分發線索。了解後台與 APP 用法及長沙小鵬使用成果。">
+<meta property="og:image" content="https://leadshunter-guide.lancloudtech.com/assets/leadshunter-app-logo.jpg?v=0824442c0788">
+<meta property="og:image:secure_url" content="https://leadshunter-guide.lancloudtech.com/assets/leadshunter-app-logo.jpg?v=0824442c0788">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="線索獵手">
+<meta itemprop="name" content="線索獵手｜產品介紹與使用說明">
+<meta itemprop="description" content="從抖音、小紅書發現購車需求，AI 識別意向、分發線索。了解後台與 APP 用法及長沙小鵬使用成果。">
+<meta itemprop="image" content="https://leadshunter-guide.lancloudtech.com/assets/leadshunter-app-logo.jpg?v=0824442c0788">
+<link rel="image_src" href="https://leadshunter-guide.lancloudtech.com/assets/leadshunter-app-logo.jpg?v=0824442c0788">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="線索獵手｜產品介紹與使用說明">
+<meta name="twitter:description" content="從抖音、小紅書發現購車需求，AI 識別意向、分發線索。了解後台與 APP 用法及長沙小鵬使用成果。">
+<meta name="twitter:image" content="https://leadshunter-guide.lancloudtech.com/assets/leadshunter-app-logo.jpg?v=0824442c0788">
+<meta name="twitter:image:alt" content="線索獵手">
+<link rel="icon" type="image/png" sizes="256x256" href="../assets/leadshunter-app-icon.png?v=0824442c0788">
+<link rel="apple-touch-icon" sizes="256x256" href="../assets/leadshunter-app-icon.png?v=0824442c0788">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"線索獵手｜產品介紹與使用說明","name":"線索獵手｜產品介紹與使用說明","description":"從抖音、小紅書發現購車需求，AI 識別意向、分發線索。了解後台與 APP 用法及長沙小鵬使用成果。","inLanguage":"zh-Hant","url":"https://leadshunter-guide.lancloudtech.com/zh-Hant/","image":"https://leadshunter-guide.lancloudtech.com/assets/leadshunter-app-logo.jpg","author":{"@type":"Organization","name":"四川蘭芯雲朵智能科技有限公司","url":"https://leadshunter.lancloudtech.com"},"publisher":{"@type":"Organization","name":"四川蘭芯雲朵智能科技有限公司","url":"https://leadshunter.lancloudtech.com"}}</script>
+
+<script defer src="https://stats.lancloudtech.com/u.js" data-website-id="022c8956-5069-4b9f-9141-8b7fa35f603a" data-do-not-track="true" data-lan-analytics="umami"></script>
+
+<style>
+:root {
+  --accent-400: #3392ff;
+  --accent-500: #1d7ff0;
+  --accent-600: #0d6de0;
+  --text-primary: #12141a;
+  --text-secondary: #5b6472;
+  --text-tertiary: #8a94a3;
+  --text-on-hero: #e8eef6;
+  --bg: #f4f6f9;
+  --bg-card: #ffffff;
+  --bg-soft: #f7f8fa;
+  --line: #ebeff5;
+  --line-strong: #d8deea;
+  --hero-from: #0c1524;
+  --hero-via: #12314e;
+  --hero-to: #0f7a78;
+  --teal: #0f8f8a;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 1px rgb(0 0 0 / 0.05), 0 8px 24px -16px rgb(16 32 56 / 0.18);
+  --shadow-bar: 0 -8px 28px rgb(16 32 56 / 0.08);
+  --shadow-drawer: 0 1px 0 rgb(0 0 0 / 0.02), 0 1px 12px rgb(0 0 0 / 0.06), 0 0 1px rgb(0 0 0 / 0.22);
+  --topbar-h: 56px;
+  --banner-h: 72px;
+  --font: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font: 16px/1.75 var(--font);
+  color: var(--text-primary);
+  background: var(--bg);
+  padding-bottom: calc(var(--banner-h) + env(safe-area-inset-bottom, 0px));
+}
+body.menu-open { overflow: hidden; }
+a { color: var(--accent-600); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; height: auto; }
+button { font: inherit; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--topbar-h);
+  padding: 8px 12px;
+  padding-top: max(8px, env(safe-area-inset-top, 0px));
+  background: rgb(255 255 255 / 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+.brand:hover { text-decoration: none; }
+.brand img { width: 28px; height: 28px; border-radius: 7px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+.brand-name { font-size: 14px; font-weight: 650; }
+.brand-sub { font-size: 11px; color: var(--text-tertiary); }
+.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.locale-switch { display: flex; gap: 8px; font-size: 12px; }
+.locale-switch a { color: inherit; text-decoration: none; opacity: 0.7; }
+.locale-switch a[aria-current="page"] { opacity: 1; font-weight: 600; }
+
+.icon-btn,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--bg-soft);
+  color: var(--text-primary);
+  border: 1px solid var(--line);
+}
+.icon-btn:hover { background: #eef2f7; text-decoration: none; }
+.icon-btn[aria-expanded="true"] { background: #e8f1fd; border-color: #c5dbf7; color: var(--accent-600); }
+.btn {
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.btn:hover { text-decoration: none; }
+.btn-primary {
+  color: white;
+  background: linear-gradient(180deg, var(--accent-400), var(--accent-600));
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.25) inset;
+}
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-ghost {
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: 1px solid var(--line-strong);
+}
+.btn-ghost:hover { background: var(--bg-soft); }
+.btn-hero {
+  color: white;
+  border: 1px solid rgb(255 255 255 / 0.28);
+  background: rgb(255 255 255 / 0.1);
+}
+.btn-hero:hover { background: rgb(255 255 255 / 0.18); }
+
+.burger { position: relative; width: 16px; height: 12px; }
+.burger i {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  border-radius: 99px;
+  background: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.burger i:nth-child(1) { top: 0; }
+.burger i:nth-child(2) { top: 5px; }
+.burger i:nth-child(3) { top: 10px; }
+.icon-btn[aria-expanded="true"] .burger i:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.icon-btn[aria-expanded="true"] .burger i:nth-child(2) { opacity: 0; }
+.icon-btn[aria-expanded="true"] .burger i:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgb(10 16 28 / 0.36);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+body.menu-open .backdrop { opacity: 1; pointer-events: auto; }
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 70;
+  width: min(320px, 88vw);
+  height: 100dvh;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 24px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-drawer);
+  transform: translateX(-105%);
+  transition: transform 0.24s ease;
+  overflow: auto;
+}
+body.menu-open .drawer { transform: none; }
+.drawer-kicker {
+  margin: 8px 8px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.drawer a {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 10px;
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.45;
+}
+.drawer a:hover { background: var(--bg-soft); text-decoration: none; }
+.drawer .index {
+  width: 22px;
+  flex: 0 0 auto;
+  padding-top: 2px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-tertiary);
+}
+.drawer .download { margin-top: 10px; width: 100%; }
+
+.hero {
+  color: white;
+  background: linear-gradient(125deg, var(--hero-from), var(--hero-via) 64%, var(--hero-to));
+  padding: 36px 20px 32px;
+}
+.hero-inner { max-width: 1080px; margin: 0 auto; }
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: #9fe4e1;
+  font-weight: 700;
+}
+.hero h1 {
+  font-size: clamp(2rem, 8vw, 3.4rem);
+  line-height: 1.15;
+  margin: 10px 0 6px;
+  letter-spacing: 0.04em;
+}
+.hero .subtitle { font-size: clamp(1.1rem, 4vw, 1.45rem); margin: 0 0 12px; color: #dce8f2; }
+.hero p { margin: 0; max-width: 40rem; color: var(--text-on-hero); font-size: 15px; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.chips span {
+  border: 1px solid rgb(255 255 255 / 0.22);
+  background: rgb(255 255 255 / 0.1);
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 12px;
+  color: #def4f3;
+}
+
+main {
+  max-width: 1080px;
+  margin: -18px auto 0;
+  padding: 28px 20px 48px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-card);
+}
+main > p, main > ol, main > ul { margin: 16px 0; }
+h2 {
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  line-height: 1.4;
+  margin: 48px 0 18px;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-primary);
+}
+h3 { font-size: 1.15rem; line-height: 1.5; margin: 30px 0 12px; }
+strong { color: #15233a; }
+a[id] { display: block; scroll-margin-top: calc(var(--topbar-h) + 16px); }
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 8px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+}
+.quick-links p { margin: 0; width: 100%; font-size: 13px; color: var(--text-secondary); }
+.quick-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+.quick-links a:hover { border-color: var(--accent-400); color: var(--accent-600); text-decoration: none; }
+
+.hint { font-size: 12px; color: var(--text-tertiary); text-align: right; margin: 0 0 8px; }
+
+figure {
+  margin: 22px 0 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-soft);
+  box-shadow: var(--shadow-card);
+}
+.image-button { display: block; width: 100%; border: 0; background: none; padding: 0; cursor: zoom-in; }
+.image-button img { display: block; width: 100%; height: auto; }
+.form .image-button, .detail .image-button { max-width: 730px; margin: 20px auto; }
+.phone .image-button { max-width: 220px; margin: 16px auto; }
+.phone img { border-radius: 16px; box-shadow: 0 14px 40px rgb(16 32 56 / 0.12); }
+.qr .image-button { max-width: 180px; margin: 16px auto; }
+.qr img { border-radius: 8px; background: #fff; }
+.store .image-button { max-width: 470px; margin: 20px auto; }
+figcaption {
+  background: var(--bg-card);
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--line);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 18px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th {
+  background: var(--bg-soft);
+  color: var(--text-primary);
+  text-align: left;
+  font-weight: 650;
+}
+th, td { padding: 11px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border: 0; }
+li { margin: 6px 0; }
+blockquote {
+  margin: 18px 0;
+  padding: 14px 16px;
+  border: 1px solid #cfe8e6;
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: #f3faf9;
+}
+code {
+  font: 13px ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--bg-soft);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.site-footer {
+  max-width: 1080px;
+  margin: 0 auto 12px;
+  padding: 18px 20px 8px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+.site-footer a { margin-right: 12px; }
+
+.sales-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 45;
+  background: rgb(255 255 255 / 0.96);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--shadow-bar);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.sales-banner__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  min-height: var(--banner-h);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sales-banner__copy { min-width: 0; }
+.sales-banner__kicker {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--accent-600);
+}
+.sales-banner__title {
+  margin: 3px 0 0;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+.sales-banner__cta {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+dialog {
+  border: 0;
+  padding: 16px;
+  background: #102c42ef;
+  width: 96vw;
+  max-width: 1700px;
+  max-height: 96vh;
+  border-radius: 12px;
+}
+dialog::backdrop { background: #071523d9; }
+dialog img { display: block; max-width: 100%; max-height: 85vh; object-fit: contain; margin: auto; }
+dialog button {
+  display: block;
+  margin: 0 0 12px auto;
+  border: 0;
+  background: white;
+  padding: 7px 16px;
+  border-radius: 8px;
+  color: #143653;
+  cursor: pointer;
+}
+
+@media (min-width: 720px) {
+  :root { --banner-h: 80px; }
+  .hero { padding: 56px 32px 48px; }
+  main { padding: 36px 40px 64px; }
+  .sales-banner__cta { min-height: 40px; padding: 0 18px; }
+}
+
+@media (max-width: 719px) {
+  :root { --banner-h: 84px; }
+  body { font-size: 15px; }
+  main { margin-top: 0; border-radius: 0; border-left: 0; border-right: 0; padding: 20px 16px 36px; }
+  h2 { margin-top: 36px; }
+  th, td { padding: 10px; }
+  .phone .image-button { max-width: 200px; }
+  .sales-banner__inner { gap: 12px; padding: 10px 12px; }
+  .sales-banner__kicker { font-size: 12px; }
+  .sales-banner__title { font-size: 13px; }
+  .wide-only { display: none; }
+}
+
+@media print {
+  body { background: white; font-size: 10pt; line-height: 1.6; padding-bottom: 0; color: #16324b; }
+  .topbar, .drawer, .backdrop, .sales-banner, .chips, .hint, dialog { display: none !important; }
+  .hero {
+    padding: 20px 24px 24px;
+    background: #edf4f9;
+    color: #12314e;
+    border-radius: 10px;
+  }
+  .hero .subtitle, .hero p { color: #234964; }
+  .hero h1 { font-size: 34pt; }
+  main {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  h2 { break-before: page; margin-top: 20px; }
+  h3 { break-after: avoid; }
+  figure { break-inside: avoid; box-shadow: none; }
+  .image-button { cursor: default; }
+  .wide .image-button img { max-height: 146mm; max-width: 100%; width: auto; margin: auto; object-fit: contain; }
+  .phone .image-button { max-width: 48mm; }
+  .qr .image-button { max-width: 42mm; }
+  .store .image-button { max-width: 72mm; }
+  .form .image-button, .detail .image-button { max-width: 155mm; }
+  figcaption { font-size: 8.5pt; }
+  .table-scroll { overflow: visible; }
+  table { font-size: 9pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  .site-footer { background: white; border-top: 1px solid #dce5ed; }
+}
+
+@page {
+  size: A4;
+  margin: 14mm 14mm 18mm;
+  @bottom-right {
+    content: "LeadsHunter  ·  " counter(page) " / " counter(pages);
+    font: 8pt Arial, sans-serif;
+    color: #617589;
+  }
+}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <button class="icon-btn" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="打開目錄">
+    <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+  <a class="brand" href="https://leadshunter.lancloudtech.com/zh-Hant/">
+    <img src="../assets/leadshunter-app-icon.png" width="28" height="28" alt="">
+    <span class="brand-text">
+      <span class="brand-name">線索獵手</span>
+      <span class="brand-sub">產品介紹與使用說明</span>
+    </span>
+  </a>
+  <div class="topbar-actions">
+    <nav class="locale-switch" aria-label="Language"><a href="https://leadshunter-guide.lancloudtech.com/">简体</a> <a href="https://leadshunter-guide.lancloudtech.com/zh-Hant/" aria-current="page">繁體</a> <a href="https://leadshunter-guide.lancloudtech.com/en/">EN</a></nav>
+    <a class="btn btn-ghost" href="../leadshunter-guide.pdf" download="线索猎手-产品介绍与使用说明.pdf"><span class="wide-only">下載 </span>PDF</a>
+  </div>
+</header>
+
+<div class="backdrop" id="backdrop"></div>
+<nav class="drawer" id="menu" aria-label="手冊目錄">
+  <p class="drawer-kicker">目錄</p>
+  <a href="#what"><span class="index">01</span>線索獵手是什麼</a><a href="#why"><span class="index">02</span>為什麼有 DCC 和汽車垂媒，還需要線索獵手</a><a href="#channels"><span class="index">03</span>如何擴大經銷商的線索入口</a><a href="#console"><span class="index">04</span>後台怎麼用：配置、識別、指派與分發</a><a href="#app"><span class="index">05</span>APP 怎麼用：查看、篩選、提醒與跟進</a><a href="#partners"><span class="index">06</span>合作夥伴與使用效果</a><a href="#faq"><span class="index">07</span>日常使用清單與常見問題</a><a href="https://leadshunter-contact.lancloudtech.com/zh-Hant/"><span class="index">08</span>聯繫銷售經理</a>
+  <a class="btn btn-primary download" href="../leadshunter-guide.pdf" download="线索猎手-产品介绍与使用说明.pdf">下載 PDF</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">LEADSHUNTER · 產品圖文手冊</div>
+    <h1>線索獵手</h1>
+    <p class="subtitle">產品介紹與使用說明</p>
+    <p>讓公開表達的購車需求，成為門店可以發現、理解和跟進的銷售機會。</p>
+    <div class="chips">
+      <span>汽車經銷商 · DCC · 銷售顧問</span><span>後台 + APP</span><span>公域需求發現</span><span>長沙小鵬 · 使用案例</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hint">點擊配圖可放大查看</div>
+  
+
+<figure class="wide"><button class="image-button" aria-label="放大：圖01｜線索獵手從公域發現需求到銷售跟進的工作鏈路" data-image="../assets/20-value-chain.svg" data-alt="圖01｜線索獵手從公域發現需求到銷售跟進的工作鏈路"><img src="../assets/20-value-chain.svg" alt="圖01｜線索獵手從公域發現需求到銷售跟進的工作鏈路"></button><figcaption>圖 01｜產品全景：從公開評論、帖子中發現需求，經 AI 判斷和後台分配，交付銷售在 APP 中查看，再回到原平台開展溝通。</figcaption></figure>
+<div class="quick-links"><p>快速入口</p><a href="https://leadshunter.lancloudtech.com/">產品官網</a><a href="https://aliyun-control-pannel-leadshunter.lancloudtech.com/">線索獵手後台</a><a href="https://appstore.lancloudtech.com/app?id=leadshunter">APP 應用商店</a><a href="https://leadshunter-contact.lancloudtech.com/">聯繫銷售經理</a></div>
+<a id="what"></a>
+<h2>1. 線索獵手是什麼</h2>
+<p><strong>線索獵手（LeadsHunter）是一套面向汽車經銷商和銷售團隊的公域獲客與線索交付工具。</strong> 它幫助門店在抖音、小紅書等公開內容中尋找購車需求，用 AI 判斷意向、整理上下文和跟進建議，再把適合處理的線索分配給門店與銷售顧問。</p>
+<p>潛在客戶的需求，往往已經寫在公開內容裡：有人在評論區問「長沙落地多少」，有人詢問現車、置換或試駕，也有人直接發帖尋找銷售、比較車型。線索獵手把這些分散的需求表達整理成可閱讀、可篩選、可分配的工作對象。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>門店關心的問題</th>
+<th>線索獵手提供的資訊或能力</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>哪裡還有客戶需求？</td>
+<td>關鍵詞搜尋、目標帳號作品評論、使用者主動發布的需求帖子</td>
+</tr>
+<tr>
+<td>哪些值得優先看？</td>
+<td>高意向、中意向等 AI 判斷及其理由</td>
+</tr>
+<tr>
+<td>客戶到底問了什麼？</td>
+<td>評論原文、帖子標題、正文與來源連結</td>
+</tr>
+<tr>
+<td>應該交給誰處理？</td>
+<td>組織歸屬、組織指派、帳號分發與接收帳號配置</td>
+</tr>
+<tr>
+<td>銷售下一步怎麼做？</td>
+<td>APP 查看詳情、參考建議動作、前往使用者主頁或原帖溝通</td>
+</tr>
+</tbody></table></div>
+<figure class="wide"><button class="image-button" aria-label="放大：圖02｜線索獵手後台總覽" data-image="../assets/01-dashboard.png" data-alt="圖02｜線索獵手後台總覽"><img src="../assets/01-dashboard.png" alt="圖02｜線索獵手後台總覽"></button><figcaption>圖 02｜後台總覽：上方展示內容、評論、評分和任務概況，中部展示意向分佈，下方展示抓取趨勢，幫助營運人員掌握需求分佈與處理進度。</figcaption></figure>
+<h3>一套產品，兩種工作介面</h3>
+<p><strong>後台是營運與分配的工作臺。</strong> 管理人員配置關注什麼、屬於哪家門店、誰接收線索，並檢查採集和交付過程。</p>
+<p><strong>APP 是銷售顧問的隨身線索工作臺。</strong> 銷售查看分給自己的有效線索，按意向與狀態安排優先順序，讀懂客戶需求後回到原平台跟進。</p>
+<p>線索獵手幫助門店發現需求、理解意向並安排跟進；銷售顧問結合客戶原話，繼續完成溝通、報價、邀約和成交。</p>
+<a id="why"></a>
+<h2>2. 為什麼有 DCC 和汽車垂媒，還需要線索獵手</h2>
+<p><strong>因為客戶在走到留資、接聽電話和預約到店之前，已經在社交平台表達了大量需求。</strong> 線索獵手為門店增加一個發現這些需求的入口，讓原有獲客與承接體系有機會覆蓋更早的購車討論階段。</p>
+<p>汽車垂媒帶來諮詢與留資，DCC 團隊負責溝通、培育和邀約。線索獵手補充抖音、小紅書等社交平台上的需求發現，讓門店在客戶主動留資之前就有機會建立聯繫。</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖03｜線索獵手與垂媒、DCC 的互補關係" data-image="../assets/21-channel-expansion.svg" data-alt="圖03｜線索獵手與垂媒、DCC 的互補關係"><img src="../assets/21-channel-expansion.svg" alt="圖03｜線索獵手與垂媒、DCC 的互補關係"></button><figcaption>圖 03｜兩條入口協同：既有渠道繼續承接主動留資，線索獵手補充公域需求發現；銷售與 DCC 按門店流程完成溝通和邀約。</figcaption></figure>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>維度</th>
+<th>汽車垂媒等既有渠道</th>
+<th>線索獵手補充的能力</th>
+<th>DCC / 銷售承接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>發現需求的位置</td>
+<td>車型內容、諮詢、詢價與留資路徑</td>
+<td>社交平台公開評論和主動發帖</td>
+<td>根據客戶需求繼續溝通</td>
+</tr>
+<tr>
+<td>典型需求表達</td>
+<td>提交諮詢、預約或聯繫方式</td>
+<td>「多少錢落地」「有沒有現車」「求推薦銷售」</td>
+<td>核實車型、預算、地區和購車計畫</td>
+</tr>
+<tr>
+<td>交給門店的資訊</td>
+<td>諮詢、詢價與客戶留資資訊</td>
+<td>公開原文、來源上下文、意向判斷和建議動作</td>
+<td>報價、邀約、到店與後續跟進</td>
+</tr>
+<tr>
+<td>對經營的作用</td>
+<td>持續承接已有渠道需求</td>
+<td>擴大可發現的人群與討論場景</td>
+<td>把機會推進為有效商機</td>
+</tr>
+</tbody></table></div>
+<h3>對門店最直接的三個價值</h3>
+<ol>
+<li><strong>增加發現機會的地方。</strong> 在客戶尚未給本店留資時，也能發現其公開表達的需求。</li>
+<li><strong>讓溝通更有上下文。</strong> 銷售先知道客戶在問哪個車型、什麼問題，再準備回應。</li>
+<li><strong>幫助安排跟進順序。</strong> 從大量內容中篩出高、中意向候選，結合日期和待跟進狀態安排工作。</li>
+</ol>
+<p>例如，面對一條「落地多少 長沙」的評論，銷售可以先透過原帖了解客戶關注的車型，準備本地報價與現車資訊，再圍繞客戶的問題展開溝通。<strong>帶著上下文聯繫客戶，讓每次跟進更有針對性。</strong></p>
+<blockquote>
+<p><strong>長沙小鵬直營使用案例：</strong> 兩家門店、4 名銷售在一個月的跟進台帳中記錄了 <strong>174 條跟進、62 條客戶回覆、36 條取得聯繫方式，以及 3 條鎖單反饋</strong>。<a href="#changsha-case">查看門店使用效果</a>。</p>
+</blockquote>
+<a id="channels"></a>
+<h2>3. 如何擴大經銷商的線索入口</h2>
+<h3>3.1 從「品牌詞」擴展到「城市 × 車型 × 需求」</h3>
+<p>關鍵詞組讓門店把經營範圍變成可執行的搜尋主題。除了品牌名，還可以圍繞城市、車型、落地價、試駕、現車、置換等組合配置。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>搜尋思路</th>
+<th>配置示例</th>
+<th>希望發現的需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>城市 + 品牌 / 車型</td>
+<td>長沙 小鵬；上海 智己</td>
+<td>本地或周邊購車討論</td>
+</tr>
+<tr>
+<td>車型 + 價格</td>
+<td>某車型 落地價；某車型 優惠</td>
+<td>詢價、預算、成交條件</td>
+</tr>
+<tr>
+<td>城市 + 交付需求</td>
+<td>東莞 某車型 現車</td>
+<td>現車、提車週期</td>
+</tr>
+<tr>
+<td>車型 + 用車決策</td>
+<td>某車型 試駕；某車型 置換</td>
+<td>體驗比較、換購需求</td>
+</tr>
+</tbody></table></div>
+<p>營運人員可根據實際回覆與留資情況，持續優化城市、車型和需求詞的組合。</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖04｜關鍵詞管理與接收帳號配置" data-image="../assets/02-keywords.png" data-alt="圖04｜關鍵詞管理與接收帳號配置"><img src="../assets/02-keywords.png" alt="圖04｜關鍵詞管理與接收帳號配置"></button><figcaption>圖 04｜關鍵詞入口：上方管理組、所屬組織、評分場景和接收帳號，下方維護關鍵詞、平台及搜尋範圍。圍繞「城市 + 品牌 + 落地」等主題配置關鍵詞，啟用組後參與定時採集。</figcaption></figure>
+<h3>3.2 從自己的內容，擴展到目標公開帳號的討論區</h3>
+<p>「競品配置」可以圍繞選定的公開帳號及其作品評論尋找需求。門店可關注與自身經營相關的車型、區域門店或汽車內容帳號，發現評論區中正在比較、諮詢和詢價的潛在客戶。</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖05｜競品帳號採集入口" data-image="../assets/04-competitors.png" data-alt="圖05｜競品帳號採集入口"><img src="../assets/04-competitors.png" alt="圖05｜競品帳號採集入口"></button><figcaption>圖 05｜競品配置：先建組，再新增目標帳號，也可透過批次匯入快速建立關注帳號清單。</figcaption></figure>
+<p>門店可以從這些公開作品和評論中，發現本地購車、車型比較和價格諮詢等需求。</p>
+<h3>3.3 從評論區，擴展到主動發帖的求購人群</h3>
+<p>有些客戶不會在門店影片下留言，而是自己發帖問「有銷售嗎」「這幾款車怎麼選」「誰有現車」。帖子組用於尋找這類完整的公開需求表達。</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖06｜小紅書帖子組配置" data-image="../assets/06-post-groups.png" data-alt="圖06｜小紅書帖子組配置"><img src="../assets/06-post-groups.png" alt="圖06｜小紅書帖子組配置"></button><figcaption>圖 06｜帖子組入口：上方選擇組織與帖子評分場景，下方配置搜尋詞。該入口面向小紅書帖子，幫助門店尋找使用者主動發布的求購需求。</figcaption></figure>
+<h3>3.4 從「搜到內容」，推進到「知道為什麼值得跟進」</h3>
+<p>AI 會結合內容與上下文進行意向判斷，區分高意向、中意向、弱意向、無意向和待覆核，並盡可能提供判斷依據和建議動作。高、中意向線索會按組織配置進入自動交付流程，供銷售優先處理。</p>
+<figure class="detail"><button class="image-button" aria-label="放大：圖07｜真實詢價評論的 AI 判斷" data-image="../assets/10-lead-analysis.png" data-alt="圖07｜真實詢價評論的 AI 判斷"><img src="../assets/10-lead-analysis.png" alt="圖07｜真實詢價評論的 AI 判斷"></button><figcaption>圖 07｜AI 意向分析：結合「落地多少 長沙」的評論和小鵬 MONA M03 原帖，識別本地詢價需求，並為銷售提供「私訊報價 + 邀約到店」的跟進建議。</figcaption></figure>
+<h3>3.5 從「發現機會」，推進到「交給具體的人」</h3>
+<figure class="wide"><button class="image-button" aria-label="放大：圖08｜線索歸屬、組織指派、帳號分發" data-image="../assets/22-three-pools.svg" data-alt="圖08｜線索歸屬、組織指派、帳號分發"><img src="../assets/22-three-pools.svg" alt="圖08｜線索歸屬、組織指派、帳號分發"></button><figcaption>圖 08｜三層線索池：歸屬池回答「與哪個組織相關」，組織指派池回答「已交給哪家門店」，帳號分發池回答「誰在 APP 裡能看到」。門店可據此明確線索歸屬與跟進負責人。</figcaption></figure>
+<p>配置好門店地區、每日配額和接收帳號後，管理員可在線索中心查看交付進度，銷售在 APP 中接收分給自己的線索。</p>
+<h3>當前平台範圍</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>能力</th>
+<th>當前範圍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>關鍵詞評論採集、競品帳號採集</td>
+<td>頁面支援抖音、小紅書、TikTok；關鍵詞的「全部平台」當前指抖音與小紅書</td>
+</tr>
+<tr>
+<td>帖子組</td>
+<td>僅小紅書帖子</td>
+</tr>
+<tr>
+<td>國內標準自動指派與分發</td>
+<td>抖音評論、小紅書評論、小紅書帖子中的高 / 中意向，按組織配置執行</td>
+</tr>
+<tr>
+<td>海外場景</td>
+<td>已有 TikTok 採集入口；語言場景、意向規則與具體交付方式按海外專案配置</td>
+</tr>
+</tbody></table></div>
+<a id="console"></a>
+<h2>4. 後台怎麼用：配置、識別、指派與分發</h2>
+<p>建議首次按這個順序開通：<strong>組織與帳號 → 建組 → 綁定接收人 → 新增關鍵詞或帳號 → 啟用採集 → 檢查線索 → APP 接收。</strong></p>
+<h3>4.1 登入後台，先確認自己的角色</h3>
+<p>使用組織分配的帳號登入<a href="https://aliyun-control-pannel-leadshunter.lancloudtech.com/">線索獵手後台</a>。左側選單隨角色變化，普通銷售主要使用 APP。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>角色</th>
+<th>主要工作</th>
+<th>可見範圍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系統管理員</td>
+<td>配置組織、配額、帳號；檢查任務；管理線索總庫和三層池</td>
+<td>平台管理範圍</td>
+</tr>
+<tr>
+<td>經銷商管理員</td>
+<td>維護本組織採集組、關鍵詞和接收人；把組織線索分給銷售</td>
+<td>本組織範圍</td>
+</tr>
+<tr>
+<td>銷售顧問</td>
+<td>在 APP 閱讀線索、篩選、查看通知和跟進</td>
+<td>分給自己的有效線索</td>
+</tr>
+</tbody></table></div>
+<p>經銷商管理員主要使用「組織指派池」和「帳號分發池」，管理本店線索與銷售接收情況。</p>
+<h3>4.2 系統管理員：建立組織，設定接收能力</h3>
+<p>進入 <strong>組織管理 → 新建組織</strong>，填寫組織名稱、銷售帳號上限、所在地等資訊，並按業務約定配置每日配額。</p>
+<figure class="form"><button class="image-button" aria-label="放大：圖09｜組織建立與配額設定表單" data-image="../assets/24-organization-form.png" data-alt="圖09｜組織建立與配額設定表單"><img src="../assets/24-organization-form.png" alt="圖09｜組織建立與配額設定表單"></button><figcaption>圖 09｜組織設定：銷售帳號上限限制組織可啟用的銷售帳號數量；六類每日配額分別對應抖音評論、小紅書評論、小紅書帖子的高、中意向。</figcaption></figure>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>設定項</th>
+<th>如何理解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>六類每日配額</td>
+<td>按組織共享額度執行</td>
+</tr>
+<tr>
+<td>配額填寫 0</td>
+<td>該類自動指派停用</td>
+</tr>
+<tr>
+<td>配額留空</td>
+<td>該類不設數量上限</td>
+</tr>
+<tr>
+<td>配額填寫正數</td>
+<td>該類每日自動指派上限</td>
+</tr>
+<tr>
+<td>僅同省線索</td>
+<td>開啟後自動指派只取同省線索；不足時不補外省，所在地為空時不自動指派</td>
+</tr>
+</tbody></table></div>
+<p>可根據門店的銷售人數與每日承接能力設定配額，並結合跟進情況調整。</p>
+<h3>4.3 建立銷售帳號</h3>
+<p>進入 <strong>使用者管理 → 新建帳號</strong>，填寫登入名、姓名、角色、組織和密碼。銷售帳號交付給對應人員使用；經銷商管理員只能在本組織範圍內建立銷售帳號。</p>
+<figure class="form"><button class="image-button" aria-label="放大：圖10｜銷售帳號建立表單" data-image="../assets/25-user-form.png" data-alt="圖10｜銷售帳號建立表單"><img src="../assets/25-user-form.png" alt="圖10｜銷售帳號建立表單"></button><figcaption>圖 10｜帳號設定：選擇「銷售」角色及所屬組織，帳號就與具體門店關聯。新建帳號的密碼至少 8 位。</figcaption></figure>
+<p>完成後，檢查帳號處於啟用狀態，並確認組織仍有可用帳號名額。</p>
+<h3>4.4 建組，並綁定接收線索的人</h3>
+<p>進入 <strong>關鍵詞 / 競品配置 / 帖子組</strong> 中的目標頁面，在上方點 <strong>新建組</strong>。</p>
+<figure class="form"><button class="image-button" aria-label="放大：圖11｜新建採集組表單" data-image="../assets/07-group-form.png" data-alt="圖11｜新建採集組表單"><img src="../assets/07-group-form.png" alt="圖11｜新建採集組表單"></button><figcaption>圖 11｜以帖子組為例：填寫組名稱，選擇適合業務的評分場景與所屬組織；場景不確定時由平台管理員確認。組名建議能看出門店、車型或用途，方便後續篩選和復盤。</figcaption></figure>
+<p>建組後，在該組的 <strong>接收帳號</strong> 下拉選單選擇接收人，再點 <strong>儲存帳號</strong>。關鍵詞頁面圖 04 展示了這一位置。</p>
+<p><strong>檢查結果</strong>：該組資料列中能看到預期接收帳號，組所屬組織正確。修改綁定只影響未來建立的任務；歷史線索需要在線索中心查看並處理，不會因為改了綁定就全部自動轉給新人。</p>
+<h3>4.5 新增關鍵詞：找到車型與需求討論</h3>
+<p>進入 <strong>關鍵詞 → 新增關鍵詞</strong>。</p>
+<figure class="form"><button class="image-button" aria-label="放大：圖12｜新增關鍵詞表單" data-image="../assets/03-keyword-form.png" data-alt="圖12｜新增關鍵詞表單"><img src="../assets/03-keyword-form.png" alt="圖12｜新增關鍵詞表單"></button><figcaption>圖 12｜關鍵詞設定：填寫搜尋詞、選擇已建立的組和平台，備註可記錄該詞的業務目的，例如「本地落地價諮詢」。</figcaption></figure>
+<ol>
+<li>填入搜尋詞，例如「長沙 小鵬 落地」。</li>
+<li>選擇對應關鍵詞組。</li>
+<li>選擇平台；「全部平台」當前為抖音與小紅書，TikTok 需單獨選擇。</li>
+<li>儲存後，在清單中檢查搜尋頁數、評論頁數與上次搜尋時間。</li>
+</ol>
+<p>擴大頁數會擴大本次搜尋範圍，也會增加處理量。建議先檢查少量結果是否相關，再按效果調整。</p>
+<h3>4.6 新增競品帳號：覆蓋目標作品評論</h3>
+<p>進入 <strong>競品配置 → 新增競品</strong>。</p>
+<figure class="form"><button class="image-button" aria-label="放大：圖13｜新增競品帳號表單" data-image="../assets/05-competitor-form.png" data-alt="圖13｜新增競品帳號表單"><img src="../assets/05-competitor-form.png" alt="圖13｜新增競品帳號表單"></button><figcaption>圖 13｜競品設定：選擇平台後，按頁面提示填寫帳號標識；抖音示例支援抖音號、sec_uid 或主頁連結。先建競品組，再選擇所屬組。</figcaption></figure>
+<p>填寫帳號標識、可選暱稱、所屬組與備註，儲存後檢查帳號是否出現在清單。各平台的帳號格式以對應表單提示為準。</p>
+<p>競品組適合圍繞明確的公開帳號持續觀察；關鍵詞組適合圍繞主題發現內容。兩種入口可以配合使用。</p>
+<h3>4.7 新增帖子關鍵詞：尋找主動求購帖</h3>
+<p>進入 <strong>帖子組</strong>，先建帖子組並配置評分場景，再點 <strong>新增關鍵詞</strong>。填寫搜尋詞、選擇帖子組和搜尋頁數，儲存後檢查清單。</p>
+<p>結合圖 06，可將「城市 + 品牌 + 蹲銷售 / 現車 / 選車」等作為起點。使用者帖子中可能同時包含使用場景、換車原因和車型比較，銷售應閱讀全文後判斷能否服務。</p>
+<h3>4.8 啟用採集，檢查任務進度</h3>
+<p>組頁面顯示固定的 <strong>每天 00:00</strong> 採集安排。日常營運需要檢查組是否啟用、配置是否正確，以及是否已綁定接收帳號。</p>
+<p>系統管理員還能使用 <strong>搜尋評論 / 監控 / 搜尋帖子</strong> 等手動入口。手動執行的兩種選擇含義不同：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>執行方式</th>
+<th>實際用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>指派並分發</td>
+<td>對整組建立批次，完成後按規則和配額進入指派分發流程</td>
+</tr>
+<tr>
+<td>僅本次搜尋</td>
+<td>只採當前條目，用於查看搜尋結果，本次不進入指派分發流程</td>
+</tr>
+</tbody></table></div>
+<figure class="wide"><button class="image-button" aria-label="放大：圖14｜採集任務與評分處理進度" data-image="../assets/08-tasks.png" data-alt="圖14｜採集任務與評分處理進度"><img src="../assets/08-tasks.png" alt="圖14｜採集任務與評分處理進度"></button><figcaption>圖 14｜系統管理員可在「爬蟲任務」查看完成狀態、內容和評論數量、重複紀錄以及高、中意向結果，及時掌握採集和分析進度。</figcaption></figure>
+<p>若任務出現異常，進入詳情查看原因；處理完成後，繼續檢查組織指派和帳號分發結果。</p>
+<h3>4.9 在線索中心篩選，查看判斷依據</h3>
+<p>進入 <strong>線索中心</strong>，選擇自己有權限的池視圖，按線索類型、平台和意向篩選；需要時展開 <strong>進階篩選</strong>，補充組、城市、時間等條件，再點 <strong>查詢</strong>。</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖15｜線索中心的小紅書高意向篩選結果" data-image="../assets/09-lead-center.png" data-alt="圖15｜線索中心的小紅書高意向篩選結果"><img src="../assets/09-lead-center.png" alt="圖15｜線索中心的小紅書高意向篩選結果"></button><figcaption>圖 15｜管理員總庫視角：同一清單可以看到帖子與評論，來源連結可幫助回看上下文，三池計數可幫助判斷是否已經進入分配流程。經銷商管理員在本組織池中完成相應工作。</figcaption></figure>
+<p>點 <strong>詳情</strong> 後，重點閱讀原文、帖子標題、意向、評分判斷與建議動作。圖 07 展示了詳情中的主要業務資訊。</p>
+<p>銷售優先查看高意向線索，並結合客戶當前需求、地區和車型判斷跟進方式；已經處理或需求不匹配的內容，可按門店流程分類管理。</p>
+<h3>4.10 把組織線索分給銷售</h3>
+<p>進入 <strong>組織指派池</strong>，找到有效的指派紀錄，點擊 <strong>分發帳號</strong>。</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖16｜組織指派池的分發入口" data-image="../assets/12-org-assignment.png" data-alt="圖16｜組織指派池的分發入口"><img src="../assets/12-org-assignment.png" alt="圖16｜組織指派池的分發入口"></button><figcaption>圖 16｜門店分發工作臺：查看線索、平台、意向、組織和狀態，右側「分發帳號」用於指定接收人。</figcaption></figure>
+<figure class="form"><button class="image-button" aria-label="放大：圖17｜選擇接收帳號並填寫原因" data-image="../assets/19-distribute-form.png" data-alt="圖17｜選擇接收帳號並填寫原因"><img src="../assets/19-distribute-form.png" alt="圖17｜選擇接收帳號並填寫原因"></button><figcaption>圖 17｜分發視窗：選擇本組織的接收帳號並填寫原因，檢查無誤後確認分發。</figcaption></figure>
+<p>完成後，進入 <strong>帳號分發池</strong> 檢查有效分發紀錄，並請接收人用自己的 APP 帳號確認可見。</p>
+<figure class="detail"><button class="image-button" aria-label="放大：圖18｜同一條線索的來源與流轉紀錄" data-image="../assets/11-lead-history.png" data-alt="圖18｜同一條線索的來源與流轉紀錄"><img src="../assets/11-lead-history.png" alt="圖18｜同一條線索的來源與流轉紀錄"></button><figcaption>圖 18｜流轉追溯：詳情中能看到歸屬、組織指派、帳號分發與來源任務。透過流轉紀錄查看線索交給了哪些帳號，並明確主跟進銷售，避免重複溝通。</figcaption></figure>
+<a id="app"></a>
+<h2>5. APP 怎麼用：查看、篩選、提醒與跟進</h2>
+<h3>5.1 從應用商店安裝</h3>
+<p>打開<a href="https://appstore.lancloudtech.com/app?id=leadshunter">蘭芯應用商店中的「線索獵手」</a>，按手機系統選擇安裝方式。</p>
+<figure class="store"><button class="image-button" aria-label="放大：圖19｜線索獵手應用商店頁面" data-image="../assets/13-appstore.png" data-alt="圖19｜線索獵手應用商店頁面"><img src="../assets/13-appstore.png" alt="圖19｜線索獵手應用商店頁面"></button><figcaption>圖 19｜APP 安裝入口：在蘭芯應用商店查看產品介紹，並按手機系統取得 iOS 或 Android 版本。</figcaption></figure>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>裝置</th>
+<th>安裝步驟</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iPhone</td>
+<td>先安裝 TestFlight，再從商店進入<a href="https://testflight.apple.com/join/Bq2mpgwF">線索獵手 TestFlight 邀請頁</a>，按提示安裝</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>用手機瀏覽器打開商店，點擊「獲取」，按頁面提示完成驗證、下載 APK 並安裝</td>
+</tr>
+<tr>
+<td>電腦</td>
+<td>可瀏覽介紹與截圖；安裝下載請在對應手機瀏覽器中進行</td>
+</tr>
+</tbody></table></div>
+<p>APP 帳號由組織管理員提供。登入時選擇 <strong>南方大區 → 粵港澳服</strong>，並輸入管理員提供的帳號。若門店使用其他專屬伺服器，按管理員通知選擇。</p>
+<h3>5.2 打開「線索」，先排處理順序</h3>
+<p>登入後從底部進入 <strong>線索</strong>，查看分配給自己的內容。優先閱讀高意向，再處理中意向，並結合日期和跟進狀態安排當天工作。</p>
+<figure class="phone"><button class="image-button" aria-label="放大：圖20｜APP 線索列表" data-image="../assets/14-app-leads.jpg" data-alt="圖20｜APP 線索列表"><img src="../assets/14-app-leads.jpg" alt="圖20｜APP 線索列表"></button><figcaption>圖 20｜線索列表：頂部按全部、高意向、中意向切換；卡片展示標題、意向、平台、類型、地區和客戶留言，並用狀態標籤區分待跟進與已跟進。底部可切換首頁、線索和通知。</figcaption></figure>
+<p>先看卡片裡的客戶原話，再結合意向和狀態點入詳情，了解客戶關注的車型與具體問題。</p>
+<h3>5.3 用進階篩選找到當天要處理的內容</h3>
+<p>點擊 <strong>進階篩選</strong>，按需要設定類型、平台、日期與跟進狀態。</p>
+<figure class="phone"><button class="image-button" aria-label="放大：圖21｜APP 進階篩選" data-image="../assets/17-app-filters.jpg" data-alt="圖21｜APP 進階篩選"><img src="../assets/17-app-filters.jpg" alt="圖21｜APP 進階篩選"></button><figcaption>圖 21｜進階篩選：可以把列表縮小到特定類型、平台、時段和跟進狀態。當前預設列表為評論，查看主動求購帖時需要切換到「帖子」。</figcaption></figure>
+<p>推薦的日常查看順序是：<strong>今天 / 近 7 天 → 待跟進 → 高意向，再查看中意向</strong>。</p>
+<p>評論類型下可按抖音、小紅書篩選；切換帖子類型後，平台選項可能隨類型變化。篩選後無結果時，先放寬日期或跟進條件，查看更大範圍的線索。</p>
+<h3>5.4 讀懂評論詳情，再前往主頁或原帖</h3>
+<figure class="phone"><button class="image-button" aria-label="放大：圖22｜APP 評論線索詳情" data-image="../assets/15-app-comment-detail.jpg" data-alt="圖22｜APP 評論線索詳情"><img src="../assets/15-app-comment-detail.jpg" alt="圖22｜APP 評論線索詳情"></button><figcaption>圖 22｜評論詳情：上方突出客戶提問，下方依次展示評論、原帖標題、帖子內容與來源組。「智慧分析」可展開查看；底部提供「跳轉至評論者主頁」和「跳轉至原帖」。</figcaption></figure>
+<ol>
+<li><strong>看客戶原話</strong>：明確客戶問價格、補貼、配置、交付還是試駕。</li>
+<li><strong>看原帖上下文</strong>：確定車型和討論條件，避免答非所問。</li>
+<li><strong>展開智慧分析</strong>：有對應結果時，查看判斷依據、建議動作和推薦話術。</li>
+<li><strong>前往來源平台</strong>：根據需要進入評論者主頁或原帖，核對最新內容並開展人工溝通。</li>
+</ol>
+<p>建議圍繞客戶提出的問題提供幫助。例如，客戶詢問補貼能否疊加時，先核實車型、上牌地區及適用條件，再提供門店確認後的方案。</p>
+<h3>5.5 帖子線索：處理更完整的購車需求</h3>
+<figure class="phone"><button class="image-button" aria-label="放大：圖23｜APP 帖子線索詳情" data-image="../assets/18-app-post-detail.jpg" data-alt="圖23｜APP 帖子線索詳情"><img src="../assets/18-app-post-detail.jpg" alt="圖23｜APP 帖子線索詳情"></button><figcaption>圖 23｜帖子詳情：使用者主動發帖的標題和正文形成完整需求，銷售可以了解車型、用途及比較問題，再點擊「跳轉至原帖」查看討論。</figcaption></figure>
+<p>帖子通常提供更多語境。跟進時先讀完整正文，再判斷門店能否滿足預算、車型、交付時間或服務地區，圍繞客戶的具體問題準備回應。</p>
+<h3>5.6 處理狀態與通知</h3>
+<p>適合繼續溝通的線索，從詳情提供的入口前往原平台；不適合繼續處理的線索，可選擇 <strong>不跟進</strong>，再按提示確認。</p>
+<p>從詳情的主要跳轉入口前往平台時，APP 會記錄跟進動作，並將線索標記為 <strong>已跟進</strong>。客戶回覆、聯繫方式、到店和訂單進展，可繼續登記在門店台帳或 CRM 中。</p>
+<figure class="phone"><button class="image-button" aria-label="放大：圖24｜APP 通知中心" data-image="../assets/16-app-notifications.jpg" data-alt="圖24｜APP 通知中心"><img src="../assets/16-app-notifications.jpg" alt="圖24｜APP 通知中心"></button><figcaption>圖 24｜通知中心：透過未讀、已讀和全部分類查看待辦與提醒，確認後可標記已讀。透過通知及時回到對應線索，安排後續跟進。</figcaption></figure>
+<p>APP 提供新增線索提醒，以及上午、下午的摘要提醒。開啟手機通知權限後，可以更及時地關注待處理線索。</p>
+<h3>5.7 與 DCC 和門店現有流程協同</h3>
+<p>當客戶在原平台回覆並形成有效溝通後，由銷售或 DCC 按門店流程繼續核實需求、取得客戶願意提供的聯繫方式、預約試駕和安排到店。需要登記 CRM / DCC 時，按門店現有方式完成。</p>
+<a id="partners"></a>
+<h2>6. 合作夥伴與使用效果</h2>
+<h3>6.1 當前合作夥伴</h3>
+<p>線索獵手服務國內汽車經銷商、直營門店及海外汽車業務，合作夥伴包括：</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖25｜線索獵手合作夥伴" data-image="../assets/23-partners.svg" data-alt="圖25｜線索獵手合作夥伴"><img src="../assets/23-partners.svg" alt="圖25｜線索獵手合作夥伴"></button><figcaption>圖 25｜合作夥伴：中國大陸地區包括上海運通智己、長沙小鵬直營、東莞領克、成都鴻蒙智行；海外合作夥伴為奇瑞國際。</figcaption></figure>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>合作區域</th>
+<th>合作夥伴</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>中國大陸 · 上海</td>
+<td>上海運通智己</td>
+</tr>
+<tr>
+<td>中國大陸 · 長沙</td>
+<td>長沙小鵬直營</td>
+</tr>
+<tr>
+<td>中國大陸 · 東莞</td>
+<td>東莞領克</td>
+</tr>
+<tr>
+<td>中國大陸 · 成都</td>
+<td>成都鴻蒙智行</td>
+</tr>
+<tr>
+<td>海外</td>
+<td>奇瑞國際</td>
+</tr>
+</tbody></table></div>
+<a id="changsha-case"></a>
+<h3>6.2 長沙小鵬直營：一個月的跟進成果</h3>
+<p><strong>從社交平台上的購車討論，到客戶回覆、聯繫方式和鎖單反饋，線索獵手已進入門店的日常銷售工作。</strong> 長沙小鵬直營在一個月的付費試用期間，由長沙雨花、長沙芙蓉天街兩家門店的 4 名銷售跟進小紅書與抖音渠道的線索。</p>
+<p>一個月內，台帳記錄了 <strong>174 條跟進、62 條客戶回覆、36 條取得聯繫方式、23 條取得手機號，以及 3 條銷售鎖單反饋</strong>。</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖26｜長沙小鵬直營一個月跟進成果" data-image="../assets/26-changsha-outcomes.svg" data-alt="圖26｜長沙小鵬直營一個月跟進成果"><img src="../assets/26-changsha-outcomes.svg" alt="圖26｜長沙小鵬直營一個月跟進成果"></button><figcaption>圖 26｜長沙小鵬直營使用效果：客戶回覆占跟進紀錄的 35.6%，取得聯繫方式占 20.7%，取得手機號占 13.2%。</figcaption></figure>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>跟進成果</th>
+<th align="right">紀錄數</th>
+<th align="right">占跟進紀錄</th>
+<th>對門店的價值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>銷售跟進</td>
+<td align="right">174 條</td>
+<td align="right">100%</td>
+<td>社交渠道線索進入日常銷售工作</td>
+</tr>
+<tr>
+<td>客戶回覆</td>
+<td align="right">62 條</td>
+<td align="right">35.6%</td>
+<td>建立雙向溝通，進一步了解購車需求</td>
+</tr>
+<tr>
+<td>取得聯繫方式</td>
+<td align="right">36 條</td>
+<td align="right">20.7%</td>
+<td>取得微信，便於持續溝通和培育</td>
+</tr>
+<tr>
+<td>其中：同時取得手機號</td>
+<td align="right">23 條</td>
+<td align="right">13.2%</td>
+<td>為電話溝通、試駕邀約提供聯繫渠道</td>
+</tr>
+<tr>
+<td>銷售鎖單反饋</td>
+<td align="right">3 條</td>
+<td align="right">—</td>
+<td>跟進台帳中出現鎖單進展</td>
+</tr>
+</tbody></table></div>
+<h3>6.3 兩家門店的使用表現</h3>
+<p><strong>長沙雨花</strong>留下 57 條跟進紀錄，其中 33 條獲得回覆、21 條取得聯繫方式，並有 3 條鎖單反饋。<strong>長沙芙蓉天街</strong>留下 117 條跟進紀錄，其中 29 條獲得回覆、15 條取得聯繫方式。</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖27｜長沙兩家門店的跟進成果" data-image="../assets/27-changsha-stores.svg" data-alt="圖27｜長沙兩家門店的跟進成果"><img src="../assets/27-changsha-stores.svg" alt="圖27｜長沙兩家門店的跟進成果"></button><figcaption>圖 27｜門店跟進成果：長沙雨花與長沙芙蓉天街均透過社交渠道跟進獲得客戶回應，並取得後續聯繫方式。</figcaption></figure>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>門店</th>
+<th align="right">跟進紀錄</th>
+<th align="right">客戶回覆</th>
+<th align="right">取得聯繫方式</th>
+<th align="right">取得手機號</th>
+<th align="right">鎖單反饋</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>長沙雨花</td>
+<td align="right">57</td>
+<td align="right">33（57.9%）</td>
+<td align="right">21（36.8%）</td>
+<td align="right">11（19.3%）</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td>長沙芙蓉天街</td>
+<td align="right">117</td>
+<td align="right">29（24.8%）</td>
+<td align="right">15（12.8%）</td>
+<td align="right">12（10.3%）</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td><strong>合計</strong></td>
+<td align="right"><strong>174</strong></td>
+<td align="right"><strong>62（35.6%）</strong></td>
+<td align="right"><strong>36（20.7%）</strong></td>
+<td align="right"><strong>23（13.2%）</strong></td>
+<td align="right"><strong>3</strong></td>
+</tr>
+</tbody></table></div>
+<p>本次跟進以小紅書為主：<strong>164 條跟進、61 條回覆、35 條取得聯繫方式、3 條鎖單反饋</strong>。抖音渠道記錄了 <strong>10 條跟進、1 條回覆、1 條取得聯繫方式</strong>。</p>
+<h3>6.4 從客戶回應到鎖單反饋</h3>
+<p>長沙雨花門店的三條鎖單反饋均來自小紅書。對應跟進紀錄中，銷售已收到客戶回覆，並取得微信和手機號。</p>
+<figure class="wide"><button class="image-button" aria-label="放大：圖28｜長沙雨花門店的三條鎖單反饋" data-image="../assets/28-changsha-evidence.svg" data-alt="圖28｜長沙雨花門店的三條鎖單反饋"><img src="../assets/28-changsha-evidence.svg" alt="圖28｜長沙雨花門店的三條鎖單反饋"></button><figcaption>圖 28｜長沙雨花門店的三條鎖單反饋：銷售透過小紅書開展溝通，取得客戶聯繫方式，並在跟進台帳中記錄鎖單進展。</figcaption></figure>
+<p>長沙案例體現了線索獵手與門店銷售配合的實際價值：</p>
+<ul>
+<li><strong>拓展客戶接觸渠道。</strong> 在抖音、小紅書等社交場景中發現需求，讓銷售擁有更多主動溝通的機會。</li>
+<li><strong>把需求討論推進為持續聯繫。</strong> 圍繞客戶原話展開回應，取得聯繫方式後繼續溝通車型、報價和到店安排。</li>
+<li><strong>讓跟進形成可復盤的結果。</strong> 結合客戶回覆、留資和銷售反饋，持續調整關鍵詞、關注帳號與跟進方式。</li>
+</ul>
+<a id="faq"></a>
+<h2>7. 日常使用清單與常見問題</h2>
+<h3>門店首次開通清單</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 組織已啟用，所在地、帳號上限和各類配額符合約定。</li>
+<li><input disabled="" type="checkbox"> 管理員、銷售帳號已建立，人員能使用自己的帳號登入。</li>
+<li><input disabled="" type="checkbox"> 關鍵詞組 / 競品組 / 帖子組已設定正確的組織和評分場景。</li>
+<li><input disabled="" type="checkbox"> 已選擇接收帳號並點擊「儲存帳號」。</li>
+<li><input disabled="" type="checkbox"> 關鍵詞或公開帳號已加入對應組，組處於啟用狀態。</li>
+<li><input disabled="" type="checkbox"> 管理員已確認採集與評分完成，並檢查組織指派和帳號分發結果。</li>
+<li><input disabled="" type="checkbox"> 接收人已在 APP 中看到對應線索，並能進入詳情查看來源。</li>
+</ul>
+<h3>日常工作建議</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>時間 / 角色</th>
+<th>建議動作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上班後 · 銷售</td>
+<td>查看通知與當天待跟進線索，優先讀高意向內容</td>
+</tr>
+<tr>
+<td>跟進前 · 銷售</td>
+<td>閱讀原文和上下文，核實車型、地區和當前需求</td>
+</tr>
+<tr>
+<td>跟進中 · 銷售 / DCC</td>
+<td>按平台規則開展溝通，按門店流程記錄有效商機</td>
+</tr>
+<tr>
+<td>每日 · 門店管理員</td>
+<td>檢查待分發紀錄和接收帳號，明確主跟進負責人</td>
+</tr>
+<tr>
+<td>每週 · 營運人員</td>
+<td>根據相關性、有效溝通和到店反饋調整關鍵詞與帳號範圍</td>
+</tr>
+</tbody></table></div>
+<h3>常見問題</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>問題</th>
+<th>排查或理解方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>後台有線索，APP 卻沒有？</td>
+<td>區分總庫、歸屬、組織指派、帳號分發；再檢查帳號是否正確、組織和帳號是否啟用、綁定是否生效、配額與篩選條件是否限制了結果。</td>
+</tr>
+<tr>
+<td>明明點了搜尋，為什麼沒有分給銷售？</td>
+<td>檢查是否選擇了「僅本次搜尋」；該路徑不進入指派分發。還需確認有符合條件的高、中意向結果。</td>
+</tr>
+<tr>
+<td>為什麼一天沒有達到配額？</td>
+<td>配額是上限，實際數量受採集結果、意向、地區規則和配置影響。</td>
+</tr>
+<tr>
+<td>改了接收帳號，舊線索會自動轉移嗎？</td>
+<td>不會；綁定變更影響未來任務。歷史紀錄在線索中心處理。</td>
+</tr>
+<tr>
+<td>為什麼沒有看到帖子？</td>
+<td>APP 預設查看評論，打開進階篩選切換「帖子」，並檢查日期和狀態。</td>
+</tr>
+<tr>
+<td>一條線索能給多人嗎？</td>
+<td>可以；按組綁定或管理員分發，可能由多個帳號接收，需要門店安排具體負責人。</td>
+</tr>
+<tr>
+<td>線索中有哪些客戶資訊？</td>
+<td>可查看公開評論或帖子、來源連結、意向分析與跟進建議；銷售可回到原平台溝通，取得客戶願意提供的聯繫方式。</td>
+</tr>
+<tr>
+<td>「已跟進」如何使用？</td>
+<td>APP 記錄銷售前往原平台的跟進動作；實際回覆、留資與訂單進展在門店台帳或 CRM 中登記。</td>
+</tr>
+<tr>
+<td>必須先配置話術庫才能使用嗎？</td>
+<td>不需要。話術庫為可選功能，線索建立、分發與 APP 查看不依賴它。</td>
+</tr>
+<tr>
+<td>海外 TikTok 業務如何開通？</td>
+<td>聯繫<a href="https://leadshunter-contact.lancloudtech.com/">銷售經理</a>或平台管理員，配置採集、語言場景、意向規則與交付方式。</td>
+</tr>
+<tr>
+<td>如何了解合作或預約演示？</td>
+<td>打開<a href="https://leadshunter-contact.lancloudtech.com/">聯繫銷售頁</a>，或先閱讀<a href="https://leadshunter.lancloudtech.com/">線索獵手官網</a>上的產品介紹。</td>
+</tr>
+<tr>
+<td>原帖或主頁打不開？</td>
+<td>檢查對應平台 APP、登入和網路，內容也可能已下架或權限變化。保留線索上下文並回饋管理員。</td>
+</tr>
+</tbody></table></div>
+<a id="contact"></a>
+<h2>8. 聯繫銷售經理</h2>
+<p>如需了解合作方案、預約產品演示或開通門店試用，可打開<a href="https://leadshunter-contact.lancloudtech.com/">聯繫銷售頁</a>，或直接使用下方電話、郵件與二維碼。也可以先閱讀<a href="https://leadshunter.lancloudtech.com/">線索獵手官網</a>上的產品介紹，再約定演示。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>聯繫方式</th>
+<th>資訊</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>電話</td>
+<td><a href="tel:+8617380566771">+86-17380566771</a></td>
+</tr>
+<tr>
+<td>電子郵件</td>
+<td><a href="mailto:lance@lancloudtech.com">lance@lancloudtech.com</a></td>
+</tr>
+<tr>
+<td>企業微信</td>
+<td>長按或掃描下方二維碼，加入銷售經理</td>
+</tr>
+<tr>
+<td>產品官網</td>
+<td><a href="https://leadshunter.lancloudtech.com/">leadshunter.lancloudtech.com</a></td>
+</tr>
+</tbody></table></div>
+<figure class="qr"><button class="image-button" aria-label="放大：圖29｜線索獵手銷售經理企業微信二維碼" data-image="../assets/29-wecom-qr.png" data-alt="圖29｜線索獵手銷售經理企業微信二維碼"><img src="../assets/29-wecom-qr.png" alt="圖29｜線索獵手銷售經理企業微信二維碼"></button><figcaption>圖 29｜企業微信：長按或掃描二維碼，加入線索獵手銷售經理。</figcaption></figure>
+
+</main>
+
+<footer class="site-footer">
+  線索獵手 · 發現購車需求，連接門店與客戶。
+  <div>
+    <a href="https://leadshunter.lancloudtech.com/zh-Hant/">產品官網</a>
+    <a href="https://aliyun-control-pannel-leadshunter.lancloudtech.com/">進入後台</a>
+    <a href="https://appstore.lancloudtech.com/app?id=leadshunter">取得 APP</a>
+    <a href="https://leadshunter-contact.lancloudtech.com/zh-Hant/">聯繫銷售</a>
+  </div>
+</footer>
+
+<aside class="sales-banner" aria-label="聯繫線索獵手銷售">
+  <div class="sales-banner__inner">
+    <div class="sales-banner__copy">
+      <p class="sales-banner__kicker">加入線索獵手銷售經理企業微信</p>
+      <p class="sales-banner__title">預約線索獵手演示或開通試用</p>
+    </div>
+    <a class="btn btn-primary sales-banner__cta" href="https://leadshunter-contact.lancloudtech.com/zh-Hant/">聯繫銷售</a>
+  </div>
+</aside>
+
+<dialog id="viewer">
+  <button type="button">關閉 · Esc</button>
+  <img alt="">
+</dialog>
+
+<script>
+const toggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+const backdrop = document.getElementById('backdrop');
+const openMenu = (open) => {
+  document.body.classList.toggle('menu-open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.setAttribute('aria-label', open ? "關閉目錄" : "打開目錄");
+};
+toggle.addEventListener('click', () => openMenu(!document.body.classList.contains('menu-open')));
+backdrop.addEventListener('click', () => openMenu(false));
+menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => openMenu(false)));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') openMenu(false);
+});
+const viewer = document.getElementById('viewer');
+document.querySelectorAll('[data-image]').forEach((button) => button.addEventListener('click', () => {
+  viewer.querySelector('img').src = button.dataset.image;
+  viewer.querySelector('img').alt = button.dataset.alt;
+  viewer.showModal();
+}));
+viewer.querySelector('button').addEventListener('click', () => viewer.close());
+viewer.addEventListener('click', (event) => {
+  if (event.target === viewer) viewer.close();
+});
+</script>
+</body>
+</html>

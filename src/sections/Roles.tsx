@@ -1,15 +1,15 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useState } from 'react';
 
-import { rolesSection } from '../content/site';
+import { useContent } from '../content/runtime';
 import { easeOutQuint, springSoft } from '../lib/motion';
 import { Orb } from '../components/primitives/Backdrop';
 import { Section, SectionHeading } from '../components/primitives/Section';
 import { Reveal } from '../components/primitives/Reveal';
 
-const COUNT = rolesSection.roles.length;
-
 export function Roles() {
+  const { rolesSection } = useContent();
+  const COUNT = rolesSection.roles.length;
   const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
   const role = rolesSection.roles[active];

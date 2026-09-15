@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { useRef, useState } from 'react';
 
-import { site, surfaces } from '../content/site';
+import { useContent } from '../content/runtime';
 import { easeOutQuint, springSoft } from '../lib/motion';
 import { GridBackdrop, Orb } from '../components/primitives/Backdrop';
 import { ArrowRight, Button } from '../components/primitives/Button';
@@ -10,6 +10,7 @@ import { Section, SectionHeading } from '../components/primitives/Section';
 import { BrowserMock, PhoneMock } from '../components/mocks/Frames';
 
 export function Surfaces() {
+  const { surfaces } = useContent();
   return (
     <Section id="surfaces" spacing="lg" className="overflow-hidden">
       <GridBackdrop className="opacity-30" />
@@ -32,6 +33,7 @@ export function Surfaces() {
 
 /** 控制台：随滚动做轻微 3D 抬升，下方三个截图可切换 */
 function ConsoleShowcase() {
+  const { surfaces } = useContent();
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const [index, setIndex] = useState(0);
@@ -48,7 +50,7 @@ function ConsoleShowcase() {
     <div ref={ref} className="mt-14 md:mt-16" style={{ perspective: 1400 }}>
       <motion.div style={{ rotateX, scale, transformOrigin: 'center bottom' }}>
         <BrowserMock
-          title={`控制台 · ${shot.title}`}
+          title={`${surfaces.console.label} · ${shot.title}`}
           badge={surfaces.console.label}
           className="mx-auto max-w-5xl"
         >
@@ -120,6 +122,7 @@ function ConsoleShowcase() {
  * 宽屏三列等分，窄屏收成一列（文字在上、截图在下），不做横向滚动。
  */
 function AppShowcase() {
+  const { site, surfaces } = useContent();
   return (
     <div className="mt-24 md:mt-32">
       {/* 文案：与全站 split 标题同构（左标题右正文、底对齐），CTA 单独起一行，

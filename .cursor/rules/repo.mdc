@@ -8,7 +8,11 @@ alwaysApply: true
 - **GitHub（当前 owner）**: [LAN-Cloud-AI/LH_WebPage](https://github.com/LAN-Cloud-AI/LH_WebPage)
 - **本地路径**: `/Users/i/myCode/LH_WebPage`
 - **正式域**: https://leadshunter.lancloudtech.com/
-- **Pages 项目**: `leadshunter-webpage`（直传 `dist`，不走 Git 构建）
+- **手册域**: https://leadshunter-guide.lancloudtech.com/
+- **联系销售域**: https://leadshunter-contact.lancloudtech.com/
+- **Pages 项目**: `leadshunter-webpage`（官网，直传 `dist`）；`leadshunter-guide`（手册，直传 `dist-guide`）；`leadshunter-contact`（联系销售，直传 `dist-contact`）
+- **手册源码**: `product-guide/`，发布命令 `npm run deploy:guide`
+- **联系销售**: `scripts/contact-sales/`，发布命令 `npm run deploy:contact`
 - **公司站索引**: 兰芯云朵官网首页 `#leadshunter`、页脚与 `/sitemap/` 指向本域；`lancloudtech.com/leadshunter/` 仅跳转
 - **旧个人仓** `kaisonlau8/LH_WebPage` 已转移，不要再指向它
 

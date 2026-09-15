@@ -1,11 +1,12 @@
 import { motion, useReducedMotion } from 'motion/react';
 
-import { problem } from '../content/site';
+import { useContent } from '../content/runtime';
 import { inViewOnce, springSoft } from '../lib/motion';
 import { Orb } from '../components/primitives/Backdrop';
 import { Section, SectionHeading } from '../components/primitives/Section';
 
 export function Problem() {
+  const { problem } = useContent();
   return (
     <Section spacing="lg" className="overflow-hidden">
       <Orb className="-top-24 left-1/4 size-[30rem]" tone="brand" animated={false} />

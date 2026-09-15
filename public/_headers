@@ -10,6 +10,9 @@
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/theme-init.js
+  Cache-Control: public, max-age=0, must-revalidate
+
 /
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -24,6 +27,9 @@
 /assets/wechat-share.png
   Cache-Control: public, max-age=604800
   Access-Control-Allow-Origin: *
+
+/assets/wecom-qr.png
+  Cache-Control: public, max-age=604800
 
 /assets/icon/*
   Cache-Control: public, max-age=604800

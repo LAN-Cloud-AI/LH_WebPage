@@ -1,41 +1,40 @@
-import { leadSamples, type LeadSample } from '../content/site';
-import { Br } from '../components/primitives/Br';
+import type { LeadSample } from '../content/site';
+import { useContent } from '../content/runtime';
 import { Marquee } from '../components/primitives/Marquee';
 import { Reveal } from '../components/primitives/Reveal';
 import { Section } from '../components/primitives/Section';
 import { IntentBadge, PlatformTag } from '../components/mocks/IntentBadge';
 
-const HALF = Math.ceil(leadSamples.length / 2);
-
 /** 脱敏线索样本双向跑马灯，替代常见的客户证言墙 */
 export function LeadSamples() {
+  const { leadSamples, samplesSection } = useContent();
+  const half = Math.ceil(leadSamples.length / 2);
+
   return (
     <Section spacing="md" className="overflow-hidden">
       <div className="shell">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-brand uppercase">
-            线索长什么样
+            {samplesSection.eyebrow}
           </p>
           <h2 className="text-3xl leading-[1.15] font-semibold sm:text-4xl">
-            不是一行数据，
-            <Br />
-            而是一句能接上话的提问
+            {samplesSection.title}
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-[0.95rem] leading-relaxed text-ink-muted">
-            以下均为脱敏后的公开评论示例。销售看到的是原话本身，加上分级、摘要与建议。
+            {samplesSection.lede}
           </p>
         </Reveal>
       </div>
 
       <div className="mt-12 space-y-3 md:mt-14">
         <Marquee duration={52} gap="0.75rem">
-          {leadSamples.slice(0, HALF).map((sample) => (
+          {leadSamples.slice(0, half).map((sample) => (
             <SampleCard key={sample.text} sample={sample} />
           ))}
         </Marquee>
 
         <Marquee duration={58} reverse gap="0.75rem">
-          {leadSamples.slice(HALF).map((sample) => (
+          {leadSamples.slice(half).map((sample) => (
             <SampleCard key={sample.text} sample={sample} />
           ))}
         </Marquee>

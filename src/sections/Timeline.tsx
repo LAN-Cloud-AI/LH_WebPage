@@ -1,13 +1,14 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 
-import { timeline } from '../content/site';
+import { useContent } from '../content/runtime';
 import { inViewOnce, springSoft } from '../lib/motion';
 import { Section, SectionHeading } from '../components/primitives/Section';
 import { Reveal } from '../components/primitives/Reveal';
 
 /** 一天的自动化节奏：横向时间轴，进度线随滚动推进 */
 export function Timeline() {
+  const { timeline } = useContent();
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
 

@@ -2,7 +2,7 @@ import type Lenis from 'lenis';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { useRef, type RefObject } from 'react';
 
-import { hero, site } from '../content/site';
+import { useContent } from '../content/runtime';
 import { easeOutQuint, springSoft } from '../lib/motion';
 import { scrollToAnchor } from '../lib/useLenis';
 import { GridBackdrop, Orb } from '../components/primitives/Backdrop';
@@ -14,6 +14,7 @@ import { IntentBadge } from '../components/mocks/IntentBadge';
 type HeroProps = { lenisRef: RefObject<Lenis | null> };
 
 export function Hero({ lenisRef }: HeroProps) {
+  const { hero, site, ui } = useContent();
   const reduced = useReducedMotion();
   const visualRef = useRef<HTMLDivElement>(null);
 
@@ -124,7 +125,7 @@ export function Hero({ lenisRef }: HeroProps) {
                   src="/assets/screenshots/ios-01.jpg"
                   width={443}
                   height={960}
-                  alt="销售端 App 线索列表"
+                  alt={ui.heroPhoneAlt}
                   className="h-auto w-full"
                   fetchPriority="high"
                   decoding="async"
@@ -144,12 +145,12 @@ export function Hero({ lenisRef }: HeroProps) {
                 transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-[0.65rem] text-ink-faint">新发现 · 河南</span>
-                  <IntentBadge level="高意向" />
+                  <span className="text-[0.65rem] text-ink-faint">{ui.heroCardKicker}</span>
+                  <IntentBadge level="high" />
                 </div>
-                <p className="mt-2 text-[0.82rem] font-medium">优惠后还能用报废补贴吗？</p>
+                <p className="mt-2 text-[0.82rem] font-medium">{ui.heroCardText}</p>
                 <p className="mt-1.5 text-[0.65rem] text-ink-faint">
-                  已进入归属池 · 等待确认组织
+                  {ui.heroCardMeta}
                 </p>
               </motion.div>
             </motion.article>
@@ -159,7 +160,7 @@ export function Hero({ lenisRef }: HeroProps) {
         {/* 能力概览 */}
         <motion.ul
           className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-5 md:mt-24 md:grid-cols-4"
-          aria-label="产品能力概览"
+          aria-label={ui.heroFactsAria}
           initial="hidden"
           animate="show"
           variants={{ show: { transition: { staggerChildren: 0.08, delayChildren: 1.2 } } }}
@@ -167,7 +168,7 @@ export function Hero({ lenisRef }: HeroProps) {
           {hero.facts.map((fact) => (
             <motion.li
               key={fact.index}
-              className="border-t border-line pt-3"
+              className="rounded-2xl border border-line bg-surface/55 px-3 py-3 shadow-card"
               variants={{
                 hidden: reduced ? { opacity: 0 } : { opacity: 0, y: 18 },
                 show: { opacity: 1, y: 0, transition: springSoft },

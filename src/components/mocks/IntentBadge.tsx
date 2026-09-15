@@ -1,4 +1,5 @@
 import { INTENT_META, type IntentLevel } from '../../lib/intentDecay';
+import { intentLabel } from '../../content/runtime';
 
 type IntentBadgeProps = {
   level: IntentLevel;
@@ -21,7 +22,7 @@ export function IntentBadge({ level, size = 'sm', className = '' }: IntentBadgeP
         style={{ backgroundColor: meta.color }}
         aria-hidden="true"
       />
-      {meta.label}
+      {intentLabel(level)}
     </span>
   );
 }

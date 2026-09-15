@@ -9,7 +9,7 @@ updated: 2026-08-01
 
 仓库：[LAN-Cloud-AI/LH_WebPage](https://github.com/LAN-Cloud-AI/LH_WebPage)
 
-LeadsHunter（金星版 Venus）产品营销落地页。单页长滚动，深色为设计基线，用滚动驱动的可视化讲清「公开内容采集 → AI 五档意向 → 三层线索池 → 销售端 App」这条链路。
+LeadsHunter（金星版 Venus）产品营销落地页。单页长滚动，深色为设计基线，用滚动驱动的可视化讲清「公开内容采集 → AI 五档意向 → 三层线索池 → 销售端 App」这条链路。产品图文手册也在本仓库 `product-guide/`，仍发布到 [leadshunter-guide.lancloudtech.com](https://leadshunter-guide.lancloudtech.com/)。联系销售是独立 Pages：[leadshunter-contact.lancloudtech.com](https://leadshunter-contact.lancloudtech.com/)。
 
 ## 技术栈
 
@@ -35,6 +35,10 @@ npm run typecheck  # 仅类型检查
 ## 目录结构
 
 ```
+product-guide/                      # 产品介绍与使用说明（独立 Pages 项目）
+contact-sales/                      # 联系销售页说明
+scripts/product-guide/              # 手册 HTML / PDF / 发布包
+scripts/contact-sales/              # 联系销售页构建
 src/
 ├── main.tsx / App.tsx          # 入口与区块编排（首屏之后的区块懒加载）
 ├── styles/index.css            # 设计 token、主题覆写、关键帧、自定义 utility
@@ -53,7 +57,11 @@ src/
 
 ## 主题
 
-深色是设计基线，`<html data-theme="dark">` 由 `index.html` 的内联脚本在首帧前落定，避免闪烁。用户显式点击切换按钮后写入 `localStorage.lh-theme`，浅色主题通过 `[data-theme="light"]` 覆写同名 CSS 变量实现，无需重新加载。
+默认跟随系统亮暗模式，系统运行时切换会立即生效。页脚与移动端汉堡菜单均提供「跟随系统 / 白天 / 黑夜」可见开关，桌面导航保留快捷选择。偏好以 `system|light|dark` 写入 `localStorage['lancloud.theme']`；在正式域名下同时写入 `lancloud_theme` cookie（`Domain=lancloudtech.com; Path=/; SameSite=Lax; Secure`，有效期一年），使公司站与线索猎手之间延续用户选择。首帧以有效共享 cookie 优先，其次读取本域存储；返回页面或恢复前台时同步共享偏好。旧版 `lh-theme` 有效偏好在首次访问时迁移到新键，不覆盖已有新偏好；异常值或存储不可用时默认跟随系统。
+
+`public/theme-init.js` 在首帧前统一设置 `data-theme`、原生控件的 `color-scheme` 和浏览器 `theme-color`，React 订阅同一状态；跨标签页的偏好变更也会同步。每次状态变化发送 `lan:theme-change` 事件，详情为 `{theme, preference}`，与公司站使用一致约定。页面 token 与 Tailwind 主题类均依赖 `data-theme`。产品截图为固定的真实 UI 示例，不根据系统主题替换成另一张图。三语页面及 404 均沿用同一主题状态。
+
+构建将主题引导脚本发布为 `theme-init.<内容指纹>.js`，三语首页和 404 同步引用当前指纹，避免 Cloudflare 区域缓存规则覆盖源站缓存头后继续使用旧主题逻辑。
 
 ## 动效约定
 
@@ -81,11 +89,22 @@ npx wrangler pages deploy dist --project-name leadshunter-webpage --branch main
 npm run deploy
 ```
 
+产品手册单独发布，正式域不变：
+
+```bash
+npm run deploy:guide      # 渲染 + 导出 PDF + 发布到 leadshunter-guide
+npm run deploy:contact    # 发布联系销售页到 leadshunter-contact
+```
+
 DNS：`leadshunter.lancloudtech.com` 橙云 CNAME → `leadshunter-webpage.pages.dev`。重绑域名：
 
 ```bash
-npm run dns    # 需要 ~/.config/lanxin/env/cloudflare/pages.env
+npm run dns           # 官网 + www.leadshunter
+npm run dns:guide     # 手册 + www.leadshunter-guide
+npm run dns:contact   # 联系销售 + www.leadshunter-contact
 ```
+
+`www.*` 橙云 CNAME 到同一 Pages 项目；`functions/_middleware.js` 把 `www.` 301 回不带 www 的正式域。
 
 Pages 项目：
 
@@ -94,9 +113,29 @@ Pages 项目：
 | Project | `leadshunter-webpage` |
 | 输出目录 | `dist` |
 | 生产分支 | `main` |
-| 自定义域 | `leadshunter.lancloudtech.com` |
+| 自定义域 | `leadshunter.lancloudtech.com`（`www.` 301 到此） |
 
-`public/_headers`、`public/_redirects`、`robots.txt`、`sitemap.xml` 会随构建复制到 `dist/`。SPA 回退已配置为 `/* → /index.html 200`，静态文件仍优先。
+手册 Pages 项目：
+
+| 项 | 值 |
+| --- | --- |
+| Project | `leadshunter-guide` |
+| 源码 | `product-guide/` |
+| 输出目录 | `dist-guide` |
+| 生产分支 | `main` |
+| 自定义域 | `leadshunter-guide.lancloudtech.com`（`www.` 301 到此） |
+
+联系销售 Pages 项目：
+
+| 项 | 值 |
+| --- | --- |
+| Project | `leadshunter-contact` |
+| 源码 | `scripts/contact-sales/` |
+| 输出目录 | `dist-contact` |
+| 生产分支 | `main` |
+| 自定义域 | `leadshunter-contact.lancloudtech.com`（`www.` 301 到此） |
+
+`public/_headers`、`public/_redirects`、`robots.txt`、`sitemap.xml` 会随构建复制到 `dist/`。未知路由返回真正的 404，不使用 SPA 200 回退；三语页面拥有各自的 canonical 与 hreflang。
 
 分享图必须用绝对 HTTPS 地址（微信爬虫不执行 JS、也不认相对路径）：
 

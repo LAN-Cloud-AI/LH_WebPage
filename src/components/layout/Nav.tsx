@@ -8,15 +8,17 @@ import {
 } from 'motion/react';
 import { useEffect, useState, type RefObject } from 'react';
 
-import { site } from '../../content/site';
+import { localizedContactUrl, localizedGuideUrl, useContent } from '../../content/runtime';
 import { easeOutQuint, springSnappy } from '../../lib/motion';
 import { scrollToAnchor } from '../../lib/useLenis';
 import { Button } from '../primitives/Button';
+import { LanguageSwitch } from './LanguageSwitch';
 import { ThemeToggle } from './ThemeToggle';
 
 type NavProps = { lenisRef: RefObject<Lenis | null> };
 
 export function Nav({ lenisRef }: NavProps) {
+  const { site, ui } = useContent();
   const { scrollY } = useScroll();
   const reduced = useReducedMotion();
   const [condensed, setCondensed] = useState(false);
@@ -76,9 +78,9 @@ export function Nav({ lenisRef }: NavProps) {
         initial={false}
       >
         <motion.div
-          className="flex w-full items-center gap-2 rounded-2xl border px-3 py-2 md:gap-3"
+          className="flex w-full flex-nowrap items-center gap-2 overflow-hidden rounded-[1.15rem] border px-3 py-2 md:gap-3"
           animate={{
-            maxWidth: condensed ? '58rem' : '78rem',
+            maxWidth: condensed ? '72rem' : '78rem',
             backgroundColor: condensed ? 'var(--lh-surface)' : 'transparent',
             borderColor: condensed ? 'var(--lh-line)' : 'transparent',
             backdropFilter: condensed ? 'blur(18px)' : 'blur(0px)',
@@ -104,7 +106,7 @@ export function Nav({ lenisRef }: NavProps) {
             </span>
           </a>
 
-          <nav className="ml-4 hidden items-center gap-1 lg:flex" aria-label="页面导航">
+          <nav className="ml-2 hidden min-w-0 items-center gap-0.5 xl:flex" aria-label={ui.navAria}>
             {site.nav.map((item) => (
               <a
                 key={item.href}
@@ -113,7 +115,7 @@ export function Nav({ lenisRef }: NavProps) {
                   event.preventDefault();
                   go(item.href);
                 }}
-                className="relative rounded-lg px-3 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
+                className="relative shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
                 aria-current={active === item.href ? 'true' : undefined}
               >
                 {active === item.href && (
@@ -128,21 +130,38 @@ export function Nav({ lenisRef }: NavProps) {
             ))}
           </nav>
 
-          <div className="ml-auto flex items-center gap-2">
-            <ThemeToggle />
+          <div className="ml-auto flex shrink-0 items-center gap-1.5 md:gap-2">
+            <a
+              href={localizedGuideUrl()}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="hidden whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink xl:inline"
+            >
+              {ui.guide}
+            </a>
+            <a
+              href={localizedContactUrl()}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="hidden whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[0.82rem] text-ink-muted transition-colors hover:text-ink xl:inline"
+            >
+              {ui.contact}
+            </a>
+            <LanguageSwitch className="hidden xl:flex" />
+            <ThemeToggle className="hidden xl:grid" />
             {/* 包一层来控制显隐：Button 自带 inline-flex，直接加 hidden 会互相覆盖 */}
             <span className="hidden xs:contents">
               <Button href={site.links.demoForm} size="md" external>
-                预约演示
+                {ui.bookDemo}
               </Button>
             </span>
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="grid size-9 place-items-center rounded-xl border border-line bg-surface-2 lg:hidden"
+              className="grid size-9 place-items-center rounded-xl border border-line bg-surface-2 xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
-              aria-label={open ? '关闭导航菜单' : '打开导航菜单'}
+              aria-label={open ? ui.navClose : ui.navOpen}
             >
               <span className="relative flex h-3 w-4 flex-col justify-between">
                 <motion.i
@@ -170,13 +189,13 @@ export function Nav({ lenisRef }: NavProps) {
         {open && (
           <motion.div
             id="mobile-nav"
-            className="fixed inset-0 z-40 bg-bg/96 px-5 pt-24 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-bg/96 px-5 pb-8 pt-24 backdrop-blur-xl xl:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <nav className="flex flex-col gap-1" aria-label="移动端导航">
+            <nav className="flex flex-col gap-1" aria-label={ui.navMobileAria}>
               {site.nav.map((item, index) => (
                 <motion.a
                   key={item.href}
@@ -194,8 +213,16 @@ export function Nav({ lenisRef }: NavProps) {
                 </motion.a>
               ))}
             </nav>
-            <Button href={site.links.demoForm} size="lg" className="mt-8 w-full" external>
-              预约产品演示
+            <LanguageSwitch className="mt-6" />
+            <ThemeToggle expanded className="mt-5" />
+            <Button href={localizedGuideUrl()} variant="ghost" size="lg" className="mt-4 w-full" external>
+              {ui.readGuide}
+            </Button>
+            <Button href={localizedContactUrl()} variant="outline" size="lg" className="mt-3 w-full" external>
+              {ui.contact}
+            </Button>
+            <Button href={site.links.demoForm} size="lg" className="mt-3 w-full" external>
+              {ui.bookDemoLong}
             </Button>
           </motion.div>
         )}

@@ -1,12 +1,13 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useState } from 'react';
 
-import { faq } from '../content/site';
+import { useContent } from '../content/runtime';
 import { easeOutQuint } from '../lib/motion';
 import { Section, SectionHeading } from '../components/primitives/Section';
 import { Reveal } from '../components/primitives/Reveal';
 
 export function Faq() {
+  const { faq } = useContent();
   const [open, setOpen] = useState<number | null>(0);
 
   return (

@@ -1,40 +1,41 @@
 /**
  * 时间衰减规则，与后端本地确定性策略保持一致。
  * LLM 只输出语义意向（不看时间），衰减由确定性代码完成。
+ * 键名用稳定英文；展示文案由内容包提供。
  */
-export type IntentLevel = '高意向' | '中意向' | '弱意向' | '无意向' | '待复核';
+export type IntentLevel = 'high' | 'mid' | 'weak' | 'none' | 'review';
 
-export const INTENT_ORDER: IntentLevel[] = ['高意向', '中意向', '弱意向', '无意向', '待复核'];
+export const INTENT_ORDER: IntentLevel[] = ['high', 'mid', 'weak', 'none', 'review'];
 
 type DecayRule = { maxDays: number; level: IntentLevel };
 
-const DECAY_TABLE: Record<'高意向' | '中意向' | '弱意向', DecayRule[]> = {
-  高意向: [
-    { maxDays: 3, level: '高意向' },
-    { maxDays: 7, level: '中意向' },
-    { maxDays: Infinity, level: '无意向' },
+const DECAY_TABLE: Record<'high' | 'mid' | 'weak', DecayRule[]> = {
+  high: [
+    { maxDays: 3, level: 'high' },
+    { maxDays: 7, level: 'mid' },
+    { maxDays: Infinity, level: 'none' },
   ],
-  中意向: [
-    { maxDays: 3, level: '中意向' },
-    { maxDays: 14, level: '弱意向' },
-    { maxDays: Infinity, level: '无意向' },
+  mid: [
+    { maxDays: 3, level: 'mid' },
+    { maxDays: 14, level: 'weak' },
+    { maxDays: Infinity, level: 'none' },
   ],
-  弱意向: [
-    { maxDays: 7, level: '弱意向' },
-    { maxDays: Infinity, level: '无意向' },
+  weak: [
+    { maxDays: 7, level: 'weak' },
+    { maxDays: Infinity, level: 'none' },
   ],
 };
 
 /** 给定语义意向与评论年龄（天），返回落库的最终意向 */
 export function applyDecay(semantic: IntentLevel, ageInDays: number): IntentLevel {
-  if (semantic === '无意向' || semantic === '待复核') return semantic;
+  if (semantic === 'none' || semantic === 'review') return semantic;
   const rules = DECAY_TABLE[semantic];
-  return rules.find((rule) => ageInDays <= rule.maxDays)?.level ?? '无意向';
+  return rules.find((rule) => ageInDays <= rule.maxDays)?.level ?? 'none';
 }
 
 /** 该语义意向下所有的衰减断点，用于渲染刻度 */
 export function decayBreakpoints(semantic: IntentLevel): number[] {
-  if (semantic === '无意向' || semantic === '待复核') return [];
+  if (semantic === 'none' || semantic === 'review') return [];
   return DECAY_TABLE[semantic].map((rule) => rule.maxDays).filter(Number.isFinite);
 }
 
@@ -77,38 +78,25 @@ export function axisProgressToDays(progress: number, marks: number[]): number {
   return Math.round(marks[index] + local * (marks[index + 1] - marks[index]));
 }
 
-export const INTENT_META: Record<
-  IntentLevel,
-  { color: string; soft: string; label: string; blurb: string }
-> = {
-  高意向: {
+export const INTENT_META: Record<IntentLevel, { color: string; soft: string }> = {
+  high: {
     color: 'var(--lh-intent-high)',
     soft: 'color-mix(in oklab, var(--lh-intent-high) 16%, transparent)',
-    label: '高意向',
-    blurb: '买家本人且有明确可行动的交易需求',
   },
-  中意向: {
+  mid: {
     color: 'var(--lh-intent-mid)',
     soft: 'color-mix(in oklab, var(--lh-intent-mid) 16%, transparent)',
-    label: '中意向',
-    blurb: '在了解车型、配置与流程，尚无成交动作',
   },
-  弱意向: {
+  weak: {
     color: 'var(--lh-intent-weak)',
     soft: 'color-mix(in oklab, var(--lh-intent-weak) 16%, transparent)',
-    label: '弱意向',
-    blurb: '轻度兴趣或上下文相关短句，证据偏弱',
   },
-  无意向: {
+  none: {
     color: 'var(--lh-intent-none)',
     soft: 'color-mix(in oklab, var(--lh-intent-none) 20%, transparent)',
-    label: '无意向',
-    blurb: '卖家回复、已购复盘、同行广告或无关内容',
   },
-  待复核: {
+  review: {
     color: 'var(--lh-intent-review)',
     soft: 'color-mix(in oklab, var(--lh-intent-review) 16%, transparent)',
-    label: '待复核',
-    blurb: '角色或语境冲突、证据不足，交人工确认',
   },
 };

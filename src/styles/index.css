@@ -9,25 +9,27 @@
    @theme inline 让工具类直接引用这些变量，从而支持无刷新切换。
 --------------------------------------------------------------------------- */
 :root {
-  --lh-bg: #07080b;
-  --lh-bg-elev: #0b0d12;
-  --lh-surface: #10131a;
-  --lh-surface-2: #171b24;
-  --lh-surface-3: #1e2430;
+  color-scheme: dark;
+  --lh-bg: #080b11;
+  --lh-bg-elev: #0c1018;
+  --lh-surface: #121825;
+  --lh-surface-2: #181f2e;
+  --lh-surface-3: #21293b;
 
-  --lh-line: rgb(255 255 255 / 0.08);
-  --lh-line-strong: rgb(255 255 255 / 0.16);
+  --lh-line: rgb(255 255 255 / 0.075);
+  --lh-line-strong: rgb(255 255 255 / 0.15);
 
-  --lh-ink: #f2f4f8;
-  --lh-ink-muted: #99a2b2;
-  --lh-ink-faint: #626c7d;
+  --lh-ink: #f4f6fa;
+  --lh-ink-muted: #9aa4b6;
+  --lh-ink-faint: #6b7486;
 
-  --lh-brand: #3b9bff;
+  --lh-brand: #3b92ff;
   --lh-brand-strong: #1d7ff0;
-  --lh-brand-soft: rgb(59 155 255 / 0.14);
-  --lh-accent: #7c5cff;
-  --lh-accent-soft: rgb(124 92 255 / 0.16);
-  --lh-teal: #2fe3c2;
+  --lh-brand-soft: rgb(59 146 255 / 0.16);
+  --lh-accent: #7a5cff;
+  --lh-accent-soft: rgb(122 92 255 / 0.16);
+  --lh-teal: #1fd1b4;
+  --lh-inset-shine: rgb(255 255 255 / 0.06);
 
   --lh-intent-high: #ff5a4e;
   --lh-intent-mid: #ffa318;
@@ -35,33 +37,35 @@
   --lh-intent-none: #4a5261;
   --lh-intent-review: #9b7cff;
 
-  --lh-grid-line: rgb(255 255 255 / 0.045);
-  --lh-glow-a: rgb(59 155 255 / 0.28);
-  --lh-glow-b: rgb(124 92 255 / 0.22);
-  --lh-shadow-card: 0 1px 0 0 rgb(255 255 255 / 0.04) inset, 0 24px 60px -30px rgb(0 0 0 / 0.9);
-  --lh-shadow-float: 0 40px 90px -40px rgb(0 0 0 / 0.95);
+  --lh-grid-line: rgb(255 255 255 / 0.04);
+  --lh-glow-a: rgb(59 146 255 / 0.3);
+  --lh-glow-b: rgb(122 92 255 / 0.22);
+  --lh-shadow-card: 0 1px 0 0 rgb(255 255 255 / 0.05) inset, 0 22px 50px -28px rgb(0 0 0 / 0.78);
+  --lh-shadow-float: 0 36px 80px -36px rgb(0 0 0 / 0.86);
 }
 
 [data-theme='light'] {
-  --lh-bg: #f5f6f9;
+  color-scheme: light;
+  --lh-bg: #f3f5f8;
   --lh-bg-elev: #ffffff;
   --lh-surface: #ffffff;
-  --lh-surface-2: #f1f3f7;
-  --lh-surface-3: #e7eaf1;
+  --lh-surface-2: #f2f5f9;
+  --lh-surface-3: #e6ebf2;
 
-  --lh-line: rgb(10 14 22 / 0.09);
-  --lh-line-strong: rgb(10 14 22 / 0.16);
+  --lh-line: rgb(16 32 56 / 0.08);
+  --lh-line-strong: rgb(16 32 56 / 0.14);
 
-  --lh-ink: #0c1017;
-  --lh-ink-muted: #58616f;
+  --lh-ink: #12141a;
+  --lh-ink-muted: #5b6472;
   --lh-ink-faint: #8a94a3;
 
-  --lh-brand: #0d74e8;
-  --lh-brand-strong: #0a5fbe;
-  --lh-brand-soft: rgb(13 116 232 / 0.1);
-  --lh-accent: #6538f5;
-  --lh-accent-soft: rgb(101 56 245 / 0.1);
-  --lh-teal: #06a68a;
+  --lh-brand: #0d6de0;
+  --lh-brand-strong: #0a5bbb;
+  --lh-brand-soft: rgb(13 109 224 / 0.1);
+  --lh-accent: #5b3cf0;
+  --lh-accent-soft: rgb(91 60 240 / 0.1);
+  --lh-teal: #0d9a86;
+  --lh-inset-shine: rgb(255 255 255 / 0.85);
 
   --lh-intent-high: #dd3226;
   --lh-intent-mid: #bd6c00;
@@ -69,11 +73,11 @@
   --lh-intent-none: #a3acb9;
   --lh-intent-review: #6538f5;
 
-  --lh-grid-line: rgb(10 14 22 / 0.055);
-  --lh-glow-a: rgb(13 116 232 / 0.16);
-  --lh-glow-b: rgb(101 56 245 / 0.12);
-  --lh-shadow-card: 0 1px 2px 0 rgb(10 14 22 / 0.04), 0 18px 44px -28px rgb(10 14 22 / 0.24);
-  --lh-shadow-float: 0 40px 80px -40px rgb(10 14 22 / 0.32);
+  --lh-grid-line: rgb(16 32 56 / 0.05);
+  --lh-glow-a: rgb(13 109 224 / 0.14);
+  --lh-glow-b: rgb(91 60 240 / 0.1);
+  --lh-shadow-card: 0 1px 2px rgb(16 32 56 / 0.04), 0 18px 40px -24px rgb(16 32 56 / 0.2);
+  --lh-shadow-float: 0 32px 70px -36px rgb(16 32 56 / 0.28);
 }
 
 @theme inline {
@@ -249,7 +253,7 @@
 @utility hairline {
   box-shadow:
     inset 0 0 0 1px var(--lh-line),
-    inset 0 1px 0 0 rgb(255 255 255 / 0.06);
+    inset 0 1px 0 0 var(--lh-inset-shine);
 }
 
 /* 自定义 range：轨道左侧按 --range-fill 填充，颜色跟随当前意向 */
