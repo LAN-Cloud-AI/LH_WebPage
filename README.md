@@ -4,6 +4,9 @@ type: overview
 status: current
 owner: Kaison
 updated: 2026-09-16
+related:
+  - CHANGELOG.md
+  - product-guide/README.md
 ---
 # 线索猎手 · 产品官网
 
