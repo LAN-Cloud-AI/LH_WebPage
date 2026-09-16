@@ -31,7 +31,7 @@ related:
 - [7. Daily checklist and FAQ](#faq)
 - [8. Contact sales](#contact)
 
-Current product versions: **App 3.0.0 · Console 2.3.1**. Check the app-store page for the specific builds and installation channels currently available.
+Current product versions: **App 3.0.0 · Console 2.3.1**. iOS 3.0.0 is awaiting Apple review and is not yet available through the public installation entry. Get the Android package from the app store; the store lists the currently available builds.
 
 <a id="what"></a>
 
@@ -304,7 +304,7 @@ Open [“线索猎手” in the LAN Cloud App Store](https://appstore.lancloudte
 
 | Device | Install steps |
 |---|---|
-| iPhone | Install TestFlight first, then open the [线索猎手 TestFlight invite page](https://testflight.apple.com/join/Bq2mpgwF) from the store and follow the prompts |
+| iPhone | iOS 3.0.0 is awaiting Apple review and is not yet available. After approval and public availability, install TestFlight, then open the [线索猎手 TestFlight invite page](https://testflight.apple.com/join/Bq2mpgwF) from the store and follow the prompts |
 | Android | Open the store in the phone browser, tap “Get”, complete verification as prompted, download the APK, and install |
 | Computer | You can browse the introduction and screenshots. Download and install from the matching phone browser |
 

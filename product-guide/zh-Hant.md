@@ -31,7 +31,7 @@ related:
 - [7. 日常使用清單與常見問題](#faq)
 - [8. 聯繫銷售經理](#contact)
 
-目前產品版本：**APP 3.0.0 · 控制台 2.3.1**。安裝管道的具體建置與可用狀態，以應用商店頁面為準。
+目前產品版本：**APP 3.0.0 · 控制台 2.3.1**。iOS 3.0.0 正在等待 Apple 審核，暫不可透過公開入口安裝；Android 安裝包可前往應用商店取得。具體建置與可用狀態以商店頁面為準。
 
 <a id="what"></a>
 
@@ -304,7 +304,7 @@ AI 會結合內容與上下文進行意向判斷，區分高意向、中意向�
 
 | 裝置 | 安裝步驟 |
 |---|---|
-| iPhone | 先安裝 TestFlight，再從商店進入[线索猎手 TestFlight 邀請頁](https://testflight.apple.com/join/Bq2mpgwF)，按提示安裝 |
+| iPhone | iOS 3.0.0 正在 Apple 審核，暫不可安裝。審核通過並開放取得後，先安裝 TestFlight，再從商店進入[线索猎手 TestFlight 邀請頁](https://testflight.apple.com/join/Bq2mpgwF)，按提示安裝 |
 | Android | 用手機瀏覽器打開商店，點擊「獲取」，按頁面提示完成驗證、下載 APK 並安裝 |
 | 電腦 | 可瀏覽介紹與截圖；安裝下載請在對應手機瀏覽器中進行 |
 

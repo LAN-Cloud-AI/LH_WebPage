@@ -82,7 +82,7 @@ src/
 
 本轮变化见[官网发行记录](CHANGELOG.md)。
 
-`npm run check` 执行类型检查、官网构建、主题测试、三语手册/PDF、联系页构建与 SEO 校验。GitHub Actions 在 PR、main 和版本标签上执行相同检查。官网采用独立版本号；产品版本与安装渠道分别记录，iOS 仍按商店提供的 TestFlight 入口安装，不把产品版本号当作 App Store 审核状态。
+`npm run check` 执行类型检查、官网构建、主题测试、三语手册/PDF、联系页构建与 SEO 校验。GitHub Actions 在 PR、main 和版本标签上执行相同检查。官网采用独立版本号；产品版本与安装渠道分别记录，iOS 3.0.0 当前为 Waiting for Review，暂不开放公开安装；审核通过并开放后按商店提供的 TestFlight 入口安装。Android 提供商店安装包。
 
 应用商店直达入口为 `https://appstore.lancloudtech.com/app?id=leadshunter`；`.html` 路径由商店 308 到无后缀路径。版本更新应同时检查官网三语内容、手册 Markdown/HTML/PDF、图片索引，并替换真实截图后发布官网和手册。
 

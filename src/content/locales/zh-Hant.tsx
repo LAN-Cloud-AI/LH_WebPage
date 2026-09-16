@@ -405,7 +405,7 @@ export const surfaces = {
     title: '銷售只看一件事：今天該跟誰',
     body: '首頁直達待跟進，線索頁查看原文與智慧分析，通知協助繼續處理。經銷商管理員還可從「帳戶 → 組織管理」維護銷售帳號、關鍵詞組、帖子組與分發人。',
     cta: '取得线索猎手',
-    note: 'APP 3.0.0 · iOS TestFlight / Android 安裝包，實際可用版本以應用商店為準',
+    note: 'APP 3.0.0 · iOS 正在 Apple 審核，暫不可安裝；Android 安裝包請前往應用商店',
     shots: [
       {
         src: '/assets/screenshots/app-v3-leads.png',
