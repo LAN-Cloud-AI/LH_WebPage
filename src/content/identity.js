@@ -42,7 +42,7 @@ export const JSON_LD_LANG = {
 export const IDENTITY = {
   'zh-Hans': {
     siteName: '线索猎手',
-    latin: 'LeadsHunter',
+    latin: '销售线索工作台',
     tagline: '从公开内容中发现可跟进的销售线索，把真实需求更早送到销售手上。',
     title: '线索猎手 · 从公开内容发现高意向销售线索',
     description:
@@ -50,33 +50,33 @@ export const IDENTITY = {
     ogDescription: '持续监测抖音、小红书公开内容，AI 五档识别购车意向，三池分发到销售手机。',
     imageAlt: '线索猎手',
     company: '四川兰芯云朵智能科技有限公司',
-    keywords: '线索猎手,LeadsHunter,汽车销售线索,购车意向,抖音获客,小红书获客,线索分发,AI线索',
+    keywords: '线索猎手,线索猎手,汽车销售线索,购车意向,抖音获客,小红书获客,线索分发,AI线索',
   },
   'zh-Hant': {
-    siteName: '線索獵手',
-    latin: 'LeadsHunter',
+    siteName: '线索猎手',
+    latin: '銷售線索工作台',
     tagline: '從公開內容中發現可跟進的銷售線索，把真實需求更早送到銷售手上。',
-    title: '線索獵手 · 從公開內容發現高意向銷售線索',
+    title: '线索猎手 · 從公開內容發現高意向銷售線索',
     description:
-      '線索獵手持續監測抖音、小紅書公開評論與帖子，用 AI 五檔判斷購車意向並生成跟進建議，經三層線索池分發到銷售端 App。',
+      '线索猎手持續監測抖音、小紅書公開評論與帖子，用 AI 五檔判斷購車意向並生成跟進建議，經三層線索池分發到銷售端 App。',
     ogDescription: '持續監測抖音、小紅書公開內容，AI 五檔識別購車意向，三池分發到銷售手機。',
-    imageAlt: '線索獵手',
+    imageAlt: '线索猎手',
     company: '四川蘭芯雲朵智能科技有限公司',
-    keywords: '線索獵手,LeadsHunter,汽車銷售線索,購車意向,抖音獲客,小紅書獲客,線索分發,AI線索',
+    keywords: '线索猎手,线索猎手,汽車銷售線索,購車意向,抖音獲客,小紅書獲客,線索分發,AI線索',
   },
   en: {
-    siteName: 'LeadsHunter',
-    latin: 'LeadsHunter',
+    siteName: '线索猎手',
+    latin: 'Sales lead workspace',
     tagline: 'Find followable sales leads in public content and get real demand to sales earlier.',
-    title: 'LeadsHunter · Find high-intent auto sales leads in public content',
+    title: '线索猎手 · Find high-intent auto sales leads in public content',
     description:
-      'LeadsHunter monitors public Douyin and Xiaohongshu comments and posts, scores purchase intent in five levels with AI, writes follow-up suggestions, and routes leads through three pools to the sales app.',
+      '线索猎手 monitors public Douyin and Xiaohongshu comments and posts, scores purchase intent in five levels with AI, writes follow-up suggestions, and routes leads through three pools to the sales app.',
     ogDescription:
       'Monitor public Douyin and Xiaohongshu content, score purchase intent in five levels, and route leads to sales phones.',
-    imageAlt: 'LeadsHunter',
+    imageAlt: '线索猎手',
     company: 'Sichuan Lanxin Yunduo Intelligent Technology Co., Ltd.',
     keywords:
-      'LeadsHunter,auto sales leads,purchase intent,Douyin,Xiaohongshu,lead routing,AI leads',
+      '线索猎手,auto sales leads,purchase intent,Douyin,Xiaohongshu,lead routing,AI leads',
   },
 };
 
@@ -97,7 +97,7 @@ export const FAQ = {
     },
     {
       q: '销售会不会看到别人的线索？',
-      a: '不会。销售端 App 只呈现落到本人账号的线索，同组同事的线索也看不到。这个限制在接口层就生效，不是靠前端隐藏。App 本身是只读的，不提供归属确认、组织指派或账号分发能力，相关变更接口对销售角色完全不开放。',
+      a: '不会。销售端 App 只呈现落到本人账号的线索，同组同事的线索也看不到。这个限制在接口层就生效，不是靠前端隐藏。销售可以更新本人线索的跟进状态；组织账号、意向组和分发人管理仅向经销商管理员开放，并限制在本组织内。',
     },
     {
       q: '接入需要做什么，多久能看到线索？',
@@ -123,7 +123,7 @@ export const FAQ = {
     },
     {
       q: '銷售會不會看到別人的線索？',
-      a: '不會。銷售端 App 只呈現落到本人帳號的線索，同組同事的線索也看不到。這個限制在介面層就生效，不是靠前端隱藏。App 本身是唯讀的，不提供歸屬確認、組織指派或帳號分發能力，相關變更介面對銷售角色完全不開放。',
+      a: '不會。銷售端 App 只呈現落到本人帳號的線索，同組同事的線索也看不到。這個限制在介面層就生效，不是靠前端隱藏。銷售可以更新本人線索的跟進狀態；組織帳號、意向組和分發人管理僅向經銷商管理員開放，並限制在本組織內。',
     },
     {
       q: '接入需要做什麼，多久能看到線索？',
@@ -149,7 +149,7 @@ export const FAQ = {
     },
     {
       q: 'Can salespeople see other people’s leads?',
-      a: 'No. The sales app only shows leads assigned to that account — not even teammates in the same group. The limit is enforced at the API, not by hiding UI. The app is read-only: it cannot confirm ownership, assign within the org, or fan out accounts, and those mutation APIs are closed to the sales role.',
+      a: 'No. The sales app only shows leads assigned to that account — not even teammates in the same group. The limit is enforced at the API, not by hiding UI. Salespeople can update follow-up status on their own leads. Account, group, and recipient management is available only to dealer admins within their organization.',
     },
     {
       q: 'What does onboarding take, and when do leads appear?',

@@ -3,13 +3,16 @@ title: 线索猎手 · 产品官网
 type: overview
 status: current
 owner: Kaison
-updated: 2026-08-01
+updated: 2026-09-16
+related:
+  - CHANGELOG.md
+  - product-guide/README.md
 ---
 # 线索猎手 · 产品官网
 
 仓库：[LAN-Cloud-AI/LH_WebPage](https://github.com/LAN-Cloud-AI/LH_WebPage)
 
-LeadsHunter（金星版 Venus）产品营销落地页。单页长滚动，深色为设计基线，用滚动驱动的可视化讲清「公开内容采集 → AI 五档意向 → 三层线索池 → 销售端 App」这条链路。产品图文手册也在本仓库 `product-guide/`，仍发布到 [leadshunter-guide.lancloudtech.com](https://leadshunter-guide.lancloudtech.com/)。联系销售是独立 Pages：[leadshunter-contact.lancloudtech.com](https://leadshunter-contact.lancloudtech.com/)。
+线索猎手产品官网。当前官网版本 **2.1.0**，展示 **APP 3.0.0 / 控制台 2.3.1**。单页长滚动，深色为设计基线，用滚动驱动的可视化讲清「公开内容采集 → AI 五档意向 → 三层线索池 → 销售端 App」这条链路。产品图文手册也在本仓库 `product-guide/`，仍发布到 [leadshunter-guide.lancloudtech.com](https://leadshunter-guide.lancloudtech.com/)。联系销售是独立 Pages：[leadshunter-contact.lancloudtech.com](https://leadshunter-contact.lancloudtech.com/)。
 
 ## 技术栈
 
@@ -71,9 +74,19 @@ src/
 
 ## 内容口径
 
-首屏数字条使用产品**能力**口径（平台数、意向档位数、线索池层数、采集端点数），不使用运营统计数据。产品截图内的 509 / 233 / 276 是控制台与 App 的真实界面示例，仅作 UI 演示。
+首屏数字条使用产品**能力**口径（平台数、意向档位数、线索池层数、采集端点数），不使用运营统计数据。产品截图中的数量只代表拍摄时的示例状态，不作为产量、有效率或经营效果承诺。新增截图使用当前真实界面与合成演示资料，来源记录在 `product-guide/资料来源与图片索引.md`。
 
 线索样本均为脱敏后的公开评论示例。
+
+## 版本检查与发布
+
+本轮变化见[官网发行记录](CHANGELOG.md)。
+
+`npm run check` 执行类型检查、官网构建、主题测试、三语手册/PDF、联系页构建与 SEO 校验。GitHub Actions 在 PR、main 和版本标签上执行相同检查。官网采用独立版本号；产品版本与安装渠道分别记录，iOS 仍按商店提供的 TestFlight 入口安装，不把产品版本号当作 App Store 审核状态。
+
+应用商店直达入口为 `https://appstore.lancloudtech.com/app?id=leadshunter`；`.html` 路径由商店 308 到无后缀路径。版本更新应同时检查官网三语内容、手册 Markdown/HTML/PDF、图片索引，并替换真实截图后发布官网和手册。
+
+发布使用 `codex/` 分支提交 PR，CI 通过后合并 main、打 `v2.1.0` 标签并创建发行记录，再从该提交直接上传 Pages。Cloudflare 凭据由现有 `~/.config/lanxin/env/cloudflare/pages.env` 或环境变量提供，不写入仓库。
 
 ## 部署
 
@@ -152,7 +165,7 @@ title: LH_WebPage 文档地图
 type: map
 status: current
 owner: Kaison
-updated: 2026-09-09
+updated: 2026-09-16
 tags: [docs, navigation]
 ---
 
@@ -167,8 +180,8 @@ tags: [docs, navigation]
 ### 总览
 | 文档 | 说明 | 更新 |
 |------|------|------|
-| [线索猎手｜产品介绍与使用说明](../product-guide/README.md) | 线索猎手｜产品介绍与使用说明 | 2026-09-09 |
-| [线索猎手 · 产品官网](../README.md) | 线索猎手 · 产品官网 | 2026-08-01 |
+| [线索猎手｜产品介绍与使用说明](../product-guide/README.md) | 线索猎手｜产品介绍与使用说明 | 2026-09-16 |
+| [线索猎手 · 产品官网](../README.md) | 线索猎手 · 产品官网 | 2026-09-16 |
 
 ### 运行手册
 | 文档 | 说明 | 更新 |
@@ -178,14 +191,15 @@ tags: [docs, navigation]
 ### 指南
 | 文档 | 说明 | 更新 |
 |------|------|------|
-| [LeadsHunter｜Product introduction and user guide](../product-guide/en.md) | LeadsHunter｜Product introduction and user guide | 2026-09-09 |
-| [線索獵手｜產品介紹與使用說明](../product-guide/zh-Hant.md) | 線索獵手｜產品介紹與使用說明 | 2026-09-09 |
-| [线索猎手｜产品介绍与使用说明](../product-guide/线索猎手-产品介绍与使用说明.md) | 线索猎手｜产品介绍与使用说明 | 2026-09-09 |
+| [线索猎手｜Product introduction and user guide](../product-guide/en.md) | 线索猎手｜Product introduction and user guide | 2026-09-16 |
+| [线索猎手｜產品介紹與使用說明](../product-guide/zh-Hant.md) | 线索猎手｜產品介紹與使用說明 | 2026-09-16 |
+| [线索猎手｜产品介绍与使用说明](../product-guide/线索猎手-产品介绍与使用说明.md) | 线索猎手｜产品介绍与使用说明 | 2026-09-16 |
 
 ### 参考
 | 文档 | 说明 | 更新 |
 |------|------|------|
-| [资料来源与图片索引](../product-guide/资料来源与图片索引.md) | 资料来源与图片索引 | 2026-09-08 |
+| [官网发行记录](../CHANGELOG.md) | 官网发行记录 | 2026-09-16 |
+| [资料来源与图片索引](../product-guide/资料来源与图片索引.md) | 资料来源与图片索引 | 2026-09-16 |
 | [长沙小鹏直营｜案例统计口径与举证索引](../product-guide/长沙小鹏直营-案例统计口径.md) | 长沙小鹏直营｜案例统计口径与举证索引 | 2026-09-08 |
 
 ## 归档文档
@@ -194,5 +208,5 @@ tags: [docs, navigation]
 
 ## 统计
 
-共 8 份文档：现行 8，归档 0。
+共 9 份文档：现行 9，归档 0。
 <!-- docs-map:readme:end -->

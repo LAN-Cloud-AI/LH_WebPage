@@ -9,7 +9,7 @@ import { FAQ, IDENTITY } from './identity.js';
 export const site = {
   brand: {
     name: IDENTITY['zh-Hans'].siteName,
-    latin: 'LEADSHUNTER',
+    latin: '销售线索工作台',
     company: IDENTITY['zh-Hans'].company,
     icon: '/assets/icon/app-256.png',
     beian: '蜀ICP备2026002396号',
@@ -25,7 +25,7 @@ export const site = {
     demoMail:
       'mailto:lance@lancloudtech.com?subject=%E7%BA%BF%E7%B4%A2%E7%8C%8E%E6%89%8B%E4%BA%A7%E5%93%81%E6%BC%94%E7%A4%BA%E5%92%A8%E8%AF%A2',
     wecom: 'https://work.weixin.qq.com/ct/wcde518f3ee4ac1b506616d06dedf1fb6f60',
-    appstore: 'https://appstore.lancloudtech.com',
+    appstore: 'https://appstore.lancloudtech.com/app?id=leadshunter',
     company: 'https://lancloudtech.com/',
     companyProduct: 'https://lancloudtech.com/#leadshunter',
     beian: 'https://beian.miit.gov.cn/',
@@ -147,7 +147,7 @@ export const capabilities: Capability[] = [
   },
   {
     index: '04',
-    title: '销售端只读 App',
+    title: '销售跟进 App',
     body: '销售只看分配给自己的线索，支持按平台、意向与跟进状态筛选，可标记已联系或跳过。',
     icon: 'phone',
   },
@@ -338,7 +338,7 @@ export const poolsSection = {
       tone: 'accent' as const,
       caption: '具体交给哪位销售',
       body: '按命中组的账号取并集，落到具体销售账号并写入分发记录。销售端 App 只能看到落到自己账号的线索，同组同事的也看不到。',
-      tags: ['命中组账号取并集', '销售端只读可见'],
+      tags: ['命中组账号取并集', '仅本人已分配可见'],
     },
   ],
 };
@@ -378,22 +378,22 @@ export const surfaces = {
   title: '后台掌控全局，销售端只专注跟进',
   lede: '两端围绕同一条线索协同：Web 控制台负责监测配置、意向复核与三池运营，销售端 App 只呈现已分配到个人的线索。',
   console: {
-    label: 'Web 控制台',
+    label: 'Web 控制台 2.3.1',
     shots: [
       {
-        src: '/assets/screenshots/console-leads.jpg',
+        src: '/assets/screenshots/console-v231-leads.png',
         alt: '控制台线索中心，展示线索总库与三池标签页',
         title: '线索中心 · 三池视图',
         caption: '线索总库、归属池、组织指派池、账号分发池在同一页切换，每条线索都带三池计数。',
       },
       {
-        src: '/assets/screenshots/console-dashboard.jpg',
+        src: '/assets/screenshots/console-v231-dashboard.png',
         alt: '控制台数据总览，展示内容、评论、线索与意向分布',
         title: '数据总览',
-        caption: '内容、评论、线索与意向分布一屏可见，快速定位当日跟进重点。',
+        caption: '已入库内容、评论和线索集中展示，同时查看运行中的任务和近期趋势。',
       },
       {
-        src: '/assets/screenshots/console-keywords.jpg',
+        src: '/assets/screenshots/console-v231-keywords.png',
         alt: '控制台关键词配置页',
         title: '监测配置',
         caption: '把落地价、现车、补贴等词纳入本店监测主题，按组管理、每天定时展开。',
@@ -403,30 +403,51 @@ export const surfaces = {
   app: {
     label: '销售端 App',
     title: '销售只看一件事：今天该跟谁',
-    body: 'App 是只读的——不提供归属确认、组织指派与账号分发能力，这些接口对销售角色完全不开放。它只回答一个问题：哪些线索落到了我头上，我该怎么开口。',
-    cta: '申请内测',
-    note: 'TestFlight 与 Android 安装包内测中',
+    body: '首页直达待跟进，线索页查看原文与智能分析，通知帮助继续处理。经销商管理员还可从“账户 → 组织管理”维护销售账号、关键词组、帖子组与分发人。',
+    cta: '获取线索猎手',
+    note: 'APP 3.0.0 · iOS TestFlight / Android 安装包，具体可用版本以应用商店为准',
     shots: [
       {
-        src: '/assets/screenshots/ios-01.jpg',
+        src: '/assets/screenshots/app-v3-leads.png',
         alt: '销售端线索列表，按意向分档并显示跟进状态',
         index: '01',
         caption: '按意向排优先级',
-        desc: '只列出分配给本人的线索，高中意向分开计数，可按平台、日期与跟进状态筛选。',
+        desc: '只列出分配给本人的线索，可按意向、平台、日期与跟进状态筛选。',
       },
       {
-        src: '/assets/screenshots/ios-02.jpg',
+        src: '/assets/screenshots/app-v3-comment-detail.png',
         alt: '销售端线索详情，含评论原文、来源组与跟进建议',
         index: '02',
         caption: '带着上下文开口',
         desc: '评论原文、帖子标题、来源组与 AI 跟进建议在同一屏，不用切平台反复确认。',
       },
       {
-        src: '/assets/screenshots/ios-03.jpg',
+        src: '/assets/screenshots/app-v3-notifications.png',
         alt: '销售端通知中心，含每日摘要与新线索提醒',
         index: '03',
         caption: '不用盯着后台',
         desc: '新线索即时通知，每天 10:00 汇总当日待跟进摘要，未读数直接落在图标上。',
+      },
+      {
+        src: "/assets/screenshots/app-v3-management.png",
+        alt: "组织管理首页，提供组织账号和意向组两个入口",
+        index: "04",
+        caption: "手机上管理组织",
+        desc: "经销商管理员从“我的”进入组织管理，账号与意向组分开维护，普通销售不显示这些管理入口。",
+      },
+      {
+        src: "/assets/screenshots/app-v3-users.png",
+        alt: "组织销售账号详情，展示姓名、用户名、手机号与备注",
+        index: "05",
+        caption: "人员与配额一目了然",
+        desc: "在组织额度内开通销售账号，进入详情维护姓名、手机号和备注；停用自动移组，恢复后手动加回。",
+      },
+      {
+        src: "/assets/screenshots/app-v3-group.png",
+        alt: "独立组详情，展示具体关键词与分发人配置",
+        index: "06",
+        caption: "每组设词与分发人",
+        desc: "关键词组和帖子组各有独立列表与详情；分发人支持本组织账号多选，已有投递与跟进记录保留。",
       },
     ],
   },
@@ -462,7 +483,7 @@ export const rolesSection = {
       abilities: [
         '维护本组织关键词组、竞品组与帖子组，每天 00:00 定时采集',
         '在组织指派池把线索分配到本组织销售，可撤销重派',
-        '在席位配额内创建与停用本组织销售账号',
+        '在 App 或控制台的席位配额内开通、停用和恢复本组织销售账号',
         '维护跟进话术模板，查看本组织线索统计',
       ],
       scope: '本组织（脱敏）',
@@ -471,7 +492,7 @@ export const rolesSection = {
       id: 'user',
       name: '一线销售',
       latin: 'user',
-      summary: '在 App 里只读查看分配给自己的线索',
+      summary: '在 App 里查看并跟进分配给自己的线索',
       abilities: [
         '查看已分配到本人账号的线索，按平台与状态筛选',
         '标记已联系或跳过，跟进状态回写线索',
@@ -539,8 +560,8 @@ export const security = {
       body: '经销商管理员与销售只能访问本组织数据，跨组织查询在服务端统一拦截。',
     },
     {
-      title: '销售端只读',
-      body: 'App 不提供归属、指派与分发能力，接口层面就没有开放变更入口。',
+      title: '按角色开放操作',
+      body: '销售只处理本人的线索；经销商管理员可在组织管理中维护本组织销售账号、意向组与组分发人。',
     },
     {
       title: '授权短链访问',
@@ -643,7 +664,7 @@ export const ui = {
   contactWecom: '企业微信',
   phone: '电话',
   mail: '邮件',
-  heroPhoneAlt: '销售端 App 线索列表',
+  heroPhoneAlt: '线索猎手首页，显示待跟进和今日新增',
   heroFactsAria: '产品能力概览',
   heroCardKicker: '新发现 · 河南',
   heroCardText: '优惠后还能用报废补贴吗？',

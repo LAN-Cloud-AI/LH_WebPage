@@ -1,9 +1,9 @@
 {
   "name": "leadshunter-webpage",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "type": "module",
-  "description": "线索猎手 LeadsHunter 产品官网",
+  "description": "线索猎手产品官网",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LAN-Cloud-AI/LH_WebPage.git"
@@ -29,7 +29,8 @@
     "deploy:contact": "npm run contact:build && mkdir -p dist-contact/functions && cp functions/_middleware.js dist-contact/functions/ && npx wrangler pages deploy dist-contact --project-name leadshunter-contact --branch main --commit-dirty=true",
     "dns": "node scripts/cf-dns-leadshunter.mjs",
     "dns:guide": "CF_PAGES_HOST=leadshunter-guide.lancloudtech.com CF_PAGES_PROJECT=leadshunter-guide node scripts/cf-dns-leadshunter.mjs",
-    "dns:contact": "CF_PAGES_HOST=leadshunter-contact.lancloudtech.com CF_PAGES_PROJECT=leadshunter-contact node scripts/cf-dns-leadshunter.mjs"
+    "dns:contact": "CF_PAGES_HOST=leadshunter-contact.lancloudtech.com CF_PAGES_PROJECT=leadshunter-contact node scripts/cf-dns-leadshunter.mjs",
+    "check": "npm run build && npm run theme:verify && npm run guide:pack && npm run contact:build && npm run seo:verify"
   },
   "dependencies": {
     "lenis": "^1.3.26",

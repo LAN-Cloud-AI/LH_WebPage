@@ -34,7 +34,9 @@ const appIconPath = 'assets/leadshunter-app-icon.png';
 const css = await fs.readFile(path.join(here, 'guide.css'), 'utf8');
 
 const renderBody = (md, copy, assetPrefix) => {
-  let body = marked.parse(md, { gfm: true });
+  // Repository metadata is for documentation indexing, not part of the public guide.
+  const publicMarkdown = md.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, '');
+  let body = marked.parse(publicMarkdown, { gfm: true });
   body = body.replace(/<h1>[\s\S]*?<\/h1>/, '').replace(/<blockquote>[\s\S]*?<\/blockquote>/, '');
   body = body.replace(new RegExp(`<h2>${copy.tocHeading}<\\/h2>[\\s\\S]*?(?=<a id="what")`), '');
   body = body.replace(/<p>\s*(<a id="[^"]+"><\/a>)\s*<\/p>/g, '$1');
@@ -44,11 +46,11 @@ const renderBody = (md, copy, assetPrefix) => {
     (_, src, alt, caption) => {
       const klass = src.includes('wecom-qr')
         ? 'qr'
-        : src.endsWith('.jpg')
+        : src.endsWith('.jpg') || src.includes('app-v3-')
           ? 'phone'
           : src.includes('13-appstore')
             ? 'store'
-            : src.includes('form')
+            : src.includes('form') || src.includes('console-v231-create-')
               ? 'form'
               : src.includes('10-lead-analysis') || src.includes('11-lead-history')
                 ? 'detail'

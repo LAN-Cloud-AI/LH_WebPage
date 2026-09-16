@@ -1,29 +1,29 @@
 ---
-title: LeadsHunter｜Product introduction and user guide
+title: 线索猎手｜Product introduction and user guide
 type: guide
 status: current
 owner: Kaison
-updated: 2026-09-09
+updated: 2026-09-16
 related:
   - product-guide/README.md
   - product-guide/线索猎手-产品介绍与使用说明.md
 ---
-# LeadsHunter｜Product introduction and user guide
+# 线索猎手｜Product introduction and user guide
 
 > **Turn publicly expressed car-buying demand into sales opportunities that stores can find, understand, and follow up.**
 >
 > For auto dealers, store managers, DCC teams, and sales consultants · Illustrated edition
 
-![Figure 01｜LeadsHunter workflow from discovering public demand to sales follow-up](assets/20-value-chain.svg)
+![Figure 01｜线索猎手 workflow from discovering public demand to sales follow-up](assets/20-value-chain.svg)
 
 *Figure 01｜Product overview: find demand in public comments and posts, score it with AI and assign it in the console, then let sales review it in the app and continue the conversation on the original platform.*
 
-**Quick links**: [Product website](https://leadshunter.lancloudtech.com/) · [LeadsHunter console](https://aliyun-control-pannel-leadshunter.lancloudtech.com/) · [App store](https://appstore.lancloudtech.com/app?id=leadshunter) · [Contact sales](https://leadshunter-contact.lancloudtech.com/)
+**Quick links**: [Product website](https://leadshunter.lancloudtech.com/) · [线索猎手 console](https://aliyun-control-pannel-leadshunter.lancloudtech.com/) · [App store](https://appstore.lancloudtech.com/app?id=leadshunter) · [Contact sales](https://leadshunter-contact.lancloudtech.com/)
 
 ## Contents
 
-- [1. What LeadsHunter is](#what)
-- [2. Why LeadsHunter if you already have DCC and automotive vertical media](#why)
+- [1. What 线索猎手 is](#what)
+- [2. Why 线索猎手 if you already have DCC and automotive vertical media](#why)
 - [3. How to widen a dealer’s lead intake](#channels)
 - [4. Using the console: configure, identify, assign, and route](#console)
 - [5. Using the app: review, filter, alerts, and follow-up](#app)
@@ -31,15 +31,17 @@ related:
 - [7. Daily checklist and FAQ](#faq)
 - [8. Contact sales](#contact)
 
+Current product versions: **App 3.0.0 · Console 2.3.1**. Check the app-store page for the specific builds and installation channels currently available.
+
 <a id="what"></a>
 
-## 1. What LeadsHunter is
+## 1. What 线索猎手 is
 
-**LeadsHunter (线索猎手) is a public-platform lead discovery and delivery tool for auto dealers and sales teams.** It helps stores find car-buying demand in public content on Douyin, Xiaohongshu, and similar platforms, uses AI to judge intent and organize context and follow-up suggestions, then assigns workable leads to stores and sales consultants.
+**线索猎手 (线索猎手) is a public-platform lead discovery and delivery tool for auto dealers and sales teams.** It helps stores find car-buying demand in public content on Douyin, Xiaohongshu, and similar platforms, uses AI to judge intent and organize context and follow-up suggestions, then assigns workable leads to stores and sales consultants.
 
-Potential customers often already write their needs in public: someone asks in a comment “长沙落地多少” (on-the-road price in Changsha); someone asks about stock, trade-in, or a test drive; someone posts to find a salesperson or compare models. LeadsHunter turns these scattered expressions of demand into items that can be read, filtered, and assigned.
+Potential customers often already write their needs in public: someone asks in a comment “长沙落地多少” (on-the-road price in Changsha); someone asks about stock, trade-in, or a test drive; someone posts to find a salesperson or compare models. 线索猎手 turns these scattered expressions of demand into items that can be read, filtered, and assigned.
 
-| What the store needs to know | What LeadsHunter provides |
+| What the store needs to know | What 线索猎手 provides |
 |---|---|
 | Where is there still customer demand? | Keyword search, comments on target-account posts, and demand posts that users publish themselves |
 | What is worth reading first? | High-intent and mid-intent AI judgments, with reasons |
@@ -47,7 +49,7 @@ Potential customers often already write their needs in public: someone asks in a
 | Who should handle it? | Organizational ownership, org assignment, account routing, and receive-account setup |
 | What should sales do next? | Open details in the app, use suggested actions, then go to the user profile or original post to talk |
 
-![Figure 02｜LeadsHunter console overview](assets/01-dashboard.png)
+![Figure 02｜线索猎手 console overview](assets/console-v231-dashboard.png)
 
 *Figure 02｜Console overview: the top shows content, comments, scoring, and task status; the middle shows intent distribution; the bottom shows collection trends. Operations staff use this to see demand distribution and processing progress.*
 
@@ -57,21 +59,21 @@ Potential customers often already write their needs in public: someone asks in a
 
 **The app is the salesperson’s on-the-go lead workspace.** Salespeople review valid leads assigned to them, prioritize by intent and status, understand the customer’s need, then follow up on the original platform.
 
-LeadsHunter helps stores find demand, understand intent, and schedule follow-up. Sales consultants still complete the conversation, quote, invitation, and deal, using the customer’s original words.
+线索猎手 helps stores find demand, understand intent, and schedule follow-up. Sales consultants still complete the conversation, quote, invitation, and deal, using the customer’s original words.
 
 <a id="why"></a>
 
-## 2. Why LeadsHunter if you already have DCC and automotive vertical media
+## 2. Why 线索猎手 if you already have DCC and automotive vertical media
 
-**Because customers already express a large amount of demand on social platforms before they leave a contact, answer a call, or book a store visit.** LeadsHunter adds an entry point for discovering that demand, so existing acquisition and intake systems can cover an earlier stage of the car-buying discussion.
+**Because customers already express a large amount of demand on social platforms before they leave a contact, answer a call, or book a store visit.** 线索猎手 adds an entry point for discovering that demand, so existing acquisition and intake systems can cover an earlier stage of the car-buying discussion.
 
-Automotive vertical media bring inquiries and contact submissions. DCC teams handle conversation, nurturing, and invitations. LeadsHunter adds demand discovery on social platforms such as Douyin and Xiaohongshu, so stores can make contact before the customer leaves details with that store.
+Automotive vertical media bring inquiries and contact submissions. DCC teams handle conversation, nurturing, and invitations. 线索猎手 adds demand discovery on social platforms such as Douyin and Xiaohongshu, so stores can make contact before the customer leaves details with that store.
 
-![Figure 03｜How LeadsHunter complements vertical media and DCC](assets/21-channel-expansion.svg)
+![Figure 03｜How 线索猎手 complements vertical media and DCC](assets/21-channel-expansion.svg)
 
-*Figure 03｜Two intake paths working together: existing channels continue to take inbound contact submissions; LeadsHunter adds public-platform demand discovery. Sales and DCC complete conversation and invitations using the store’s process.*
+*Figure 03｜Two intake paths working together: existing channels continue to take inbound contact submissions; 线索猎手 adds public-platform demand discovery. Sales and DCC complete conversation and invitations using the store’s process.*
 
-| Dimension | Existing channels such as automotive vertical media | What LeadsHunter adds | DCC / sales intake |
+| Dimension | Existing channels such as automotive vertical media | What 线索猎手 adds | DCC / sales intake |
 |---|---|---|---|
 | Where demand is found | Model content, inquiries, quotes, and contact-submission paths | Public comments and self-published posts on social platforms | Continue the conversation from the customer’s need |
 | Typical demand expression | Submit an inquiry, booking, or contact details | “多少钱落地” (on-the-road price), “有没有现车” (any stock), “求推荐销售” (need a salesperson) | Confirm model, budget, region, and purchase plan |
@@ -105,9 +107,9 @@ Keyword groups turn the store’s trading area into searchable topics. Besides t
 
 Operations staff can keep refining city, model, and need-word combinations based on actual replies and contact submissions.
 
-![Figure 04｜Keyword management and receive-account setup](assets/02-keywords.png)
+![Figure 04｜Keyword management and receive-account setup](assets/console-v231-keywords.png)
 
-*Figure 04｜Keyword entry: the top manages the group, owning organization, scoring scenario, and receive accounts; the bottom maintains keywords, platforms, and search scope. Configure keywords around themes such as “city + brand + on-the-road price”, then enable the group so it joins the scheduled collection.*
+*Figure 04｜Keyword entry: the top manages the group, owning organization, and receive accounts; the bottom maintains keywords, platforms, and search scope. Configure keywords around themes such as “city + brand + on-the-road price”, then enable the group so it joins the scheduled collection.*
 
 ### 3.2 From your own content to discussion under target public accounts
 
@@ -115,7 +117,7 @@ Operations staff can keep refining city, model, and need-word combinations based
 
 ![Figure 05｜Competitor-account collection entry](assets/04-competitors.png)
 
-*Figure 05｜Competitor setup: create a group first, then add target accounts. You can also build a watch list quickly with batch import.*
+*Figure 05｜Competitor setup: create a group first, then add target accounts. You can also build a watch list quickly with batch import. (Historical interface example, 2026-09-08)*
 
 From these public posts and comments, stores can find local buying, model-comparison, and price-inquiry demand.
 
@@ -125,7 +127,7 @@ Some customers never comment under a store video. They post themselves: “有�
 
 ![Figure 06｜Xiaohongshu post-group setup](assets/06-post-groups.png)
 
-*Figure 06｜Post-group entry: the top selects the organization and post scoring scenario; the bottom configures search terms. This entry is for Xiaohongshu posts and helps stores find buying requests that users publish themselves.*
+*Figure 06｜Post-group entry: the top manages the group and owning organization; the bottom configures search terms. This entry is for Xiaohongshu posts and helps stores find buying requests that users publish themselves. (Historical interface example, 2026-09-08)*
 
 ### 3.4 From “we found content” to “we know why it is worth following up”
 
@@ -133,7 +135,7 @@ AI judges intent from the content and its context, separating high intent, mid i
 
 ![Figure 07｜AI judgment on a real quote comment](assets/10-lead-analysis.png)
 
-*Figure 07｜AI intent analysis: using the comment “落地多少 长沙” and the original XPENG MONA M03 post, it identifies a local quote request and suggests “message a quote + invite to the store” as the follow-up.*
+*Figure 07｜AI intent analysis: using the comment “落地多少 长沙” and the original XPENG MONA M03 post, it identifies a local quote request and suggests “message a quote + invite to the store” as the follow-up. (Historical interface example, 2026-09-08)*
 
 ### 3.5 From “an opportunity was found” to “a specific person owns it”
 
@@ -160,7 +162,7 @@ Recommended first-time order: **organization and accounts → create groups → 
 
 ### 4.1 Sign in to the console and confirm your role
 
-Sign in to the [LeadsHunter console](https://aliyun-control-pannel-leadshunter.lancloudtech.com/) with the account assigned by your organization. The left menu changes by role. Regular salespeople mainly use the app.
+Sign in to the [线索猎手 console](https://aliyun-control-pannel-leadshunter.lancloudtech.com/) with the account assigned by your organization. The left menu changes by role. Regular salespeople mainly use the app.
 
 | Role | Main work | Visible scope |
 |---|---|---|
@@ -174,7 +176,7 @@ Dealer admins mainly use the “org-assignment pool” and the “account-routin
 
 Go to **Organization management → New organization**. Fill in the organization name, sales-account cap, location, and related fields, and set daily quotas as agreed for the business.
 
-![Figure 09｜Organization create and quota form](assets/24-organization-form.png)
+![Figure 09｜Organization create and quota form](assets/console-v231-create-organization.png)
 
 *Figure 09｜Organization settings: the sales-account cap limits how many sales accounts the organization can enable. The six daily quotas correspond to high and mid intent for Douyin comments, Xiaohongshu comments, and Xiaohongshu posts.*
 
@@ -192,7 +194,7 @@ Set quotas from the store’s headcount and daily intake capacity, then adjust f
 
 Go to **User management → New account**. Fill in login name, name, role, organization, and password. Hand the sales account to the person who will use it. Dealer admins can create sales accounts only inside their own organization.
 
-![Figure 10｜Sales-account create form](assets/25-user-form.png)
+![Figure 10｜Sales-account create form](assets/console-v231-create-user.png)
 
 *Figure 10｜Account settings: choose the “Sales” role and the owning organization so the account is tied to a specific store. A new account password must be at least 8 characters.*
 
@@ -204,11 +206,11 @@ Open the target page under **Keywords / Competitor setup / Post groups**, then c
 
 ![Figure 11｜New collection-group form](assets/07-group-form.png)
 
-*Figure 11｜Post group as an example: enter a group name, then choose a scoring scenario that fits the business and the owning organization. If the scenario is unclear, ask the platform admin to confirm. Name the group so the store, model, or purpose is obvious later for filtering and review.*
+*Figure 11｜Post group as an example: enter a group name and choose its organization. The current scoring model follows the organization’s scoring group, or the platform default when unset; ask a platform admin to confirm. Name the group so the store, model, or purpose is obvious later for filtering and review. (Historical interface example, 2026-09-08)*
 
 After the group is created, choose receivers in that group’s **Receive accounts** dropdown, then click **Save accounts**. Figure 04 on the keyword page shows this location.
 
-**Check the result**: the group row shows the expected receive accounts, and the group’s organization is correct. Changing the binding only affects tasks created later. Historical leads stay in Lead center and must be handled there; they are not all moved to the new person automatically.
+**Check the result**: the group row shows the expected receive accounts, and the group’s organization is correct. Saving applies to subsequent routing and retries leads previously blocked because no recipients were configured. Existing deliveries are not withdrawn, and historical leads are not all transferred to new recipients.
 
 ### 4.5 Add keywords: find model and demand discussions
 
@@ -216,7 +218,7 @@ Go to **Keywords → Add keyword**.
 
 ![Figure 12｜Add-keyword form](assets/03-keyword-form.png)
 
-*Figure 12｜Keyword settings: enter the search term, choose an existing group and platform. Notes can record the business purpose, for example “local on-the-road price inquiries”.*
+*Figure 12｜Keyword settings: enter the search term, choose an existing group and platform. Notes can record the business purpose, for example “local on-the-road price inquiries”. (Historical interface example, 2026-09-08)*
 
 1. Enter a search term, for example “长沙 小鹏 落地”.
 2. Choose the matching keyword group.
@@ -231,7 +233,7 @@ Go to **Competitor setup → Add competitor**.
 
 ![Figure 13｜Add-competitor-account form](assets/05-competitor-form.png)
 
-*Figure 13｜Competitor settings: choose the platform, then enter the account identifier using the on-page hint. The Douyin example accepts a Douyin ID, sec_uid, or profile URL. Create the competitor group first, then choose the owning group.*
+*Figure 13｜Competitor settings: choose the platform, then enter the account identifier using the on-page hint. The Douyin example accepts a Douyin ID, sec_uid, or profile URL. Create the competitor group first, then choose the owning group. (Historical interface example, 2026-09-08)*
 
 Fill in the account identifier, optional nickname, owning group, and notes. After saving, check that the account appears in the list. Account formats differ by platform; follow the form hint.
 
@@ -239,7 +241,7 @@ Competitor groups are for watching specific public accounts over time. Keyword g
 
 ### 4.7 Add post keywords: find self-published buying posts
 
-Go to **Post groups**. Create a post group and set the scoring scenario first, then click **Add keyword**. Enter the search term, choose the post group and search page count, save, then check the list.
+Go to **Post groups**. Create a post group and confirm its organization first, then click **Add keyword**. Enter the search term, choose the post group and search page count, save, then check the list.
 
 Using Figure 06, start with combinations such as “city + brand + looking for a salesperson / stock / choosing a car”. User posts may include usage, reasons for switching, and model comparisons at the same time. Sales should read the full text before deciding whether the store can serve the request.
 
@@ -256,7 +258,7 @@ System admins also have manual entries such as **Search comments / Monitor / Sea
 
 ![Figure 14｜Collection tasks and scoring progress](assets/08-tasks.png)
 
-*Figure 14｜System admins can open “Crawler tasks” to see completion status, content and comment counts, duplicate records, and high- and mid-intent results, so collection and analysis progress stay visible.*
+*Figure 14｜System admins can open “Crawler tasks” to see completion status, content and comment counts, duplicate records, and high- and mid-intent results, so collection and analysis progress stay visible. (Historical interface example, 2026-09-08)*
 
 If a task fails, open details to see why. After it is handled, keep checking org-assignment and account-routing results.
 
@@ -264,7 +266,7 @@ If a task fails, open details to see why. After it is handled, keep checking org
 
 Go to **Lead center**, choose a pool view you can access, and filter by lead type, platform, and intent. When needed, expand **Advanced filters**, add group, city, time, and other conditions, then click **Query**.
 
-![Figure 15｜Xiaohongshu high-intent results in Lead center](assets/09-lead-center.png)
+![Figure 15｜Xiaohongshu high-intent results in Lead center](assets/console-v231-leads.png)
 
 *Figure 15｜Admin master-library view: the same list can show posts and comments. Source links help you reopen the context. The three-pool counts help you see whether a lead has entered assignment. Dealer admins do the same work inside this organization’s pools.*
 
@@ -278,17 +280,17 @@ Go to the **org-assignment pool**, find a valid assignment record, and click **R
 
 ![Figure 16｜Routing entry in the org-assignment pool](assets/12-org-assignment.png)
 
-*Figure 16｜Store routing workspace: review the lead, platform, intent, organization, and status. “Route account” on the right assigns the receiver.*
+*Figure 16｜Store routing workspace: review the lead, platform, intent, organization, and status. “Route account” on the right assigns the receiver. (Historical interface example, 2026-09-08)*
 
 ![Figure 17｜Choose a receive account and enter a reason](assets/19-distribute-form.png)
 
-*Figure 17｜Routing dialog: choose a receive account in this organization, enter a reason, check the details, then confirm.*
+*Figure 17｜Routing dialog: choose a receive account in this organization, enter a reason, check the details, then confirm. (Historical interface example, 2026-09-08)*
 
 When finished, open the **account-routing pool** to check valid routing records, and ask the receiver to confirm the lead is visible in their own app account.
 
 ![Figure 18｜Source and transfer history for the same lead](assets/11-lead-history.png)
 
-*Figure 18｜Transfer trail: details show ownership, org assignment, account routing, and the source task. Use the history to see which accounts received the lead and to name the primary follow-up salesperson, so the customer is not contacted twice.*
+*Figure 18｜Transfer trail: details show ownership, org assignment, account routing, and the source task. Use the history to see which accounts received the lead and to name the primary follow-up salesperson, so the customer is not contacted twice. (Historical interface example, 2026-09-08)*
 
 <a id="app"></a>
 
@@ -296,25 +298,23 @@ When finished, open the **account-routing pool** to check valid routing records,
 
 ### 5.1 Install from the app store
 
-Open [“LeadsHunter” in the LAN Cloud App Store](https://appstore.lancloudtech.com/app?id=leadshunter) and choose the install path for your phone OS.
+Open [“线索猎手” in the LAN Cloud App Store](https://appstore.lancloudtech.com/app?id=leadshunter) and choose the install path for your phone OS.
 
-![Figure 19｜LeadsHunter app-store page](assets/13-appstore.png)
 
-*Figure 19｜App install entry: read the product introduction in the LAN Cloud App Store, then get the iOS or Android build for your phone OS.*
 
 | Device | Install steps |
 |---|---|
-| iPhone | Install TestFlight first, then open the [LeadsHunter TestFlight invite page](https://testflight.apple.com/join/Bq2mpgwF) from the store and follow the prompts |
+| iPhone | Install TestFlight first, then open the [线索猎手 TestFlight invite page](https://testflight.apple.com/join/Bq2mpgwF) from the store and follow the prompts |
 | Android | Open the store in the phone browser, tap “Get”, complete verification as prompted, download the APK, and install |
 | Computer | You can browse the introduction and screenshots. Download and install from the matching phone browser |
 
-The organization admin provides the app account. When signing in, choose **Southern Region → Guangdong–Hong Kong–Macao server** and enter the account the admin gave you. If the store uses another dedicated server, choose the one the admin specifies.
+The organization admin provides the app account. Choose the server specified by your organization admin, then enter the account they provided. The account and server must belong to the same organization environment.
 
 ### 5.2 Open “Leads” and rank what to handle
 
 After sign-in, open **Leads** from the bottom tab and review content assigned to you. Read high intent first, then mid intent, and plan the day from date and follow-up status.
 
-<img src="assets/14-app-leads.jpg" alt="Figure 20｜App lead list" width="240" style="max-width:100%;height:auto;">
+<img src="assets/app-v3-leads.png" alt="Figure 20｜App lead list" width="240" style="max-width:100%;height:auto;">
 
 *Figure 20｜Lead list: switch All, High intent, and Mid intent at the top. Each card shows title, intent, platform, type, region, and the customer’s message, with status tags for pending follow-up and followed up. The bottom tab switches Home, Leads, and Notifications.*
 
@@ -324,9 +324,7 @@ Read the customer’s original words on the card first, then open details from i
 
 Tap **Advanced filters** and set type, platform, date, and follow-up status as needed.
 
-<img src="assets/17-app-filters.jpg" alt="Figure 21｜App Advanced filters" width="240" style="max-width:100%;height:auto;">
 
-*Figure 21｜Advanced filters: narrow the list to a type, platform, date range, and follow-up status. The default list is comments. Switch to “Posts” when you need self-published buying posts.*
 
 A practical daily order is: **today / last 7 days → pending follow-up → high intent, then mid intent**.
 
@@ -334,7 +332,7 @@ Under the comment type you can filter by Douyin and Xiaohongshu. After you switc
 
 ### 5.4 Read comment details, then open the profile or original post
 
-<img src="assets/15-app-comment-detail.jpg" alt="Figure 22｜App comment-lead details" width="240" style="max-width:100%;height:auto;">
+<img src="assets/app-v3-comment-detail.png" alt="Figure 22｜App comment-lead details" width="240" style="max-width:100%;height:auto;">
 
 *Figure 22｜Comment details: the customer’s question is highlighted at the top. Below it are the comment, original-post title, post body, and source group. “Smart analysis” can be expanded. The bottom actions are “Open commenter profile” and “Open original post”.*
 
@@ -347,9 +345,9 @@ Reply around the question the customer asked. For example, if they ask whether s
 
 ### 5.5 Post leads: handle a more complete buying request
 
-<img src="assets/18-app-post-detail.jpg" alt="Figure 23｜App post-lead details" width="240" style="max-width:100%;height:auto;">
+<img src="assets/app-v3-post-detail.png" alt="Figure 23｜App post-lead details" width="240" style="max-width:100%;height:auto;">
 
-*Figure 23｜Post details: the title and body of a user-published post form a complete request. Sales can see the model, intended use, and comparison questions, then tap “Open original post” to read the discussion.*
+*Figure 23｜Post details: the title and body of a user-published post form a complete request. Sales can see the model, intended use, and comparison questions. The original post is unavailable for this demonstration record, so its entry is disabled; a valid source can be opened to read the discussion.*
 
 Posts usually give more context. Read the full body first, then judge whether the store can meet the budget, model, delivery time, or service region, and prepare a reply around the specific question.
 
@@ -359,7 +357,7 @@ For a lead that is worth continuing, use the details entry to go to the original
 
 When you leave through the main jump entry in details, the app records the follow-up action and marks the lead **Followed up**. Customer replies, contact details, store visits, and order progress can still be logged in the store ledger or CRM.
 
-<img src="assets/16-app-notifications.jpg" alt="Figure 24｜App notification center" width="240" style="max-width:100%;height:auto;">
+<img src="assets/app-v3-notifications.png" alt="Figure 24｜App notification center" width="240" style="max-width:100%;height:auto;">
 
 *Figure 24｜Notification center: review to-dos and alerts in Unread, Read, and All, then mark items read after you confirm them. Use notifications to return to the matching lead and schedule the next follow-up.*
 
@@ -369,15 +367,51 @@ The app sends new-lead alerts and morning and afternoon summary alerts. Turning 
 
 After the customer replies on the original platform and a real conversation starts, sales or DCC continue with the store process: confirm the need, collect contact details the customer is willing to give, book a test drive, and arrange a store visit. When CRM / DCC logging is required, use the store’s existing method.
 
+### 5.8 Home and Account
+
+Home shows **Pending follow-ups** and **Added today**, with direct access to work awaiting action. Pending counts update when you return after handling a lead. **Account** contains profile, appearance, version, privacy information, and sign-out. Dealer admins also have an **Organization management** entry.
+
+<img src="assets/app-v3-home.png" alt="Figure 30｜Home: pending follow-ups and leads added today." width="240" style="max-width:100%;height:auto;">
+
+*Figure 30｜Home: pending follow-ups and leads added today.*
+
+### 5.9 Manage accounts and groups on your phone
+
+Dealer admins open **Account → Organization management**, then choose **Organization accounts** or **Intent groups**.
+
+- **Organization accounts**: view active sales accounts and the seat limit. Creation accepts name, username, phone, password, and notes; name, username, and password are required. Open an account to edit name, phone, or notes. Usernames are read-only. Existing passwords cannot be viewed; setting a new password requires confirmation and invalidates previous sign-in sessions after success. Creating or reactivating an account is subject to the organization’s active sales-account quota.
+- **Intent groups**: keyword and post groups have separate lists. Create a group, then manage its keywords and recipients in its own detail page. Keywords support platform selection; post groups use a fixed platform. Organization quotas govern additions.
+- **Recipients**: search active accounts in the organization by name or username, select multiple accounts, or explicitly confirm clearing the list. Saving applies to subsequent routing and also retries leads previously blocked because no recipients were configured. Existing deliveries are not withdrawn.
+
+Disabling an account automatically removes it from all keyword and post groups while retaining historical leads, delivery records, and follow-up archives. Reactivation enables the account only; an admin must add it to the required groups again. Previously accessible lead history remains available under the original permissions.
+
+<img src="assets/app-v3-management.png" alt="Figure 31｜Organization management: accounts and intent groups have separate entries." width="240" style="max-width:100%;height:auto;">
+
+*Figure 31｜Organization management: accounts and intent groups have separate entries.*
+
+<img src="assets/app-v3-users.png" alt="Figure 32｜Account detail: name, username, phone, password reset, and notes, with activation actions on the detail page." width="240" style="max-width:100%;height:auto;">
+
+*Figure 32｜Account detail: name, username, phone, password reset, and notes, with activation actions on the detail page.*
+
+<img src="assets/app-v3-group.png" alt="Figure 33｜Group detail: configure keywords and recipients for this group." width="240" style="max-width:100%;height:auto;">
+
+*Figure 33｜Group detail: configure keywords and recipients for this group.*
+
+### 5.10 Self-service cancellation and retained data
+
+Open **Account → Cancel account**, read the notice, enter the current password, and confirm. The account is deactivated and removed from keyword and post groups, and the device returns to sign-in. Cancellation does not automatically erase personal information or history and does not mean permanent deletion.
+
+Platform admins can restore accounts; active dealer admins can also restore sales accounts in their own organization. If the last active dealer admin cancels, the organization is deactivated as well and a platform admin must restore it first. Restoration never automatically rejoins old groups. You may contact the operator or organization admin to request correction, deletion, or anonymization of personal information that is no longer necessary. The last active platform admin is protected from self-service cancellation. See the privacy policy in the app.
+
 <a id="partners"></a>
 
 ## 6. Partners and results
 
 ### 6.1 Current partners
 
-LeadsHunter serves domestic auto dealers, direct-sale stores, and overseas auto businesses. Partners include:
+线索猎手 serves domestic auto dealers, direct-sale stores, and overseas auto businesses. Partners include:
 
-![Figure 25｜LeadsHunter partners](assets/23-partners.svg)
+![Figure 25｜线索猎手 partners](assets/23-partners.svg)
 
 *Figure 25｜Partners: in mainland China, 上海运通智己 (Shanghai Yuntong, IM Motors), 长沙小鹏直营 (Changsha XPENG stores), 东莞领克 (Dongguan Lynk & Co), and 成都鸿蒙智行 (Chengdu Harmony Intelligent Mobility). The overseas partner is 奇瑞国际 (Chery International).*
 
@@ -393,7 +427,7 @@ LeadsHunter serves domestic auto dealers, direct-sale stores, and overseas auto 
 
 ### 6.2 Changsha XPENG stores: one month of follow-up results
 
-**From car-buying discussion on social platforms to customer replies, contact details, and order-lock reports, LeadsHunter is already part of daily store sales work.** During a one-month paid trial, 4 salespeople at two Changsha XPENG stores — Changsha Yuhua and Changsha Furong Tianjie — followed up Xiaohongshu and Douyin leads.
+**From car-buying discussion on social platforms to customer replies, contact details, and order-lock reports, 线索猎手 is already part of daily store sales work.** During a one-month paid trial, 4 salespeople at two Changsha XPENG stores — Changsha Yuhua and Changsha Furong Tianjie — followed up Xiaohongshu and Douyin leads.
 
 In that month, the ledger recorded **174 follow-ups, 62 customer replies, 36 contacts obtained, 23 mobile numbers obtained, and 3 sales order-lock reports**.
 
@@ -433,7 +467,7 @@ All three order-lock reports at Changsha Yuhua came from Xiaohongshu. In the mat
 
 *Figure 28｜Three order-lock reports at Changsha Yuhua: sales talked on Xiaohongshu, obtained customer contact details, and recorded order-lock progress in the follow-up ledger.*
 
-The Changsha case shows the practical value of LeadsHunter working with store sales:
+The Changsha case shows the practical value of 线索猎手 working with store sales:
 
 - **Widen customer contact channels.** Finding demand in social scenes such as Douyin and Xiaohongshu gives sales more chances to start the conversation.
 - **Turn a demand discussion into an ongoing contact.** Reply around the customer’s original words; after contact details are obtained, continue on model, quote, and store-visit arrangements.
@@ -447,7 +481,7 @@ The Changsha case shows the practical value of LeadsHunter working with store sa
 
 - [ ] The organization is enabled. Location, account cap, and each quota match the agreement.
 - [ ] Admin and sales accounts are created. People can sign in with their own accounts.
-- [ ] Keyword groups / competitor groups / post groups have the correct organization and scoring scenario.
+- [ ] Keyword groups / competitor groups / post groups have the correct organization, and a platform admin has confirmed its scoring group.
 - [ ] Receive accounts are selected and “Save accounts” has been clicked.
 - [ ] Keywords or public accounts are in the matching group, and the group is enabled.
 - [ ] An admin has confirmed that collection and scoring finished, and has checked org-assignment and account-routing results.
@@ -470,21 +504,21 @@ The Changsha case shows the practical value of LeadsHunter working with store sa
 | The console has leads, but the app does not? | Separate the master library, ownership, org assignment, and account routing. Then check that the account is correct, the organization and account are enabled, the binding has taken effect, and quotas or filters are not hiding results. |
 | I clicked search. Why was nothing assigned to sales? | Check whether you chose “Search this time only”. That path does not enter assignment and routing. Also confirm there are qualifying high- or mid-intent results. |
 | Why did the day not reach the quota? | A quota is a cap. Actual volume depends on collection results, intent, region rules, and configuration. |
-| If I change the receive account, do old leads move automatically? | No. Binding changes affect future tasks. Handle historical records in Lead center. |
+| If I change the receive account, do old leads move automatically? | Existing deliveries are not withdrawn or transferred. Configuring recipients can retry leads previously blocked by an empty recipient list. |
 | Why am I not seeing posts? | The app defaults to comments. Open Advanced filters, switch to “Posts”, and check date and status. |
 | Can one lead go to more than one person? | Yes. Group binding or admin routing can send a lead to multiple accounts. The store still needs to name a specific owner. |
 | What customer information is in a lead? | You can see the public comment or post, source link, intent analysis, and follow-up suggestions. Sales can return to the original platform to talk and collect contact details the customer is willing to give. |
 | How should “Followed up” be used? | The app records that sales went to the original platform. Actual replies, contact submissions, and order progress are logged in the store ledger or CRM. |
 | Do we have to configure a script library before we can use the product? | No. The script library is optional. Lead creation, routing, and app review do not depend on it. |
 | How do we launch overseas TikTok work? | Contact a [sales manager](https://leadshunter-contact.lancloudtech.com/) or the platform admin to configure collection, language scenario, intent rules, and delivery. |
-| How do we discuss a partnership or book a demo? | Open the [contact-sales page](https://leadshunter-contact.lancloudtech.com/), or first read the product introduction on the [LeadsHunter website](https://leadshunter.lancloudtech.com/). |
+| How do we discuss a partnership or book a demo? | Open the [contact-sales page](https://leadshunter-contact.lancloudtech.com/), or first read the product introduction on the [线索猎手 website](https://leadshunter.lancloudtech.com/). |
 | The original post or profile will not open? | Check the matching platform app, sign-in, and network. The content may also have been taken down or had its permissions changed. Keep the lead context and report it to an admin. |
 
 <a id="contact"></a>
 
 ## 8. Contact sales
 
-To discuss a partnership, book a product demo, or open a store trial, open the [contact-sales page](https://leadshunter-contact.lancloudtech.com/), or use the phone, email, and QR code below. You can also read the product introduction on the [LeadsHunter website](https://leadshunter.lancloudtech.com/) first, then schedule a demo.
+To discuss a partnership, book a product demo, or open a store trial, open the [contact-sales page](https://leadshunter-contact.lancloudtech.com/), or use the phone, email, and QR code below. You can also read the product introduction on the [线索猎手 website](https://leadshunter.lancloudtech.com/) first, then schedule a demo.
 
 | Contact method | Details |
 |---|---|
@@ -493,6 +527,6 @@ To discuss a partnership, book a product demo, or open a store trial, open the [
 | WeCom | Long-press or scan the QR code below to add the sales manager |
 | Product website | [leadshunter.lancloudtech.com](https://leadshunter.lancloudtech.com/) |
 
-![Figure 29｜WeCom QR code for the LeadsHunter sales manager](assets/29-wecom-qr.png)
+![Figure 29｜WeCom QR code for the 线索猎手 sales manager](assets/29-wecom-qr.png)
 
-*Figure 29｜WeCom: long-press or scan the QR code to add the LeadsHunter sales manager.*
+*Figure 29｜WeCom: long-press or scan the QR code to add the 线索猎手 sales manager.*
