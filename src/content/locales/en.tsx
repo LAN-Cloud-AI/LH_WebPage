@@ -407,7 +407,7 @@ export const surfaces = {
     title: 'Sales sees one job: who to follow today',
     body: 'Start with pending follow-ups, read original content and intent analysis, then continue from notifications. Dealer admins can also open Account → Organization management to manage sales accounts, keyword and post groups, and recipients.',
     cta: 'Get 线索猎手',
-    note: 'App 3.0.0 · iOS TestFlight / Android package; check the app store for available builds',
+    note: 'App 3.0.0 · iOS is awaiting Apple review and is not yet available; get Android from the app store',
     shots: [
       {
         src: '/assets/screenshots/app-v3-leads.png',

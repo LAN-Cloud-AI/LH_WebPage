@@ -405,7 +405,7 @@ export const surfaces = {
     title: '销售只看一件事：今天该跟谁',
     body: '首页直达待跟进，线索页查看原文与智能分析，通知帮助继续处理。经销商管理员还可从“账户 → 组织管理”维护销售账号、关键词组、帖子组与分发人。',
     cta: '获取线索猎手',
-    note: 'APP 3.0.0 · iOS TestFlight / Android 安装包，具体可用版本以应用商店为准',
+    note: 'APP 3.0.0 · iOS 正在 Apple 审核，暂不可安装；Android 安装包请前往应用商店',
     shots: [
       {
         src: '/assets/screenshots/app-v3-leads.png',
