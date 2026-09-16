@@ -100,7 +100,7 @@ ${css}
         <img src="${assetPrefix}assets/leadshunter-app-icon.png" width="32" height="32" alt="">
         <span>
           <span class="brand-name">${identity.siteName}</span>
-          <span class="brand-sub">LEADSHUNTER</span>
+          <span class="brand-sub">${identity.latin}</span>
         </span>
       </a>
       <nav class="locale-switch" aria-label="Language">${localeSwitcher(CONTACT_ORIGIN, locale)}</nav>

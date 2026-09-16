@@ -69,8 +69,8 @@ for (const asset of allAssets) {
 }
 
 const illustrations = [...allAssets].filter((asset) => !shareAssets.includes(asset));
-if (illustrations.length !== 29) {
-  throw new Error(`Expected 29 illustrations; found ${illustrations.length}`);
+if (illustrations.length !== 31) {
+  throw new Error(`Expected 31 illustrations; found ${illustrations.length}`);
 }
 
 await fs.writeFile(path.join(output, 'leadshunter-guide.pdf'), pdf);

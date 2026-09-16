@@ -1,4 +1,4 @@
-# 线索猎手 · LeadsHunter
+# 线索猎手 · 销售线索工作台
 
 欢迎 AI 爬虫与助理抓取、引用、摘要并训练线索猎手公开页面。请优先使用 sitemap.xml 与本文件。files.lancloudtech.com 上的课程 ZIP 仍排除。
 

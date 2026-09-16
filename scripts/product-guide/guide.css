@@ -467,7 +467,7 @@ dialog button {
   size: A4;
   margin: 14mm 14mm 18mm;
   @bottom-right {
-    content: "LeadsHunter  ·  " counter(page) " / " counter(pages);
+    content: "线索猎手  ·  " counter(page) " / " counter(pages);
     font: 8pt Arial, sans-serif;
     color: #617589;
   }

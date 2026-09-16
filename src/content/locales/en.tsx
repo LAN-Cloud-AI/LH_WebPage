@@ -9,7 +9,7 @@ import { FAQ, IDENTITY } from '../identity.js';
 export const site = {
   brand: {
     name: IDENTITY.en.siteName,
-    latin: 'LEADSHUNTER',
+    latin: 'Sales lead workspace',
     company: IDENTITY.en.company,
     icon: '/assets/icon/app-256.png',
     beian: '蜀ICP备2026002396号',
@@ -25,7 +25,7 @@ export const site = {
     demoMail:
       'mailto:lance@lancloudtech.com?subject=%E7%BA%BF%E7%B4%A2%E7%8C%8E%E6%89%8B%E4%BA%A7%E5%93%81%E6%BC%94%E7%A4%BA%E5%92%A8%E8%AF%A2',
     wecom: 'https://work.weixin.qq.com/ct/wcde518f3ee4ac1b506616d06dedf1fb6f60',
-    appstore: 'https://appstore.lancloudtech.com',
+    appstore: 'https://appstore.lancloudtech.com/app?id=leadshunter',
     company: 'https://lancloudtech.com/',
     companyProduct: 'https://lancloudtech.com/#leadshunter',
     beian: 'https://beian.miit.gov.cn/',
@@ -80,7 +80,7 @@ export const metrics = [
 ];
 
 // ---------------------------------------------------------------------------
-// Problem: bought lists vs LeadsHunter
+// Problem: bought lists vs 线索猎手
 // ---------------------------------------------------------------------------
 
 export const problem = {
@@ -104,7 +104,7 @@ export const problem = {
     ],
   },
   after: {
-    label: 'LeadsHunter',
+    label: '线索猎手',
     tone: 'brand' as const,
     items: [
       'Keeps the public original and its context, so the first line can continue the thread',
@@ -147,7 +147,7 @@ export const capabilities: Capability[] = [
   },
   {
     index: '04',
-    title: 'Read-only sales app',
+    title: 'Sales follow-up app',
     body: 'Salespeople only see leads assigned to them. Filter by platform, intent, and follow-up status; mark contacted or skip.',
     icon: 'phone',
   },
@@ -340,7 +340,7 @@ export const poolsSection = {
       tone: 'accent' as const,
       caption: 'Which salesperson receives it',
       body: 'Accounts from the hit groups are unioned, the lead lands on a sales account, and a routing record is written. The sales app only shows leads on that account — not even a teammate’s.',
-      tags: ['Union of hit-group accounts', 'Read-only on the sales app'],
+      tags: ['Union of hit-group accounts', 'Only assigned leads visible'],
     },
   ],
 };
@@ -380,22 +380,22 @@ export const surfaces = {
   title: 'The console runs the system; the sales app only follows up',
   lede: 'Both sides work the same lead: the web console handles monitoring, intent review, and three-pool ops; the sales app only shows leads already assigned to that person.',
   console: {
-    label: 'Web console',
+    label: 'Web console 2.3.1',
     shots: [
       {
-        src: '/assets/screenshots/console-leads.jpg',
+        src: '/assets/screenshots/console-v231-leads.png',
         alt: 'Console lead center showing the master library and three pool tabs',
         title: 'Lead center · three-pool view',
         caption: 'Master library, ownership, org-assignment, and account-routing pools switch on one page. Every lead carries three-pool counts.',
       },
       {
-        src: '/assets/screenshots/console-dashboard.jpg',
+        src: '/assets/screenshots/console-v231-dashboard.png',
         alt: 'Console overview of content, comments, leads, and intent mix',
         title: 'Overview',
         caption: 'Content, comments, leads, and intent mix on one screen, so today’s follow-up focus is obvious.',
       },
       {
-        src: '/assets/screenshots/console-keywords.jpg',
+        src: '/assets/screenshots/console-v231-keywords.png',
         alt: 'Console keyword configuration page',
         title: 'Monitoring setup',
         caption: 'Add OTD, in-stock, subsidy, and similar terms to this store’s topics. Managed by group, expanded on a daily schedule.',
@@ -405,30 +405,51 @@ export const surfaces = {
   app: {
     label: 'Sales app',
     title: 'Sales sees one job: who to follow today',
-    body: 'The app is read-only — no ownership confirmation, org assignment, or account routing, and those APIs are closed to the sales role. It answers one question: which leads landed on me, and how should I open.',
-    cta: 'Request beta access',
-    note: 'TestFlight and Android packages are in closed beta',
+    body: 'Start with pending follow-ups, read original content and intent analysis, then continue from notifications. Dealer admins can also open Account → Organization management to manage sales accounts, keyword and post groups, and recipients.',
+    cta: 'Get 线索猎手',
+    note: 'App 3.0.0 · iOS TestFlight / Android package; check the app store for available builds',
     shots: [
       {
-        src: '/assets/screenshots/ios-01.jpg',
+        src: '/assets/screenshots/app-v3-leads.png',
         alt: 'Sales lead list graded by intent with follow-up status',
         index: '01',
         caption: 'Priority by intent',
-        desc: 'Only leads assigned to this account. High and mid counted separately; filter by platform, date, and follow-up status.',
+        desc: 'Only leads assigned to this account. Filter by intent, platform, date, and follow-up status.',
       },
       {
-        src: '/assets/screenshots/ios-02.jpg',
+        src: '/assets/screenshots/app-v3-comment-detail.png',
         alt: 'Sales lead detail with original comment, source group, and follow-up suggestion',
         index: '02',
         caption: 'Open with context',
         desc: 'Original comment, post title, source group, and the AI next step on one screen — no hopping between platforms to confirm.',
       },
       {
-        src: '/assets/screenshots/ios-03.jpg',
+        src: '/assets/screenshots/app-v3-notifications.png',
         alt: 'Sales notification center with daily digest and new-lead alerts',
         index: '03',
         caption: 'No need to watch the console',
         desc: 'New leads notify immediately. A 10:00 digest lists today’s follow-ups; unread count sits on the icon.',
+      },
+      {
+        src: "/assets/screenshots/app-v3-management.png",
+        alt: "Organization management with account and intent-group entries",
+        index: "04",
+        caption: "Manage the organization on mobile",
+        desc: "Dealer admins open organization management from Account. Accounts and groups have separate pages; these entries are not shown to salespeople.",
+      },
+      {
+        src: "/assets/screenshots/app-v3-users.png",
+        alt: "Sales-account detail with name, username, phone, and notes",
+        index: "05",
+        caption: "People and quotas in one place",
+        desc: "Create sales accounts within the seat limit, then edit names, phone numbers, and notes. Deactivation removes group membership; restoration requires manual rejoining.",
+      },
+      {
+        src: "/assets/screenshots/app-v3-group.png",
+        alt: "Group detail with keywords and recipient configuration",
+        index: "06",
+        caption: "Keywords and recipients per group",
+        desc: "Keyword and post groups each have their own lists and details. Select multiple organization recipients while preserving existing deliveries and follow-up history.",
       },
     ],
   },
@@ -464,7 +485,7 @@ export const rolesSection = {
       abilities: [
         'Maintain this org’s keyword, competitor, and post groups; collect daily at 00:00',
         'Assign leads from the org pool to this org’s sales; revoke and reassign',
-        'Create and disable sales accounts within the seat quota',
+        'Create, disable, or restore sales accounts within the seat quota in the app or console',
         'Maintain follow-up script templates; view this org’s lead stats',
       ],
       scope: 'This org (redacted)',
@@ -473,7 +494,7 @@ export const rolesSection = {
       id: 'user',
       name: 'Front-line sales',
       latin: 'user',
-      summary: 'Read-only view of leads assigned to this account in the app',
+      summary: 'View and follow up leads assigned to this account in the app',
       abilities: [
         'View leads on this account; filter by platform and status',
         'Mark contacted or skip; write follow-up status back to the lead',
@@ -541,8 +562,8 @@ export const security = {
       body: 'Dealer admins and sales can only access this org’s data. Cross-org queries are blocked on the server.',
     },
     {
-      title: 'Sales app is read-only',
-      body: 'The app cannot own, assign, or route leads. Those mutation APIs are not open to the sales role.',
+      title: 'Actions follow the role',
+      body: 'Salespeople handle their own leads. Dealer admins can manage this organization’s sales accounts, keyword and post groups, and group recipients in the app.',
     },
     {
       title: 'Authorized short-link access',
@@ -557,7 +578,7 @@ export const security = {
 
 export const faq = {
   eyebrow: 'FAQ',
-  title: 'About LeadsHunter',
+  title: 'About 线索猎手',
   lede: 'Data source, scoring accuracy, onboarding, and permission boundaries — the questions we hear most.',
   items: FAQ.en,
 };
@@ -592,7 +613,7 @@ export const guideSection = {
   ),
   lede: 'The full illustrated guide is published at leadshunter-guide.lancloudtech.com. It is embedded below; you can also open it in a new window for console and app usage, and how the Changsha store runs it.',
   primary: 'Open the product guide',
-  iframeTitle: 'LeadsHunter product guide and usage notes',
+  iframeTitle: '线索猎手 product guide and usage notes',
 };
 
 export const pipelineSection = {
@@ -639,18 +660,18 @@ export const ui = {
   footerMail: 'Email',
   footerBlurb: IDENTITY.en.tagline,
   footerLegal: 'Only publicly visible platform content is collected · Data isolated by organization',
-  contactQrAlt: 'WeCom QR code for the LeadsHunter sales manager — long-press to recognize',
+  contactQrAlt: 'WeCom QR code for the 线索猎手 sales manager — long-press to recognize',
   contactQrTitle: 'Long-press to recognize the QR code',
-  contactQrHint: 'Add the LeadsHunter sales manager',
+  contactQrHint: 'Add the 线索猎手 sales manager',
   contactWecom: 'WeCom',
   phone: 'Phone',
   mail: 'Email',
-  heroPhoneAlt: 'Sales app lead list',
+  heroPhoneAlt: '线索猎手 home with pending follow-ups and leads added today',
   heroFactsAria: 'Product capability overview',
   heroCardKicker: 'New · Henan',
   heroCardText: 'Can I still use the scrappage subsidy after the discount?',
   heroCardMeta: 'In the ownership pool · awaiting org confirmation',
-  consoleTitle: 'LeadsHunter · Lead center',
+  consoleTitle: '线索猎手 · Lead center',
   consoleBadge: 'Live',
   consoleTabs: ['Master library', 'Ownership', 'Org assignment', 'Account routing'],
   consoleAll: 'All',

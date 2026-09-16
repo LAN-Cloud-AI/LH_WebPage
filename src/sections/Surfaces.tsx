@@ -54,13 +54,13 @@ function ConsoleShowcase() {
           badge={surfaces.console.label}
           className="mx-auto max-w-5xl"
         >
-          <div className="relative aspect-1024/640 overflow-hidden bg-bg-elev">
+          <div className="relative aspect-1040/1054 overflow-hidden bg-bg-elev">
             <AnimatePresence mode="wait">
               <motion.img
                 key={shot.src}
                 src={shot.src}
-                width={2000}
-                height={1250}
+                width={1040}
+                height={1054}
                 alt={shot.alt}
                 loading="lazy"
                 decoding="async"
@@ -118,7 +118,7 @@ function ConsoleShowcase() {
 }
 
 /**
- * 销售端：三个核心界面各配一条能力说明，图放大到可读。
+ * 销售端：销售与组织管理核心界面各配一条能力说明，图放大到可读。
  * 宽屏三列等分，窄屏收成一列（文字在上、截图在下），不做横向滚动。
  */
 function AppShowcase() {
@@ -152,7 +152,7 @@ function AppShowcase() {
         </div>
       </Reveal>
 
-      {/* 三个界面 + 能力说明。三列在 md 以上才展开，避免中间宽度下文字被挤成窄条。 */}
+      {/* 真实界面 + 能力说明。三列在 md 以上才展开，避免中间宽度下文字被挤成窄条。 */}
       <RevealGroup
         className="mt-14 grid gap-10 md:mt-16 md:grid-cols-3 md:gap-7"
         gap={0.1}
@@ -200,8 +200,8 @@ function AppFeature({ shot }: { shot: Shot }) {
         <PhoneMock>
           <img
             src={shot.src}
-            width={443}
-            height={960}
+            width={1170}
+            height={2532}
             alt={shot.alt}
             loading="lazy"
             decoding="async"

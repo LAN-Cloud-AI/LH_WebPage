@@ -122,9 +122,9 @@ export function Hero({ lenisRef }: HeroProps) {
             >
               <PhoneMock>
                 <img
-                  src="/assets/screenshots/ios-01.jpg"
-                  width={443}
-                  height={960}
+                  src="/assets/screenshots/app-v3-home.png"
+                  width={1170}
+                  height={2532}
                   alt={ui.heroPhoneAlt}
                   className="h-auto w-full"
                   fetchPriority="high"

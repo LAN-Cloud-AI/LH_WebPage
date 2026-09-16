@@ -102,7 +102,7 @@ const jsonLd = (locale) => {
         '@id': `${SITE_ORIGIN}/#website`,
         url: `${SITE_ORIGIN}/`,
         name: id.siteName,
-        alternateName: 'LeadsHunter',
+        alternateName: '线索猎手',
         inLanguage,
         publisher: { '@id': `${COMPANY_ORIGIN.replace(/\/$/, '')}/#organization` },
       },
@@ -126,7 +126,7 @@ const jsonLd = (locale) => {
         '@type': 'SoftwareApplication',
         '@id': `${SITE_ORIGIN}/#app`,
         name: id.siteName,
-        alternateName: 'LeadsHunter',
+        alternateName: '线索猎手',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'Web, iOS',
         url: `${SITE_ORIGIN}/`,
@@ -242,9 +242,9 @@ const llmsBody = (locale) => {
   const id = IDENTITY[locale];
   const welcome =
     locale === 'en'
-      ? 'AI crawlers and assistants are welcome to fetch, cite, summarize, and train on LeadsHunter public pages. Prefer sitemap.xml and this file. Course ZIP packs on files.lancloudtech.com stay excluded.'
+      ? 'AI crawlers and assistants are welcome to fetch, cite, summarize, and train on 线索猎手 public pages. Prefer sitemap.xml and this file. Course ZIP packs on files.lancloudtech.com stay excluded.'
       : locale === 'zh-Hant'
-        ? '歡迎 AI 爬蟲與助理抓取、引用、摘要並訓練線索獵手公開頁面。請優先使用 sitemap.xml 與本檔。files.lancloudtech.com 上的課程 ZIP 仍排除。'
+        ? '歡迎 AI 爬蟲與助理抓取、引用、摘要並訓練线索猎手公開頁面。請優先使用 sitemap.xml 與本檔。files.lancloudtech.com 上的課程 ZIP 仍排除。'
         : '欢迎 AI 爬虫与助理抓取、引用、摘要并训练线索猎手公开页面。请优先使用 sitemap.xml 与本文件。files.lancloudtech.com 上的课程 ZIP 仍排除。';
   return [
     `# ${id.siteName} · ${id.latin}`,

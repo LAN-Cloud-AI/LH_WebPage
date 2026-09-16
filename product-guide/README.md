@@ -3,7 +3,7 @@ title: 线索猎手｜产品介绍与使用说明
 type: overview
 status: current
 owner: Kaison
-updated: 2026-09-09
+updated: 2026-09-16
 related:
   - product-guide/线索猎手-产品介绍与使用说明.md
   - product-guide/en.md
@@ -13,6 +13,8 @@ related:
 # 线索猎手｜产品介绍与使用说明
 
 让公开表达的购车需求，成为门店可以发现、理解和跟进的销售机会。
+
+当前内容对应 **APP 3.0.0 / 控制台 2.3.1**，包含移动端组织管理、账号资料、分发人选择及停用自动移组规则。官网独立版本为 2.1.0。
 
 正式地址：[leadshunter-guide.lancloudtech.com](https://leadshunter-guide.lancloudtech.com/)
 

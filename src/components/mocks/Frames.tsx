@@ -46,7 +46,7 @@ type PhoneMockProps = {
 };
 
 /**
- * iPhone 外框：深色机身 + 灵动岛。屏幕比例对齐真机 443:960。
+ * 手机展示外框。真实截图使用自身比例和状态栏，仅为自绘演示内容添加灵动岛。
  * 灵动岛画在屏幕内并全部用相对单位，宽度取屏宽的 31.8%、自身比例 141:42、
  * 顶距取屏高的 1.3%，与 iPhone 15 Pro 的实际比例一致，因此任意尺寸下都不会走形。
  */
@@ -66,10 +66,10 @@ export function PhoneMock({
         }`}
       >
         {children}
-        <span
+        {lockRatio && <span
           className="absolute top-[1.3%] left-1/2 z-20 aspect-141/42 w-[31.8%] -translate-x-1/2 rounded-full bg-black"
           aria-hidden="true"
-        />
+        />}
       </div>
     </div>
   );

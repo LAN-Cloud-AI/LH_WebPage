@@ -9,7 +9,7 @@ import { FAQ, IDENTITY } from '../identity.js';
 export const site = {
   brand: {
     name: IDENTITY['zh-Hant'].siteName,
-    latin: 'LEADSHUNTER',
+    latin: '銷售線索工作台',
     company: IDENTITY['zh-Hant'].company,
     icon: '/assets/icon/app-256.png',
     beian: '蜀ICP备2026002396号',
@@ -25,7 +25,7 @@ export const site = {
     demoMail:
       'mailto:lance@lancloudtech.com?subject=%E7%BA%BF%E7%B4%A2%E7%8C%8E%E6%89%8B%E4%BA%A7%E5%93%81%E6%BC%94%E7%A4%BA%E5%92%A8%E8%AF%A2',
     wecom: 'https://work.weixin.qq.com/ct/wcde518f3ee4ac1b506616d06dedf1fb6f60',
-    appstore: 'https://appstore.lancloudtech.com',
+    appstore: 'https://appstore.lancloudtech.com/app?id=leadshunter',
     company: 'https://lancloudtech.com/',
     companyProduct: 'https://lancloudtech.com/#leadshunter',
     beian: 'https://beian.miit.gov.cn/',
@@ -80,7 +80,7 @@ export const metrics = [
 ];
 
 // ---------------------------------------------------------------------------
-// Problem：傳統線索 vs 線索獵手
+// Problem：傳統線索 vs 线索猎手
 // ---------------------------------------------------------------------------
 
 export const problem = {
@@ -104,7 +104,7 @@ export const problem = {
     ],
   },
   after: {
-    label: '線索獵手',
+    label: '线索猎手',
     tone: 'brand' as const,
     items: [
       '保留公開原文與上下文，第一句話就能接上',
@@ -147,7 +147,7 @@ export const capabilities: Capability[] = [
   },
   {
     index: '04',
-    title: '銷售端唯讀 App',
+    title: '銷售跟進 App',
     body: '銷售只看分配給自己的線索，支援按平台、意向與跟進狀態篩選，可標記已聯繫或跳過。',
     icon: 'phone',
   },
@@ -338,7 +338,7 @@ export const poolsSection = {
       tone: 'accent' as const,
       caption: '具體交給哪位銷售',
       body: '按命中組的帳號取並集，落到具體銷售帳號並寫入分發記錄。銷售端 App 只能看到落到自己帳號的線索，同組同事的也看不到。',
-      tags: ['命中組帳號取並集', '銷售端唯讀可見'],
+      tags: ['命中組帳號取並集', '僅本人已分配可見'],
     },
   ],
 };
@@ -378,22 +378,22 @@ export const surfaces = {
   title: '後台掌控全局，銷售端只專注跟進',
   lede: '兩端圍繞同一條線索協同：Web 控制台負責監測配置、意向覆核與三池營運，銷售端 App 只呈現已分配到個人的線索。',
   console: {
-    label: 'Web 控制台',
+    label: 'Web 控制台 2.3.1',
     shots: [
       {
-        src: '/assets/screenshots/console-leads.jpg',
+        src: '/assets/screenshots/console-v231-leads.png',
         alt: '控制台線索中心，展示線索總庫與三池標籤頁',
         title: '線索中心 · 三池視圖',
         caption: '線索總庫、歸屬池、組織指派池、帳號分發池在同一頁切換，每條線索都帶三池計數。',
       },
       {
-        src: '/assets/screenshots/console-dashboard.jpg',
+        src: '/assets/screenshots/console-v231-dashboard.png',
         alt: '控制台資料總覽，展示內容、評論、線索與意向分佈',
         title: '資料總覽',
         caption: '內容、評論、線索與意向分佈一屏可見，快速定位當日跟進重點。',
       },
       {
-        src: '/assets/screenshots/console-keywords.jpg',
+        src: '/assets/screenshots/console-v231-keywords.png',
         alt: '控制台關鍵詞配置頁',
         title: '監測配置',
         caption: '把落地價、現車、補貼等詞納入本店監測主題，按組管理、每天定時展開。',
@@ -403,30 +403,51 @@ export const surfaces = {
   app: {
     label: '銷售端 App',
     title: '銷售只看一件事：今天該跟誰',
-    body: 'App 是唯讀的——不提供歸屬確認、組織指派與帳號分發能力，這些介面對銷售角色完全不開放。它只回答一個問題：哪些線索落到了我頭上，我該怎麼開口。',
-    cta: '申請內測',
-    note: 'TestFlight 與 Android 安裝包內測中',
+    body: '首頁直達待跟進，線索頁查看原文與智慧分析，通知協助繼續處理。經銷商管理員還可從「帳戶 → 組織管理」維護銷售帳號、關鍵詞組、帖子組與分發人。',
+    cta: '取得线索猎手',
+    note: 'APP 3.0.0 · iOS TestFlight / Android 安裝包，實際可用版本以應用商店為準',
     shots: [
       {
-        src: '/assets/screenshots/ios-01.jpg',
+        src: '/assets/screenshots/app-v3-leads.png',
         alt: '銷售端線索列表，按意向分檔並顯示跟進狀態',
         index: '01',
         caption: '按意向排優先順序',
-        desc: '只列出分配給本人的線索，高中意向分開計數，可按平台、日期與跟進狀態篩選。',
+        desc: '只列出分配給本人的線索，可按意向、平台、日期與跟進狀態篩選。',
       },
       {
-        src: '/assets/screenshots/ios-02.jpg',
+        src: '/assets/screenshots/app-v3-comment-detail.png',
         alt: '銷售端線索詳情，含評論原文、來源組與跟進建議',
         index: '02',
         caption: '帶著上下文開口',
         desc: '評論原文、帖子標題、來源組與 AI 跟進建議在同一屏，不用切平台反覆確認。',
       },
       {
-        src: '/assets/screenshots/ios-03.jpg',
+        src: '/assets/screenshots/app-v3-notifications.png',
         alt: '銷售端通知中心，含每日摘要與新線索提醒',
         index: '03',
         caption: '不用盯著後台',
         desc: '新線索即時通知，每天 10:00 彙總當日待跟進摘要，未讀數直接落在圖示上。',
+      },
+      {
+        src: "/assets/screenshots/app-v3-management.png",
+        alt: "組織管理首頁，提供組織帳號和意向組入口",
+        index: "04",
+        caption: "手機上管理組織",
+        desc: "經銷商管理員從「我的」進入組織管理，帳號與意向組分開維護，普通銷售不顯示管理入口。",
+      },
+      {
+        src: "/assets/screenshots/app-v3-users.png",
+        alt: "組織銷售帳號詳情，展示姓名、使用者名稱、手機號碼與備註",
+        index: "05",
+        caption: "人員與配額一目了然",
+        desc: "在組織額度內開通銷售帳號，於詳情維護姓名、手機號碼和備註；停用自動移組，恢復後手動加入。",
+      },
+      {
+        src: "/assets/screenshots/app-v3-group.png",
+        alt: "獨立組詳情，展示關鍵詞與分發人配置",
+        index: "06",
+        caption: "每組設定詞與分發人",
+        desc: "關鍵詞組和帖子組各有獨立列表與詳情；分發人支援多選，已有投遞與跟進紀錄保留。",
       },
     ],
   },
@@ -471,7 +492,7 @@ export const rolesSection = {
       id: 'user',
       name: '一線銷售',
       latin: 'user',
-      summary: '在 App 裡唯讀查看分配給自己的線索',
+      summary: '在 App 裡查看並跟進分配給自己的線索',
       abilities: [
         '查看已分配到本人帳號的線索，按平台與狀態篩選',
         '標記已聯繫或跳過，跟進狀態回寫線索',
@@ -539,8 +560,8 @@ export const security = {
       body: '經銷商管理員與銷售只能存取本組織資料，跨組織查詢在伺服器統一攔截。',
     },
     {
-      title: '銷售端唯讀',
-      body: 'App 不提供歸屬、指派與分發能力，介面層面就沒有開放變更入口。',
+      title: '按角色開放操作',
+      body: '銷售只處理本人的線索；經銷商管理員可在組織管理中維護本組織銷售帳號、意向組與組分發人。',
     },
     {
       title: '授權短鏈存取',
@@ -555,7 +576,7 @@ export const security = {
 
 export const faq = {
   eyebrow: '常見問題',
-  title: '關於線索獵手',
+  title: '關於线索猎手',
   lede: '關於資料來源、識別準確度、接入方式與權限邊界，這裡是最常被問到的幾個問題。',
   items: FAQ['zh-Hant'],
 };
@@ -590,7 +611,7 @@ export const guideSection = {
   ),
   lede: '完整圖文手冊發佈在 leadshunter-guide.lancloudtech.com。下面直接嵌入該頁面，也可新視窗打開閱讀後台、APP 用法和長沙門店使用效果。',
   primary: '打開產品介紹',
-  iframeTitle: '線索獵手產品介紹與使用說明',
+  iframeTitle: '线索猎手產品介紹與使用說明',
 };
 
 export const pipelineSection = {
@@ -637,18 +658,18 @@ export const ui = {
   footerMail: '郵件',
   footerBlurb: IDENTITY['zh-Hant'].tagline,
   footerLegal: '僅採集平台公開可見內容 · 資料按組織隔離',
-  contactQrAlt: '線索獵手銷售經理企業微信二維碼，長按識別',
+  contactQrAlt: '线索猎手銷售經理企業微信二維碼，長按識別',
   contactQrTitle: '長按識別二維碼',
-  contactQrHint: '加入線索獵手銷售經理',
+  contactQrHint: '加入线索猎手銷售經理',
   contactWecom: '企業微信',
   phone: '電話',
   mail: '郵件',
-  heroPhoneAlt: '銷售端 App 線索列表',
+  heroPhoneAlt: '线索猎手首頁，顯示待跟進與今日新增',
   heroFactsAria: '產品能力概覽',
   heroCardKicker: '新發現 · 河南',
   heroCardText: '優惠後還能用報廢補貼嗎？',
   heroCardMeta: '已進入歸屬池 · 等待確認組織',
-  consoleTitle: '線索獵手 · 線索中心',
+  consoleTitle: '线索猎手 · 線索中心',
   consoleBadge: '即時',
   consoleTabs: ['線索總庫', '歸屬池', '組織指派池', '帳號分發池'],
   consoleAll: '全部',
