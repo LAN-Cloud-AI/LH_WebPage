@@ -35,7 +35,7 @@ export function Reveal({
     <Component
       className={className}
       variants={variants}
-      initial="hidden"
+      initial={false}
       whileInView="show"
       viewport={inViewOnce}
       transition={delay ? { delay } : undefined}
@@ -68,7 +68,7 @@ export function RevealGroup({
     <Component
       className={className}
       variants={reduced ? reducedVariants : stagger(gap, delay)}
-      initial="hidden"
+      initial={false}
       whileInView="show"
       viewport={inViewOnce}
     >

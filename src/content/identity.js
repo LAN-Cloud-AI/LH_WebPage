@@ -42,41 +42,40 @@ export const JSON_LD_LANG = {
 export const IDENTITY = {
   'zh-Hans': {
     siteName: '线索猎手',
-    latin: '销售线索工作台',
+    latin: 'LeadsHunter',
     tagline: '从公开内容中发现可跟进的销售线索，把真实需求更早送到销售手上。',
-    title: '线索猎手 · 从公开内容发现高意向销售线索',
+    title: '线索猎手 LeadsHunter｜从公开内容发现可跟进的销售线索',
     description:
-      '线索猎手持续监测抖音、小红书公开评论与帖子，用 AI 五档判断购车意向并生成跟进建议，经三层线索池分发到销售端 App。',
+      '线索猎手（LeadsHunter）持续监测抖音、小红书公开评论与帖子，用 AI 五档判断购车意向并生成跟进建议，经三层线索池分发到销售端 App。',
     ogDescription: '持续监测抖音、小红书公开内容，AI 五档识别购车意向，三池分发到销售手机。',
-    imageAlt: '线索猎手',
+    imageAlt: '线索猎手 LeadsHunter',
     company: '四川兰芯云朵智能科技有限公司',
-    keywords: '线索猎手,线索猎手,汽车销售线索,购车意向,抖音获客,小红书获客,线索分发,AI线索',
+    keywords: '线索猎手,LeadsHunter,汽车销售线索,购车意向,抖音获客,小红书获客,线索分发,AI线索',
   },
   'zh-Hant': {
-    siteName: '线索猎手',
-    latin: '銷售線索工作台',
+    siteName: '線索獵手',
+    latin: 'LeadsHunter',
     tagline: '從公開內容中發現可跟進的銷售線索，把真實需求更早送到銷售手上。',
-    title: '线索猎手 · 從公開內容發現高意向銷售線索',
+    title: '線索獵手 LeadsHunter｜從公開內容發現可跟進的銷售線索',
     description:
-      '线索猎手持續監測抖音、小紅書公開評論與帖子，用 AI 五檔判斷購車意向並生成跟進建議，經三層線索池分發到銷售端 App。',
+      '線索獵手（LeadsHunter）持續監測抖音、小紅書公開評論與帖子，用 AI 五檔判斷購車意向並生成跟進建議，經三層線索池分發到銷售端 App。',
     ogDescription: '持續監測抖音、小紅書公開內容，AI 五檔識別購車意向，三池分發到銷售手機。',
-    imageAlt: '线索猎手',
+    imageAlt: '線索獵手 LeadsHunter',
     company: '四川蘭芯雲朵智能科技有限公司',
-    keywords: '线索猎手,线索猎手,汽車銷售線索,購車意向,抖音獲客,小紅書獲客,線索分發,AI線索',
+    keywords: '線索獵手,LeadsHunter,汽車銷售線索,購車意向,抖音獲客,小紅書獲客,線索分發,AI線索',
   },
   en: {
-    siteName: '线索猎手',
-    latin: 'Sales lead workspace',
+    siteName: 'LeadsHunter',
+    latin: '线索猎手',
     tagline: 'Find followable sales leads in public content and get real demand to sales earlier.',
-    title: '线索猎手 · Find high-intent auto sales leads in public content',
+    title: 'LeadsHunter · Find high-intent auto sales leads in public content',
     description:
-      '线索猎手 monitors public Douyin and Xiaohongshu comments and posts, scores purchase intent in five levels with AI, writes follow-up suggestions, and routes leads through three pools to the sales app.',
+      'LeadsHunter (线索猎手) monitors public Douyin and Xiaohongshu comments and posts, scores purchase intent in five levels with AI, writes follow-up suggestions, and routes leads through three pools to the sales app.',
     ogDescription:
       'Monitor public Douyin and Xiaohongshu content, score purchase intent in five levels, and route leads to sales phones.',
-    imageAlt: '线索猎手',
+    imageAlt: 'LeadsHunter',
     company: 'Sichuan Lanxin Yunduo Intelligent Technology Co., Ltd.',
-    keywords:
-      '线索猎手,auto sales leads,purchase intent,Douyin,Xiaohongshu,lead routing,AI leads',
+    keywords: 'LeadsHunter,线索猎手,auto sales leads,purchase intent,Douyin,Xiaohongshu,lead routing,AI leads',
   },
 };
 

@@ -38,54 +38,35 @@ export function Hero({ lenisRef }: HeroProps) {
       <div className="shell relative">
         {/* 文案区 */}
         <div className="mx-auto max-w-3xl text-center">
-          <motion.div
-            initial={reduced ? { opacity: 0 } : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: easeOutQuint }}
-          >
+          <p className="text-[0.95rem] font-semibold tracking-wide">
+            {site.brand.name}
+            <span className="mx-2 font-normal text-ink-faint" aria-hidden="true">
+              ·
+            </span>
+            {site.brand.latin}
+          </p>
+          <div className="mt-6">
             <Pill live>{hero.pill}</Pill>
-          </motion.div>
+          </div>
 
           {/* clamp 让标题随视口连续缩放，避免窄屏把「发现可跟进的销售线索」断在词中间 */}
           <h1 className="mt-6 text-[clamp(1.6rem,7.6vw,3.9rem)] leading-[1.12] font-semibold tracking-[-0.03em]">
             {hero.titleLines.map((line, index) => (
-              <motion.span
-                key={line}
-                className="block"
-                initial={
-                  reduced ? { opacity: 0 } : { opacity: 0, y: 30, filter: 'blur(12px)' }
-                }
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                transition={{
-                  duration: 0.85,
-                  delay: 0.1 + index * 0.14,
-                  ease: easeOutQuint,
-                }}
-              >
+              <span key={line} className="block">
                 {index === hero.titleLines.length - 1 ? (
                   <span className="text-gradient">{line}</span>
                 ) : (
                   line
                 )}
-              </motion.span>
+              </span>
             ))}
           </h1>
 
-          <motion.p
-            className="mx-auto mt-6 max-w-2xl text-[0.95rem] leading-relaxed text-ink-muted md:text-base"
-            initial={reduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.34, ease: easeOutQuint }}
-          >
+          <p className="mx-auto mt-6 max-w-2xl text-[0.95rem] leading-relaxed text-ink-muted md:text-base">
             {hero.lede}
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="mt-9 flex flex-wrap items-center justify-center gap-3"
-            initial={reduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.44, ease: easeOutQuint }}
-          >
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Button href={site.links.demoForm} size="lg" external>
               {hero.primaryCta}
               <ArrowRight />
@@ -98,7 +79,7 @@ export function Hero({ lenisRef }: HeroProps) {
               <PlayMark />
               {hero.secondaryCta}
             </Button>
-          </motion.div>
+          </div>
         </div>
 
         {/* 产品视觉 */}
@@ -122,9 +103,9 @@ export function Hero({ lenisRef }: HeroProps) {
             >
               <PhoneMock>
                 <img
-                  src="/assets/screenshots/app-v3-home.png"
-                  width={1170}
-                  height={2532}
+                  src="/assets/screenshots/app-home-01.jpg"
+                  width={1289}
+                  height={2796}
                   alt={ui.heroPhoneAlt}
                   className="h-auto w-full"
                   fetchPriority="high"
@@ -161,7 +142,7 @@ export function Hero({ lenisRef }: HeroProps) {
         <motion.ul
           className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-5 md:mt-24 md:grid-cols-4"
           aria-label={ui.heroFactsAria}
-          initial="hidden"
+          initial={false}
           animate="show"
           variants={{ show: { transition: { staggerChildren: 0.08, delayChildren: 1.2 } } }}
         >

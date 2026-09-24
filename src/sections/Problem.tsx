@@ -20,8 +20,8 @@ export function Problem() {
         />
 
         <div className="mt-14 grid gap-4 md:mt-16 md:grid-cols-2 md:gap-5">
-          <Column data={problem.before} from={-40} />
-          <Column data={problem.after} from={40} />
+          <Column data={problem.before} />
+          <Column data={problem.after} />
         </div>
       </div>
     </Section>
@@ -34,7 +34,7 @@ type ColumnData = {
   items: string[];
 };
 
-function Column({ data, from }: { data: ColumnData; from: number }) {
+function Column({ data }: { data: ColumnData }) {
   const reduced = useReducedMotion();
   const isBrand = data.tone === 'brand';
 
@@ -45,7 +45,7 @@ function Column({ data, from }: { data: ColumnData; from: number }) {
           ? 'border-brand/25 bg-linear-to-b from-brand-soft to-surface'
           : 'border-line bg-surface'
       }`}
-      initial={reduced ? { opacity: 0 } : { opacity: 0, x: from, filter: 'blur(10px)' }}
+      initial={false}
       whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
       viewport={inViewOnce}
       transition={reduced ? { duration: 0.2 } : { duration: 0.8, ...springSoft }}
@@ -69,7 +69,7 @@ function Column({ data, from }: { data: ColumnData; from: number }) {
           <motion.li
             key={item}
             className="flex gap-3"
-            initial={reduced ? { opacity: 0 } : { opacity: 0, y: 14 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ delay: 0.15 + index * 0.09, duration: 0.55 }}

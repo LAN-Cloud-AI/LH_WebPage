@@ -5,7 +5,7 @@ import { useContent } from '../content/runtime';
 import { easeOutQuint, springSoft } from '../lib/motion';
 import { GridBackdrop, Orb } from '../components/primitives/Backdrop';
 import { ArrowRight, Button } from '../components/primitives/Button';
-import { Reveal, RevealGroup, RevealItem } from '../components/primitives/Reveal';
+import { Reveal } from '../components/primitives/Reveal';
 import { Section, SectionHeading } from '../components/primitives/Section';
 import { BrowserMock, PhoneMock } from '../components/mocks/Frames';
 
@@ -54,13 +54,16 @@ function ConsoleShowcase() {
           badge={surfaces.console.label}
           className="mx-auto max-w-5xl"
         >
-          <div className="relative aspect-1040/1054 overflow-hidden bg-bg-elev">
+          <div
+            className="relative overflow-hidden bg-bg-elev"
+            style={{ aspectRatio: `${shot.width} / ${shot.height}` }}
+          >
             <AnimatePresence mode="wait">
               <motion.img
                 key={shot.src}
                 src={shot.src}
-                width={1040}
-                height={1054}
+                width={shot.width}
+                height={shot.height}
                 alt={shot.alt}
                 loading="lazy"
                 decoding="async"
@@ -118,15 +121,45 @@ function ConsoleShowcase() {
 }
 
 /**
- * 销售端：销售与组织管理核心界面各配一条能力说明，图放大到可读。
- * 宽屏三列等分，窄屏收成一列（文字在上、截图在下），不做横向滚动。
+ * 销售端：六张界面从内容左缘排开，铺到视口右缘，左右滑动。
  */
 function AppShowcase() {
   const { site, surfaces } = useContent();
+  const reduced = useReducedMotion();
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+  const shots = surfaces.app.shots;
+
+  const go = (next: number) => {
+    const root = scrollerRef.current;
+    const clamped = Math.max(0, Math.min(shots.length - 1, next));
+    const slide = root?.querySelectorAll<HTMLElement>('[data-shot]')[clamped];
+    if (!root || !slide) return;
+    const max = root.scrollWidth - root.clientWidth;
+    root.scrollTo({
+      left: Math.min(Math.max(0, slide.offsetLeft - root.offsetLeft), max),
+      behavior: reduced ? 'auto' : 'smooth',
+    });
+  };
+
+  const onScroll = () => {
+    const root = scrollerRef.current;
+    if (!root) return;
+    const origin = root.scrollLeft;
+    let best = 0;
+    let bestDist = Number.POSITIVE_INFINITY;
+    root.querySelectorAll<HTMLElement>('[data-shot]').forEach((slide, i) => {
+      const dist = Math.abs(slide.offsetLeft - root.offsetLeft - origin);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    });
+    setIndex(best);
+  };
+
   return (
     <div className="mt-24 md:mt-32">
-      {/* 文案：与全站 split 标题同构（左标题右正文、底对齐），CTA 单独起一行，
-          避免按钮把右栏撑高、把正文顶到标题上方。 */}
       <div className="grid gap-5 lg:grid-cols-[1fr_1fr] lg:items-end lg:gap-16">
         <Reveal>
           <p className="text-xs font-semibold tracking-[0.2em] text-brand uppercase">
@@ -152,63 +185,78 @@ function AppShowcase() {
         </div>
       </Reveal>
 
-      {/* 真实界面 + 能力说明。三列在 md 以上才展开，避免中间宽度下文字被挤成窄条。 */}
-      <RevealGroup
-        className="mt-14 grid gap-10 md:mt-16 md:grid-cols-3 md:gap-7"
-        gap={0.1}
-      >
-        {surfaces.app.shots.map((shot) => (
-          <RevealItem key={shot.src}>
-            <AppFeature shot={shot} />
-          </RevealItem>
-        ))}
-      </RevealGroup>
-    </div>
-  );
-}
-
-type Shot = {
-  src: string;
-  alt: string;
-  index: string;
-  caption: string;
-  desc: string;
-};
-
-function AppFeature({ shot }: { shot: Shot }) {
-  const reduced = useReducedMotion();
-
-  return (
-    <figure className="group flex flex-col">
-      {/* 说明在上，让三列的截图顶边对齐 */}
-      <figcaption className="border-t border-line pt-4">
-        <div className="flex items-baseline gap-2.5">
-          <span className="font-mono text-[0.68rem] text-brand">{shot.index}</span>
-          <h4 className="text-[1rem] font-semibold">{shot.caption}</h4>
+      <div className="mt-12 md:mt-16" role="region" aria-roledescription="carousel" aria-label={surfaces.app.carousel}>
+        <div className="w-[calc(50%+50vw)] max-w-none">
+        <div
+          ref={scrollerRef}
+          onScroll={onScroll}
+          className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-8 [&::-webkit-scrollbar]:hidden"
+        >
+          {shots.map((shot, i) => (
+            <figure
+              key={shot.src}
+              data-shot
+              className="w-[min(12.75rem,62vw)] shrink-0 snap-start"
+              aria-hidden={i === index ? undefined : true}
+            >
+              <PhoneMock>
+                <img
+                  src={shot.src}
+                  width={1170}
+                  height={2532}
+                  alt={shot.alt}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  className="h-auto w-full"
+                />
+              </PhoneMock>
+              <figcaption className="mt-4 text-center">
+                <div className="flex items-baseline justify-center gap-2.5">
+                  <span className="font-mono text-[0.68rem] text-brand">{shot.index}</span>
+                  <h4 className="text-[1rem] font-semibold">{shot.caption}</h4>
+                </div>
+                <p className="mt-2 text-[0.84rem] leading-relaxed text-ink-muted">{shot.desc}</p>
+              </figcaption>
+            </figure>
+          ))}
         </div>
-        {/* 预留三行高度，保证三列的截图顶边始终对齐 */}
-        <p className="mt-2 text-[0.84rem] leading-relaxed text-ink-muted md:min-h-[4.6rem]">
-          {shot.desc}
-        </p>
-      </figcaption>
+        </div>
 
-      <motion.div
-        className="mx-auto mt-7 w-[12rem] xs:w-[13rem] md:w-full md:max-w-[15rem]"
-        whileHover={reduced ? undefined : { y: -8 }}
-        transition={springSoft}
-      >
-        <PhoneMock>
-          <img
-            src={shot.src}
-            width={1170}
-            height={2532}
-            alt={shot.alt}
-            loading="lazy"
-            decoding="async"
-            className="h-auto w-full"
-          />
-        </PhoneMock>
-      </motion.div>
-    </figure>
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <button
+            type="button"
+            aria-label={surfaces.app.prev}
+            disabled={index === 0}
+            onClick={() => go(index - 1)}
+            className="grid size-9 place-items-center rounded-full border border-line text-ink disabled:opacity-30"
+          >
+            <span aria-hidden="true">‹</span>
+          </button>
+          <div className="flex items-center gap-1.5">
+            {shots.map((shot, i) => (
+              <button
+                key={shot.src}
+                type="button"
+                aria-label={shot.caption}
+                aria-current={i === index ? 'true' : undefined}
+                onClick={() => go(i)}
+                className={`h-1.5 rounded-full transition-all ${
+                  i === index ? 'w-6 bg-brand' : 'w-1.5 bg-ink-faint/50'
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            aria-label={surfaces.app.next}
+            disabled={index === shots.length - 1}
+            onClick={() => go(index + 1)}
+            className="grid size-9 place-items-center rounded-full border border-line text-ink disabled:opacity-30"
+          >
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }

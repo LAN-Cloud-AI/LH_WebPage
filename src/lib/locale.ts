@@ -45,7 +45,15 @@ export function localeHref(locale: SiteLocale, hash = ''): string {
   return `${home}${hash.startsWith('#') ? hash : `#${hash}`}`;
 }
 
+let prerenderLocale: SiteLocale | null = null;
+
+/** 预渲染时没有浏览器 location，由构建脚本按页面注入。 */
+export function setPrerenderLocale(locale: SiteLocale | null) {
+  prerenderLocale = locale;
+}
+
 export function currentLocale(): SiteLocale {
+  if (prerenderLocale) return prerenderLocale;
   if (typeof location === 'undefined') return DEFAULT_LOCALE;
   return localeFromPathname(location.pathname);
 }

@@ -1,29 +1,29 @@
 ---
-title: 线索猎手｜Product introduction and user guide
+title: LeadsHunter｜Product introduction and user guide
 type: guide
 status: current
 owner: Kaison
 updated: 2026-09-16
 related:
   - product-guide/README.md
-  - product-guide/线索猎手-产品介绍与使用说明.md
+  - product-guide/LeadsHunter-产品介绍与使用说明.md
 ---
-# 线索猎手｜Product introduction and user guide
+# LeadsHunter｜Product introduction and user guide
 
 > **Turn publicly expressed car-buying demand into sales opportunities that stores can find, understand, and follow up.**
 >
 > For auto dealers, store managers, DCC teams, and sales consultants · Illustrated edition
 
-![Figure 01｜线索猎手 workflow from discovering public demand to sales follow-up](assets/20-value-chain.svg)
+![Figure 01｜LeadsHunter workflow from discovering public demand to sales follow-up](assets/20-value-chain.svg)
 
 *Figure 01｜Product overview: find demand in public comments and posts, score it with AI and assign it in the console, then let sales review it in the app and continue the conversation on the original platform.*
 
-**Quick links**: [Product website](https://leadshunter.lancloudtech.com/) · [线索猎手 console](https://aliyun-control-pannel-leadshunter.lancloudtech.com/) · [App store](https://appstore.lancloudtech.com/app?id=leadshunter) · [Contact sales](https://leadshunter-contact.lancloudtech.com/)
+**Quick links**: [Product website](https://leadshunter.lancloudtech.com/) · [LeadsHunter console](https://aliyun-control-pannel-leadshunter.lancloudtech.com/) · [App store](https://appstore.lancloudtech.com/app?id=leadshunter) · [Contact sales](https://leadshunter-contact.lancloudtech.com/)
 
 ## Contents
 
-- [1. What 线索猎手 is](#what)
-- [2. Why 线索猎手 if you already have DCC and automotive vertical media](#why)
+- [1. What LeadsHunter is](#what)
+- [2. Why LeadsHunter if you already have DCC and automotive vertical media](#why)
 - [3. How to widen a dealer’s lead intake](#channels)
 - [4. Using the console: configure, identify, assign, and route](#console)
 - [5. Using the app: review, filter, alerts, and follow-up](#app)
@@ -31,17 +31,17 @@ related:
 - [7. Daily checklist and FAQ](#faq)
 - [8. Contact sales](#contact)
 
-Current product versions: **App 3.0.0 · Console 2.3.1**. iOS 3.0.0 is awaiting Apple review and is not yet available through the public installation entry. Get the Android package from the app store; the store lists the currently available builds.
+Current product versions: **App 3.0.0 · Console 2.3.1**. iOS and Android are both on the 3.0.0 release. Open the app store page and tap Get to download.
 
 <a id="what"></a>
 
-## 1. What 线索猎手 is
+## 1. What LeadsHunter is
 
-**线索猎手 (线索猎手) is a public-platform lead discovery and delivery tool for auto dealers and sales teams.** It helps stores find car-buying demand in public content on Douyin, Xiaohongshu, and similar platforms, uses AI to judge intent and organize context and follow-up suggestions, then assigns workable leads to stores and sales consultants.
+**LeadsHunter (线索猎手) is a public-platform lead discovery and delivery tool for auto dealers and sales teams.** It helps stores find car-buying demand in public content on Douyin, Xiaohongshu, and similar platforms, uses AI to judge intent and organize context and follow-up suggestions, then assigns workable leads to stores and sales consultants.
 
-Potential customers often already write their needs in public: someone asks in a comment “长沙落地多少” (on-the-road price in Changsha); someone asks about stock, trade-in, or a test drive; someone posts to find a salesperson or compare models. 线索猎手 turns these scattered expressions of demand into items that can be read, filtered, and assigned.
+Potential customers often already write their needs in public: someone asks in a comment “长沙落地多少” (on-the-road price in Changsha); someone asks about stock, trade-in, or a test drive; someone posts to find a salesperson or compare models. LeadsHunter turns these scattered expressions of demand into items that can be read, filtered, and assigned.
 
-| What the store needs to know | What 线索猎手 provides |
+| What the store needs to know | What LeadsHunter provides |
 |---|---|
 | Where is there still customer demand? | Keyword search, comments on target-account posts, and demand posts that users publish themselves |
 | What is worth reading first? | High-intent and mid-intent AI judgments, with reasons |
@@ -49,7 +49,7 @@ Potential customers often already write their needs in public: someone asks in a
 | Who should handle it? | Organizational ownership, org assignment, account routing, and receive-account setup |
 | What should sales do next? | Open details in the app, use suggested actions, then go to the user profile or original post to talk |
 
-![Figure 02｜线索猎手 console overview](assets/console-v231-dashboard.png)
+![Figure 02｜LeadsHunter console overview](assets/console-v231-dashboard.png)
 
 *Figure 02｜Console overview: the top shows content, comments, scoring, and task status; the middle shows intent distribution; the bottom shows collection trends. Operations staff use this to see demand distribution and processing progress.*
 
@@ -59,21 +59,21 @@ Potential customers often already write their needs in public: someone asks in a
 
 **The app is the salesperson’s on-the-go lead workspace.** Salespeople review valid leads assigned to them, prioritize by intent and status, understand the customer’s need, then follow up on the original platform.
 
-线索猎手 helps stores find demand, understand intent, and schedule follow-up. Sales consultants still complete the conversation, quote, invitation, and deal, using the customer’s original words.
+LeadsHunter helps stores find demand, understand intent, and schedule follow-up. Sales consultants still complete the conversation, quote, invitation, and deal, using the customer’s original words.
 
 <a id="why"></a>
 
-## 2. Why 线索猎手 if you already have DCC and automotive vertical media
+## 2. Why LeadsHunter if you already have DCC and automotive vertical media
 
-**Because customers already express a large amount of demand on social platforms before they leave a contact, answer a call, or book a store visit.** 线索猎手 adds an entry point for discovering that demand, so existing acquisition and intake systems can cover an earlier stage of the car-buying discussion.
+**Because customers already express a large amount of demand on social platforms before they leave a contact, answer a call, or book a store visit.** LeadsHunter adds an entry point for discovering that demand, so existing acquisition and intake systems can cover an earlier stage of the car-buying discussion.
 
-Automotive vertical media bring inquiries and contact submissions. DCC teams handle conversation, nurturing, and invitations. 线索猎手 adds demand discovery on social platforms such as Douyin and Xiaohongshu, so stores can make contact before the customer leaves details with that store.
+Automotive vertical media bring inquiries and contact submissions. DCC teams handle conversation, nurturing, and invitations. LeadsHunter adds demand discovery on social platforms such as Douyin and Xiaohongshu, so stores can make contact before the customer leaves details with that store.
 
-![Figure 03｜How 线索猎手 complements vertical media and DCC](assets/21-channel-expansion.svg)
+![Figure 03｜How LeadsHunter complements vertical media and DCC](assets/21-channel-expansion.svg)
 
-*Figure 03｜Two intake paths working together: existing channels continue to take inbound contact submissions; 线索猎手 adds public-platform demand discovery. Sales and DCC complete conversation and invitations using the store’s process.*
+*Figure 03｜Two intake paths working together: existing channels continue to take inbound contact submissions; LeadsHunter adds public-platform demand discovery. Sales and DCC complete conversation and invitations using the store’s process.*
 
-| Dimension | Existing channels such as automotive vertical media | What 线索猎手 adds | DCC / sales intake |
+| Dimension | Existing channels such as automotive vertical media | What LeadsHunter adds | DCC / sales intake |
 |---|---|---|---|
 | Where demand is found | Model content, inquiries, quotes, and contact-submission paths | Public comments and self-published posts on social platforms | Continue the conversation from the customer’s need |
 | Typical demand expression | Submit an inquiry, booking, or contact details | “多少钱落地” (on-the-road price), “有没有现车” (any stock), “求推荐销售” (need a salesperson) | Confirm model, budget, region, and purchase plan |
@@ -162,7 +162,7 @@ Recommended first-time order: **organization and accounts → create groups → 
 
 ### 4.1 Sign in to the console and confirm your role
 
-Sign in to the [线索猎手 console](https://aliyun-control-pannel-leadshunter.lancloudtech.com/) with the account assigned by your organization. The left menu changes by role. Regular salespeople mainly use the app.
+Sign in to the [LeadsHunter console](https://aliyun-control-pannel-leadshunter.lancloudtech.com/) with the account assigned by your organization. The left menu changes by role. Regular salespeople mainly use the app.
 
 | Role | Main work | Visible scope |
 |---|---|---|
@@ -298,14 +298,14 @@ When finished, open the **account-routing pool** to check valid routing records,
 
 ### 5.1 Install from the app store
 
-Open [“线索猎手” in the LAN Cloud App Store](https://appstore.lancloudtech.com/app?id=leadshunter) and choose the install path for your phone OS.
+Open [“LeadsHunter” in the LAN Cloud App Store](https://appstore.lancloudtech.com/app?id=leadshunter) and choose the install path for your phone OS.
 
 
 
 | Device | Install steps |
 |---|---|
-| iPhone | iOS 3.0.0 is awaiting Apple review and is not yet available. After approval and public availability, install TestFlight, then open the [线索猎手 TestFlight invite page](https://testflight.apple.com/join/Bq2mpgwF) from the store and follow the prompts |
-| Android | Open the store in the phone browser, tap “Get”, complete verification as prompted, download the APK, and install |
+| iPhone | Open LeadsHunter in the app store and tap Get to download the 3.0.0 release |
+| Android | Open LeadsHunter in the app store and tap Get to download the 3.0.0 release |
 | Computer | You can browse the introduction and screenshots. Download and install from the matching phone browser |
 
 The organization admin provides the app account. Choose the server specified by your organization admin, then enter the account they provided. The account and server must belong to the same organization environment.
@@ -409,9 +409,9 @@ Platform admins can restore accounts; active dealer admins can also restore sale
 
 ### 6.1 Current partners
 
-线索猎手 serves domestic auto dealers, direct-sale stores, and overseas auto businesses. Partners include:
+LeadsHunter serves domestic auto dealers, direct-sale stores, and overseas auto businesses. Partners include:
 
-![Figure 25｜线索猎手 partners](assets/23-partners.svg)
+![Figure 25｜LeadsHunter partners](assets/23-partners.svg)
 
 *Figure 25｜Partners: in mainland China, 上海运通智己 (Shanghai Yuntong, IM Motors), 长沙小鹏直营 (Changsha XPENG stores), 东莞领克 (Dongguan Lynk & Co), and 成都鸿蒙智行 (Chengdu Harmony Intelligent Mobility). The overseas partner is 奇瑞国际 (Chery International).*
 
@@ -427,7 +427,7 @@ Platform admins can restore accounts; active dealer admins can also restore sale
 
 ### 6.2 Changsha XPENG stores: one month of follow-up results
 
-**From car-buying discussion on social platforms to customer replies, contact details, and order-lock reports, 线索猎手 is already part of daily store sales work.** During a one-month paid trial, 4 salespeople at two Changsha XPENG stores — Changsha Yuhua and Changsha Furong Tianjie — followed up Xiaohongshu and Douyin leads.
+**From car-buying discussion on social platforms to customer replies, contact details, and order-lock reports, LeadsHunter is already part of daily store sales work.** During a one-month paid trial, 4 salespeople at two Changsha XPENG stores — Changsha Yuhua and Changsha Furong Tianjie — followed up Xiaohongshu and Douyin leads.
 
 In that month, the ledger recorded **174 follow-ups, 62 customer replies, 36 contacts obtained, 23 mobile numbers obtained, and 3 sales order-lock reports**.
 
@@ -467,7 +467,7 @@ All three order-lock reports at Changsha Yuhua came from Xiaohongshu. In the mat
 
 *Figure 28｜Three order-lock reports at Changsha Yuhua: sales talked on Xiaohongshu, obtained customer contact details, and recorded order-lock progress in the follow-up ledger.*
 
-The Changsha case shows the practical value of 线索猎手 working with store sales:
+The Changsha case shows the practical value of LeadsHunter working with store sales:
 
 - **Widen customer contact channels.** Finding demand in social scenes such as Douyin and Xiaohongshu gives sales more chances to start the conversation.
 - **Turn a demand discussion into an ongoing contact.** Reply around the customer’s original words; after contact details are obtained, continue on model, quote, and store-visit arrangements.
@@ -511,14 +511,14 @@ The Changsha case shows the practical value of 线索猎手 working with store s
 | How should “Followed up” be used? | The app records that sales went to the original platform. Actual replies, contact submissions, and order progress are logged in the store ledger or CRM. |
 | Do we have to configure a script library before we can use the product? | No. The script library is optional. Lead creation, routing, and app review do not depend on it. |
 | How do we launch overseas TikTok work? | Contact a [sales manager](https://leadshunter-contact.lancloudtech.com/) or the platform admin to configure collection, language scenario, intent rules, and delivery. |
-| How do we discuss a partnership or book a demo? | Open the [contact-sales page](https://leadshunter-contact.lancloudtech.com/), or first read the product introduction on the [线索猎手 website](https://leadshunter.lancloudtech.com/). |
+| How do we discuss a partnership or book a demo? | Open the [contact-sales page](https://leadshunter-contact.lancloudtech.com/), or first read the product introduction on the [LeadsHunter website](https://leadshunter.lancloudtech.com/). |
 | The original post or profile will not open? | Check the matching platform app, sign-in, and network. The content may also have been taken down or had its permissions changed. Keep the lead context and report it to an admin. |
 
 <a id="contact"></a>
 
 ## 8. Contact sales
 
-To discuss a partnership, book a product demo, or open a store trial, open the [contact-sales page](https://leadshunter-contact.lancloudtech.com/), or use the phone, email, and QR code below. You can also read the product introduction on the [线索猎手 website](https://leadshunter.lancloudtech.com/) first, then schedule a demo.
+To discuss a partnership, book a product demo, or open a store trial, open the [contact-sales page](https://leadshunter-contact.lancloudtech.com/), or use the phone, email, and QR code below. You can also read the product introduction on the [LeadsHunter website](https://leadshunter.lancloudtech.com/) first, then schedule a demo.
 
 | Contact method | Details |
 |---|---|
@@ -527,6 +527,6 @@ To discuss a partnership, book a product demo, or open a store trial, open the [
 | WeCom | Long-press or scan the QR code below to add the sales manager |
 | Product website | [leadshunter.lancloudtech.com](https://leadshunter.lancloudtech.com/) |
 
-![Figure 29｜WeCom QR code for the 线索猎手 sales manager](assets/29-wecom-qr.png)
+![Figure 29｜WeCom QR code for the LeadsHunter sales manager](assets/29-wecom-qr.png)
 
-*Figure 29｜WeCom: long-press or scan the QR code to add the 线索猎手 sales manager.*
+*Figure 29｜WeCom: long-press or scan the QR code to add the LeadsHunter sales manager.*

@@ -76,7 +76,7 @@ export const GUIDE = {
     ],
   },
   'zh-Hant': {
-    title: '线索猎手｜產品介紹與使用說明',
+    title: '線索獵手 LeadsHunter｜產品介紹與使用說明',
     description:
       '從抖音、小紅書發現購車需求，AI 識別意向、分發線索。了解後台與 APP 用法及長沙小鵬使用成果。',
     brandSub: '產品介紹與使用說明',
@@ -86,8 +86,8 @@ export const GUIDE = {
     drawerKicker: '目錄',
     downloadPdf: '下載 PDF',
     downloadPdfShort: 'PDF',
-    eyebrow: '线索猎手 · 產品圖文手冊',
-    h1: '线索猎手',
+    eyebrow: '線索獵手 · 產品圖文手冊',
+    h1: '線索獵手',
     subtitle: '產品介紹與使用說明',
     lede: '讓公開表達的購車需求，成為門店可以發現、理解和跟進的銷售機會。',
     chips: ['汽車經銷商 · DCC · 銷售顧問', '後台 + APP', '公域需求發現', '長沙小鵬 · 使用案例'],
@@ -116,7 +116,7 @@ export const GUIDE = {
     ],
   },
   en: {
-    title: '线索猎手 | Product guide',
+    title: 'LeadsHunter｜Product guide',
     description:
       'Find car-buying demand on Douyin and Xiaohongshu, score intent with AI, and route leads. Console and app usage, plus the Changsha Xiaopeng case.',
     brandSub: 'Product guide',
@@ -126,14 +126,14 @@ export const GUIDE = {
     drawerKicker: 'Contents',
     downloadPdf: 'Download PDF',
     downloadPdfShort: 'PDF',
-    eyebrow: '线索猎手 · Illustrated guide',
-    h1: '线索猎手',
+    eyebrow: 'LeadsHunter · 线索猎手',
+    h1: 'LeadsHunter',
     subtitle: 'Product introduction and how-to',
     lede: 'Turn publicly expressed car-buying demand into opportunities a store can find, understand, and follow up.',
     chips: ['Dealers · DCC · sales', 'Console + app', 'Public-domain demand', 'Changsha Xiaopeng case'],
     hint: 'Tap a figure to enlarge',
     zoom: 'Enlarge: ',
-    footer: '线索猎手 · Find demand and connect stores with customers.',
+    footer: 'LeadsHunter · Find demand and connect stores with customers.',
     site: 'Official site',
     console: 'Open console',
     app: 'Get the app',
@@ -145,7 +145,7 @@ export const GUIDE = {
     tocHeading: 'Contents',
     quick: 'Quick links',
     nav: [
-      ['#what', 'What 线索猎手 is'],
+      ['#what', 'What LeadsHunter is'],
       ['#why', 'Why it is still needed with DCC and auto media'],
       ['#channels', 'How to widen the dealer lead intake'],
       ['#console', 'Console: configure, score, assign, route'],
@@ -195,10 +195,10 @@ export const CONTACT = {
     moreAria: '相關頁面',
   },
   en: {
-    title: 'Contact 线索猎手 sales',
+    title: 'Contact LeadsHunter sales',
     description:
       'Book a product demo, start a store trial, or talk through a partnership. Call, email, or add the 线索猎手 sales manager on WeCom.',
-    h1: 'Contact 线索猎手<wbr> sales',
+    h1: 'Contact LeadsHunter<wbr> sales',
     lede: 'Book a demo, open a store trial,<br>or discuss a partnership.<br>The sales manager replies during business hours.',
     guide: 'Product guide',
     qrAlt: 'WeCom QR code for the 线索猎手 sales manager',

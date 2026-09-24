@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { motion } from 'motion/react';
 
 import { localizedContactUrl, localizedGuideUrl, useContent } from '../content/runtime';
 import { inViewOnce } from '../lib/motion';
@@ -9,7 +9,6 @@ import { Reveal } from '../components/primitives/Reveal';
 
 export function Cta() {
   const { cta, site } = useContent();
-  const reduced = useReducedMotion();
 
   return (
     <section id="contact" className="relative overflow-hidden py-24 md:py-32">
@@ -38,7 +37,7 @@ export function Cta() {
 
           <motion.div
             className="mt-10 flex flex-wrap items-center justify-center gap-3"
-            initial={reduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.6, delay: 0.15 }}

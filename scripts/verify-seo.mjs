@@ -113,6 +113,48 @@ if (exists('dist/index.html')) {
   required(read('dist/en/index.html').includes(UMAMI_WEBSITE_IDS.leadshunter), 'English homepage must embed Umami.');
   required(read('dist/zh-Hant/index.html').includes(UMAMI_WEBSITE_IDS.leadshunter), 'Traditional homepage must embed Umami.');
   required(read('dist/404.html').includes(UMAMI_WEBSITE_IDS.leadshunter), 'Main 404 must embed Umami.');
+
+  const rootOf = (html, label) => {
+    const match = html.match(/<div id="root">([\s\S]*)<\/div>\s*<\/body>/);
+    required(match, `${label} must prerender marketing copy into #root`);
+    return match[1];
+  };
+  const hiddenAncestor = (root, text) => {
+    const at = root.indexOf(text);
+    required(at >= 0, `prerendered #root is missing ${text}`);
+    const tags = [...root.slice(0, at).matchAll(/<\/?([a-z0-9]+)([^>]*)>/gi)];
+    const stack = [];
+    for (const tag of tags) {
+      const raw = tag[0];
+      if (raw.startsWith('</')) stack.pop();
+      else if (!raw.endsWith('/>')) stack.push(raw);
+    }
+    return stack.find((tag) => /opacity:\s*0/.test(tag));
+  };
+  const expectVisible = (root, text) => {
+    required(!hiddenAncestor(root, text), `${text} must not sit under opacity:0`);
+  };
+
+  const zhRoot = rootOf(built, 'zh-Hans');
+  expectVisible(zhRoot, '线索猎手');
+  expectVisible(zhRoot, 'LeadsHunter');
+  expectVisible(zhRoot, '发现可跟进的销售线索');
+  required(IDENTITY['zh-Hans'].title.includes('线索猎手') && IDENTITY['zh-Hans'].title.includes('LeadsHunter'), 'Simplified title must pair both brands.');
+
+  const enHtml = read('dist/en/index.html');
+  const enRoot = rootOf(enHtml, 'en');
+  required(enHtml.includes(`<title>${IDENTITY.en.title}</title>`), 'English title tag must match identity.');
+  required(IDENTITY.en.title.startsWith('LeadsHunter'), 'English title must lead with LeadsHunter.');
+  expectVisible(enRoot, 'LeadsHunter');
+  expectVisible(enRoot, '线索猎手');
+  expectVisible(enRoot, 'Find followable sales leads');
+
+  const hantHtml = read('dist/zh-Hant/index.html');
+  const hantRoot = rootOf(hantHtml, 'zh-Hant');
+  required(IDENTITY['zh-Hant'].title.includes('線索獵手') && IDENTITY['zh-Hant'].title.includes('LeadsHunter'), 'Traditional title must pair both brands.');
+  expectVisible(hantRoot, '線索獵手');
+  expectVisible(hantRoot, 'LeadsHunter');
+  expectVisible(hantRoot, '發現可跟進的銷售線索');
 }
 
 if (exists('dist-guide/index.html')) {

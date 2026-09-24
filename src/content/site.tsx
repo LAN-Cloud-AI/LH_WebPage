@@ -9,7 +9,7 @@ import { FAQ, IDENTITY } from './identity.js';
 export const site = {
   brand: {
     name: IDENTITY['zh-Hans'].siteName,
-    latin: '销售线索工作台',
+    latin: 'LeadsHunter',
     company: IDENTITY['zh-Hans'].company,
     icon: '/assets/icon/app-256.png',
     beian: '蜀ICP备2026002396号',
@@ -381,22 +381,28 @@ export const surfaces = {
     label: 'Web 控制台 2.3.1',
     shots: [
       {
-        src: '/assets/screenshots/console-v231-leads.png',
-        alt: '控制台线索中心，展示线索总库与三池标签页',
+        src: '/assets/screenshots/console-desktop-01.png',
+        width: 3010,
+        height: 1644,
+        alt: '控制台工作空间总览，展示入库内容、线索评分、近7天趋势与意向分布',
+        title: '工作空间总览',
+        caption: '采集进度、线索评分和意向分布集中在一页，最近入库趋势一目了然。',
+      },
+      {
+        src: '/assets/screenshots/console-leads-center.png',
+        width: 2994,
+        height: 1636,
+        alt: '控制台线索中心，展示线索总库、归属池、组织指派池与账号分发池',
         title: '线索中心 · 三池视图',
         caption: '线索总库、归属池、组织指派池、账号分发池在同一页切换，每条线索都带三池计数。',
       },
       {
-        src: '/assets/screenshots/console-v231-dashboard.png',
-        alt: '控制台数据总览，展示内容、评论、线索与意向分布',
-        title: '数据总览',
-        caption: '已入库内容、评论和线索集中展示，同时查看运行中的任务和近期趋势。',
-      },
-      {
-        src: '/assets/screenshots/console-v231-keywords.png',
-        alt: '控制台关键词配置页',
-        title: '监测配置',
-        caption: '把落地价、现车、补贴等词纳入本店监测主题，按组管理、每天定时展开。',
+        src: '/assets/screenshots/console-keywords.png',
+        width: 3016,
+        height: 1636,
+        alt: '控制台关键词管理，展示关键词组、接收账号与搜索词',
+        title: '关键词管理',
+        caption: '按组管理监测词和接收账号，每天 00:00 定时展开，可直接搜索评论。',
       },
     ],
   },
@@ -405,7 +411,10 @@ export const surfaces = {
     title: '销售只看一件事：今天该跟谁',
     body: '首页直达待跟进，线索页查看原文与智能分析，通知帮助继续处理。经销商管理员还可从“账户 → 组织管理”维护销售账号、关键词组、帖子组与分发人。',
     cta: '获取线索猎手',
-    note: 'APP 3.0.0 · iOS 正在 Apple 审核，暂不可安装；Android 安装包请前往应用商店',
+    note: 'iOS 与 Android 均为 3.0.0 正式版，点击按钮即可下载。',
+    carousel: '销售端界面',
+    prev: '上一张',
+    next: '下一张',
     shots: [
       {
         src: '/assets/screenshots/app-v3-leads.png',

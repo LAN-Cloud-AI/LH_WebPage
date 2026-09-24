@@ -91,7 +91,7 @@ export function Roles() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={role.id}
-                  initial={reduced ? { opacity: 0 } : { opacity: 0, y: 16, filter: 'blur(6px)' }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                   exit={reduced ? { opacity: 0 } : { opacity: 0, y: -12, filter: 'blur(6px)' }}
                   transition={{ duration: 0.35, ease: easeOutQuint }}
@@ -107,7 +107,7 @@ export function Roles() {
 
                   <motion.ul
                     className="space-y-3"
-                    initial="hidden"
+                    initial={false}
                     animate="show"
                     variants={{
                       show: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } },

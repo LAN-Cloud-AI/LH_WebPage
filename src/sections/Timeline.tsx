@@ -45,7 +45,7 @@ export function Timeline() {
               <motion.li
                 key={event.time}
                 className="relative md:pt-10"
-                initial={reduced ? { opacity: 0 } : { opacity: 0, y: 24 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={inViewOnce}
                 transition={{ ...springSoft, delay: index * 0.1 }}

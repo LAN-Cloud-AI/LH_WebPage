@@ -102,7 +102,7 @@ const jsonLd = (locale) => {
         '@id': `${SITE_ORIGIN}/#website`,
         url: `${SITE_ORIGIN}/`,
         name: id.siteName,
-        alternateName: '线索猎手',
+        alternateName: id.latin,
         inLanguage,
         publisher: { '@id': `${COMPANY_ORIGIN.replace(/\/$/, '')}/#organization` },
       },
@@ -126,7 +126,7 @@ const jsonLd = (locale) => {
         '@type': 'SoftwareApplication',
         '@id': `${SITE_ORIGIN}/#app`,
         name: id.siteName,
-        alternateName: '线索猎手',
+        alternateName: id.latin,
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'Web, iOS',
         url: `${SITE_ORIGIN}/`,
@@ -291,10 +291,26 @@ ${urls}
 `;
 };
 
+const { createServer } = await import('vite');
+const vite = await createServer({
+  server: { middlewareMode: true },
+  appType: 'custom',
+  logLevel: 'error',
+});
+const { renderLocale } = await vite.ssrLoadModule('/src/entry-prerender.tsx');
+const rendered = {};
+for (const locale of LOCALES) {
+  rendered[locale] = await renderLocale(locale);
+}
+await vite.close();
+
 const source = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
   .replace('src="/theme-init.js"', `src="/${themeInitName}"`);
 for (const locale of LOCALES) {
-  const html = patchHtml(source, locale);
+  const html = patchHtml(source, locale).replace(
+    '<div id="root"></div>',
+    `<div id="root">${rendered[locale]}</div>`,
+  );
   const prefix = locale === DEFAULT_LOCALE ? '' : locale === 'en' ? 'en' : 'zh-Hant';
   const dir = prefix ? path.join(dist, prefix) : dist;
   fs.mkdirSync(dir, { recursive: true });

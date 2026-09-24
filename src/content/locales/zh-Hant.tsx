@@ -9,7 +9,7 @@ import { FAQ, IDENTITY } from '../identity.js';
 export const site = {
   brand: {
     name: IDENTITY['zh-Hant'].siteName,
-    latin: '銷售線索工作台',
+    latin: 'LeadsHunter',
     company: IDENTITY['zh-Hant'].company,
     icon: '/assets/icon/app-256.png',
     beian: '蜀ICP备2026002396号',
@@ -381,22 +381,28 @@ export const surfaces = {
     label: 'Web 控制台 2.3.1',
     shots: [
       {
-        src: '/assets/screenshots/console-v231-leads.png',
-        alt: '控制台線索中心，展示線索總庫與三池標籤頁',
+        src: '/assets/screenshots/console-desktop-01.png',
+        width: 3010,
+        height: 1644,
+        alt: '控制台工作空間總覽，展示入庫內容、線索評分、近7天趨勢與意向分佈',
+        title: '工作空間總覽',
+        caption: '採集進度、線索評分和意向分佈集中在一頁，最近入庫趨勢一目了然。',
+      },
+      {
+        src: '/assets/screenshots/console-leads-center.png',
+        width: 2994,
+        height: 1636,
+        alt: '控制台線索中心，展示線索總庫、歸屬池、組織指派池與帳號分發池',
         title: '線索中心 · 三池視圖',
         caption: '線索總庫、歸屬池、組織指派池、帳號分發池在同一頁切換，每條線索都帶三池計數。',
       },
       {
-        src: '/assets/screenshots/console-v231-dashboard.png',
-        alt: '控制台資料總覽，展示內容、評論、線索與意向分佈',
-        title: '資料總覽',
-        caption: '內容、評論、線索與意向分佈一屏可見，快速定位當日跟進重點。',
-      },
-      {
-        src: '/assets/screenshots/console-v231-keywords.png',
-        alt: '控制台關鍵詞配置頁',
-        title: '監測配置',
-        caption: '把落地價、現車、補貼等詞納入本店監測主題，按組管理、每天定時展開。',
+        src: '/assets/screenshots/console-keywords.png',
+        width: 3016,
+        height: 1636,
+        alt: '控制台關鍵詞管理，展示關鍵詞組、接收帳號與搜尋詞',
+        title: '關鍵詞管理',
+        caption: '按組管理監測詞和接收帳號，每天 00:00 定時展開，可直接搜尋評論。',
       },
     ],
   },
@@ -405,7 +411,10 @@ export const surfaces = {
     title: '銷售只看一件事：今天該跟誰',
     body: '首頁直達待跟進，線索頁查看原文與智慧分析，通知協助繼續處理。經銷商管理員還可從「帳戶 → 組織管理」維護銷售帳號、關鍵詞組、帖子組與分發人。',
     cta: '取得线索猎手',
-    note: 'APP 3.0.0 · iOS 正在 Apple 審核，暫不可安裝；Android 安裝包請前往應用商店',
+    note: 'iOS 與 Android 均為 3.0.0 正式版，點擊按鈕即可下載。',
+    carousel: '銷售端介面',
+    prev: '上一張',
+    next: '下一張',
     shots: [
       {
         src: '/assets/screenshots/app-v3-leads.png',
