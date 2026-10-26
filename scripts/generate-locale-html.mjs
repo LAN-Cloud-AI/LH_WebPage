@@ -257,6 +257,8 @@ const llmsBody = (locale) => {
     `- ${localeHome(GUIDE_ORIGIN, locale)}`,
     `- ${localeHome(CONTACT_ORIGIN, locale)}`,
     `- ${localeHome(COMPANY_ORIGIN, locale)}`,
+    `- https://global-leadshunter.lancloudtech.com/${locale === 'en' ? '' : `${locale}/`}`,
+    '- https://appstore.lancloudtech.com/',
     '',
     `- ${id.company}`,
     '',

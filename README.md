@@ -148,7 +148,7 @@ Pages 项目：
 | 生产分支 | `main` |
 | 自定义域 | `leadshunter-contact.lancloudtech.com`（`www.` 301 到此） |
 
-`public/_headers`、`public/_redirects`、`robots.txt`、`sitemap.xml` 会随构建复制到 `dist/`。未知路由返回真正的 404，不使用 SPA 200 回退；三语页面拥有各自的 canonical 与 hreflang。
+`public/_headers`、`public/_redirects`、`robots.txt`、`sitemap.xml` 会随构建复制到 `dist/`。未知路由返回真正的 404，不使用 SPA 200 回退；三语页面拥有各自的 canonical 与 hreflang。 官网、手册和联系页的三语静态页脚同时提供对应语言的公司官网、中国版、Global 版及应用商店入口；明确的销售端下载仍指向 `app?id=leadshunter`。`seo:verify` 对三个发布包的九个页面逐页检查 canonical、hreflang、sitemap、静态互链与 404 noindex。
 
 分享图必须用绝对 HTTPS 地址（微信爬虫不执行 JS、也不认相对路径）：
 

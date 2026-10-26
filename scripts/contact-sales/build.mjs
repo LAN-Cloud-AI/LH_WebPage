@@ -3,6 +3,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { sales } from '../sales.mjs';
+import { relatedSites } from '../related-sites.mjs';
 import {
   CONTACT,
   CONTACT_ORIGIN,
@@ -50,6 +51,7 @@ const render = (locale) => {
   const canonical = localeHome(CONTACT_ORIGIN, locale);
   const siteUrl = localeHome(SITE_ORIGIN, locale);
   const guideUrl = localeHome(GUIDE_ORIGIN, locale);
+  const relatedLinks = relatedSites(locale).map(({ href, label }) => `<a href="${href}">${label}</a>`).join('\n      ');
   const assetPrefix = localePrefixDir(locale) ? '../' : '';
   const title = `${copy.title}｜${identity.siteName}`;
   return `<!doctype html>
@@ -137,7 +139,7 @@ ${css}
     </section>
 
     <nav class="more" aria-label="${copy.moreAria}">
-      <a href="${siteUrl}">${copy.site}</a>
+      ${relatedLinks}
       <a href="${guideUrl}">${copy.handbook}</a>
       <a href="${sales.appstore}">${copy.app}</a>
     </nav>

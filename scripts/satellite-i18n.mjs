@@ -12,6 +12,7 @@ import {
   localeHome,
 } from '../src/content/identity.js';
 import { sales } from './sales.mjs';
+import { relatedSites } from './related-sites.mjs';
 import { writeWelcomeRobots } from './ai-crawler-policy.mjs';
 import { upsertAnalytics } from './site-analytics.mjs';
 
@@ -284,7 +285,7 @@ export const writeHostLlms = (origin, locale = DEFAULT_LOCALE) => {
     '',
     `- ${localeHome(origin, locale)}`,
     `- ${localeHome(SITE_ORIGIN, locale)}`,
-    `- ${localeHome('https://leadshunter.lancloudtech.com', locale)}`,
+    ...relatedSites(locale).filter(({ id }) => id !== 'domestic').map(({ href }) => `- ${href}`),
     `- ${localeHome(GUIDE_ORIGIN, locale)}`,
     `- ${localeHome(CONTACT_ORIGIN, locale)}`,
     '',

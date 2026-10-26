@@ -2,6 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  COMPANY_ORIGIN,
+  CONTACT_ORIGIN,
+  GUIDE_ORIGIN,
   FAQ,
   HREFLANG,
   HTML_LANG,
@@ -189,6 +192,45 @@ if (exists('dist-contact/index.html')) {
   required(contact.includes(UMAMI_WEBSITE_IDS.contact), 'Contact HTML must use the contact Umami id.');
   required(read('dist-contact/en/index.html').includes(UMAMI_WEBSITE_IDS.contact), 'Contact English HTML must embed Umami.');
   required(read('dist-contact/404.html').includes(UMAMI_WEBSITE_IDS.contact), 'Contact 404 must embed Umami.');
+}
+
+// Verify the shipped documents themselves: a valid tag on a different page cannot
+// compensate for a missing canonical, language target, or static navigation link.
+for (const [directory, origin] of [
+  ['dist', SITE_ORIGIN],
+  ['dist-guide', GUIDE_ORIGIN],
+  ['dist-contact', CONTACT_ORIGIN],
+]) {
+  required(exists(`${directory}/index.html`), `${directory} must be built before SEO verification.`);
+  const hostSitemap = read(`${directory}/sitemap.xml`);
+  const locations = [...hostSitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  const expectedLocations = LOCALES.map((locale) => localeHome(origin, locale));
+  required(locations.length === LOCALES.length && expectedLocations.every((url) => locations.includes(url)), `${directory} sitemap must list exactly its three canonical HTML URLs.`);
+  for (const locale of LOCALES) {
+    const prefix = locale === 'zh-Hans' ? '' : `${locale}/`;
+    const document = read(`${directory}/${prefix}index.html`);
+    const expected = localeHome(origin, locale);
+    const canonicals = [...document.matchAll(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/gi)].map((match) => match[1]);
+    required(canonicals.length === 1 && canonicals[0] === expected, `${directory}/${prefix} must have exactly one matching self canonical.`);
+    required(!/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(document), `${expected} must be indexable.`);
+    const alternates = [...document.matchAll(/<link\b[^>]*hreflang=["']([^"']+)["'][^>]*href=["']([^"']+)["'][^>]*>/gi)].map((match) => [match[1], match[2]]);
+    required(alternates.length === 4, `${expected} must have exactly four hreflang links.`);
+    for (const targetLocale of LOCALES) {
+      required(alternates.some(([language, url]) => language === HREFLANG[targetLocale] && url === localeHome(origin, targetLocale)), `${expected} must link reciprocally to ${targetLocale} on its own host.`);
+    }
+    required(alternates.some(([language, url]) => language === 'x-default' && url === localeHome(origin, 'zh-Hans')), `${expected} must keep its default language on its own host.`);
+    const globalUrl = `https://global-leadshunter.lancloudtech.com/${locale === 'en' ? '' : `${locale}/`}`;
+    for (const destination of [localeHome(COMPANY_ORIGIN, locale), globalUrl, 'https://appstore.lancloudtech.com/']) {
+      required(document.includes(`href="${destination}"`), `${expected} must statically link to ${destination}.`);
+    }
+    if (origin !== SITE_ORIGIN) required(document.includes(`href="${localeHome(SITE_ORIGIN, locale)}"`), `${expected} must link back to the domestic product website.`);
+    required(document.includes('href="https://appstore.lancloudtech.com/app?id=leadshunter"'), `${expected} must preserve the explicit domestic app download.`);
+    const errorPage = read(`${directory}/${prefix}404.html`);
+    required(/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(errorPage), `${directory}/${prefix}404.html must be noindex.`);
+    required(!errorPage.includes('rel="canonical"'), `${directory}/${prefix}404.html must not canonicalize unknown paths to a valid page.`);
+    required(read(`${directory}/${prefix}llms.txt`).includes(globalUrl), `${expected} llms.txt must point to its matching international product language.`);
+  }
+  required(!/\/\*\s+\/index\.html\s+200/.test(read(`${directory}/_redirects`)), `${directory} must not publish an SPA soft-404 fallback.`);
 }
 
 console.log(

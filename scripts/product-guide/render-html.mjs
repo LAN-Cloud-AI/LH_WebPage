@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
 import { sales } from '../sales.mjs';
+import { relatedSites } from '../related-sites.mjs';
 import {
   CONTACT_ORIGIN,
   DEFAULT_LOCALE,
@@ -74,6 +75,7 @@ const renderHtml = (locale, md) => {
   const canonicalUrl = localeHome(GUIDE_ORIGIN, locale);
   const contactUrl = localeHome(CONTACT_ORIGIN, locale);
   const siteUrl = localeHome(sales.site, locale);
+  const relatedLinks = relatedSites(locale).map(({ href, label }) => `<a href="${href}">${label}</a>`).join('\n    ');
   const assetPrefix = localePrefixDir(locale) ? '../' : '';
   const body = renderBody(md, copy, assetPrefix).replace(
     /src="assets\//g,
@@ -173,7 +175,7 @@ ${css}
 <footer class="site-footer">
   ${copy.footer}
   <div>
-    <a href="${siteUrl}">${copy.site}</a>
+    ${relatedLinks}
     <a href="${sales.console}">${copy.console}</a>
     <a href="${sales.appstore}">${copy.app}</a>
     <a href="${contactUrl}">${copy.contact}</a>

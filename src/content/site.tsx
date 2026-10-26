@@ -28,6 +28,8 @@ export const site = {
     appstore: 'https://appstore.lancloudtech.com/app?id=leadshunter',
     company: 'https://lancloudtech.com/',
     companyProduct: 'https://lancloudtech.com/#leadshunter',
+    global: 'https://global-leadshunter.lancloudtech.com/zh-Hans/',
+    appstoreHome: 'https://appstore.lancloudtech.com/',
     beian: 'https://beian.miit.gov.cn/',
   },
 
@@ -661,6 +663,8 @@ export const ui = {
     en: 'EN',
   },
   footerCompany: '兰芯云朵官网',
+  footerGlobal: 'LeadsHunter Global',
+  footerAppStore: '应用商店',
   footerIndex: '公司站产品索引',
   footerApp: '销售端下载',
   footerPhone: '电话',

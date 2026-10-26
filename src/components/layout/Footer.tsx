@@ -47,6 +47,22 @@ export function Footer() {
               {ui.footerIndex}
             </a>
             <a
+              href={site.links.global}
+              className="text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {ui.footerGlobal}
+            </a>
+            <a
+              href={site.links.appstoreHome}
+              className="text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {ui.footerAppStore}
+            </a>
+            <a
               href={site.links.appstore}
               className="text-[0.82rem] text-ink-muted transition-colors hover:text-ink"
               target="_blank"
